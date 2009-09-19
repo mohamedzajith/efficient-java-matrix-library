@@ -1,0 +1,12 @@
+#summary Benchmark results for Q
+= Introduction =
+This is the results computed using JMatrixBenchmark in early September 2009.  These plots show relative performance as a function of matrix size.  All performance is relative to EJML.  
+
+Tests were performed on: Vista 64bit, JVM 1.6.0\_16, Intel Q9400 Quad 2.66 GHz.
+
+For more information on how the tests were performed and comments about why/how
+these tests were performed see the benchmark document on the main page.
+
+
+
+= Results for a Q9400 Quad Core CPU
