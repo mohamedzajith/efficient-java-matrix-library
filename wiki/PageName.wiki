@@ -6,9 +6,9 @@
 
 EJML has three distinct ways to interact with it.  This allows a programmer to choose between simplicity and efficiency.  1) A simplified interface that allows a more object oriented way of programming.  2) Letting EJML select the best algorithm to use.  3) Directly calling specialized algorithms.  
 
-For operations on small matrices EJML was found to be the fastest java matrix library by a large margin.  For operations on large matrices EJML is in general one of the faster libraries.  This performance was obtained by having minimal overhead, several specialized implementations of the same operation, and good memory management.  Performance was benchmarked using JMatrixBenchmark.
+For operations on small matrices EJML was found to be the fastest java matrix library by a large margin.  For operations on large matrices EJML is in general one of the faster libraries.  This performance was obtained by having minimal overhead, several specialized implementations of the same operation, and good memory management.  Performance was benchmarked using JMatrixBenchmark, see below for a link to the results.
 
-= Details =
+= Features =
 
 The following is provided:
   * Matrix and scalar operators for addition, subtraction, and multiplication.
@@ -18,3 +18,7 @@ The following is provided:
   * Gauss Jordan.
   * Singular Value Decomposition.
   * and more...
+
+= Benchmarks =
+
+[http://code.google.com/p/efficient-java-matrix-library/wiki/BenchmarkQ9400 "Quad core Q9400 Vista64 JVM 1.6.0_15"]
