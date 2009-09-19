@@ -8,9 +8,9 @@ these tests were performed see the benchmark document on the main page.
 
 = Test Environment =
 
-* Intel Q9400 Quad 2.66 GHz
-* Vista 64bit
-* JVM 1.6.0_16 64bit
+  * Intel Q9400 Quad 2.66 GHz
+  * Vista 64bit
+  * JVM 1.6.0_16 64bit
 
 
 = Results for Q9400 Quad Core CPU on Vista 64 JVM 1.6=
