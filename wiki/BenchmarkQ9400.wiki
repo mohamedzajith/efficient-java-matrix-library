@@ -6,6 +6,8 @@ Here are the results of a benchmark test performed using JMatrixBenchmark in ear
 For more information on how the tests were performed and comments about why/how
 these tests were performed see the benchmark document on the main page.  If the results for an operation are missing for a particular library that means the library did not support the operation as a single function call.
 
+[WikiSyntax#Wiki-style_markup]
+
 = Test Environment =
 
   * Intel Q9400 Quad 2.66 GHz
@@ -13,11 +15,18 @@ these tests were performed see the benchmark document on the main page.  If the 
   * JVM 1.6.0_16 64bit
 
 
-= Results =
-
+= Basic Operation Results =
 
 || http://efficient-java-matrix-library.googlecode.com/svn/wiki/BenchmarkQ9400.attach/add.png || http://efficient-java-matrix-library.googlecode.com/svn/wiki/BenchmarkQ9400.attach/scale.png ||
 || http://efficient-java-matrix-library.googlecode.com/svn/wiki/BenchmarkQ9400.attach/mult.png || http://efficient-java-matrix-library.googlecode.com/svn/wiki/BenchmarkQ9400.attach/multTranA.png ||
 || http://efficient-java-matrix-library.googlecode.com/svn/wiki/BenchmarkQ9400.attach/det.png || http://efficient-java-matrix-library.googlecode.com/svn/wiki/BenchmarkQ9400.attach/tran.png ||
-|| http://efficient-java-matrix-library.googlecode.com/svn/wiki/BenchmarkQ9400.attach/cholesky.png || http://efficient-java-matrix-library.googlecode.com/svn/wiki/BenchmarkQ9400.attach/inv.png ||
-|| http://efficient-java-matrix-library.googlecode.com/svn/wiki/BenchmarkQ9400.attach/solve.png || http://efficient-java-matrix-library.googlecode.com/svn/wiki/BenchmarkQ9400.attach/svd.png ||
+|| http://efficient-java-matrix-library.googlecode.com/svn/wiki/BenchmarkQ9400.attach/inv.png ||
+
+= Solving Linear Systems =
+
+|| http://efficient-java-matrix-library.googlecode.com/svn/wiki/BenchmarkQ9400.attach/solve.png ||
+
+= Matrix Decompositions =
+
+|| http://efficient-java-matrix-library.googlecode.com/svn/wiki/BenchmarkQ9400.attach/cholesky.png || http://efficient-java-matrix-library.googlecode.com/svn/wiki/BenchmarkQ9400.attach/LU.png ||
+|| http://efficient-java-matrix-library.googlecode.com/svn/wiki/BenchmarkQ9400.attach/QR.png || http://efficient-java-matrix-library.googlecode.com/svn/wiki/BenchmarkQ9400.attach/svd.png ||
