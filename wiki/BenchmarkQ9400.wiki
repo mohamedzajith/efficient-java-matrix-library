@@ -6,7 +6,7 @@ Here are the results of a benchmark test performed using JMatrixBenchmark in ear
 For more information on how the tests were performed and comments about why/how
 these tests were performed see the benchmark document on the main page.  If the results for an operation are missing for a particular library that means the library did not support the operation as a single function call.
 
-[ BenchmarkQ9400#Basic_Operation_Results]
+[BenchmarkQ9400#Basic_Operation_Results]
 
 = Test Environment =
 
