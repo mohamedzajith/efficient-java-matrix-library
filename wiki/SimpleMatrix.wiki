@@ -1,0 +1,1 @@
+SimpleMatrix is a wrapper around the operation interface in EJML.  It is inspired from Jama and is easy to program in.
