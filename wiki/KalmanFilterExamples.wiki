@@ -1,5 +1,5 @@
 #summary Example of how to program a Kalman filter using EJML
-#labels examplecode
+#labels example
 
 = Introduction =
 
