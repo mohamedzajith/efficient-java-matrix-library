@@ -8,5 +8,6 @@ EJML is a linear algebra library for Java.  The following is a manual that descr
 Examples:
  # [KalmanFilterExamples Kalman Filter].
  # [LevenbergMarquardtExample Levenberg-Marquardt]
+ # RANSAC Line Fitting
  # Solving Linear Systems
  # Matrix Decompositions
