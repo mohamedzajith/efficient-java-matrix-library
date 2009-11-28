@@ -246,8 +246,8 @@ public class KalmanFilterAlg implements KalmanFilter{
         d = new DenseMatrix64F(dimenX,dimenZ);
         K = new DenseMatrix64F(dimenX,dimenZ);
 
-        CholeskyDecompositionBasic chol = new CholeskyDecompositionBasic(false,true);
-        solver = new LinearSolverChol(chol);
+        CholeskyDecomposition chol = DecompositionFactory.chol(dimenX,false,true);
+        solver = new LinearSolverChol((CholeskyDecompositionCommon)chol);
 
         x = new DenseMatrix64F(dimenX,1);
         P = new DenseMatrix64F(dimenX,dimenX);
