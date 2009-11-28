@@ -6,6 +6,6 @@
 EJML is a linear algebra library for Java.  The following is a manual that describes how to use it.  There are three ways to program in EJML; simple, operation, and algorithm. These essentially flow from easy to program, but less efficient, to more difficult to program but more efficient.
 
 Examples:
- # Kalman Filter
+ # [WikiSyntax Kalman Filter KalmanFilterExamples].
  # Levenberg-Marquardt
  # Solving Linear Systems
