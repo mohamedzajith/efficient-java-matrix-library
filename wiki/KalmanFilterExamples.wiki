@@ -1,0 +1,312 @@
+#summary Example of how to program a Kalman filter using EJML
+#labels examplecode
+
+= Introduction =
+
+Here are three examples that demonstrate how a Kalman filter can be created using EJML.  Each of these examples will have the output, but have different attributes when it comes to coding complexity and runtime efficiency.
+
+The SimpleMatrix example was the easiest to write and required very little memory management. The Ops example used the operation interface and is more complex because it requires the user to manage the memory and temporary variables.  The Algorithm example requires intimate knowledge of how EJML works, but provides some slight performance improvement.
+
+How each example differs in terms of coding complexity can be seen by examining the examples below.  SimpleMatrix was the slowest implementation, Ops was the second fastest, running 23% faster than SimpleMatrix, and Algorithm was the fastest running 28% faster than SimpleMatrix.    
+
+
+== SimpleMatrix Example ==
+
+{{{
+/**
+ * A Kalman filter implemented using SimpleMatrix.  The code tends to be easier to
+ * read and write, but the performance is degraded due to excessive creation/destruction of
+ * memory and the use of more generic algorithms.  This also demonstrates how code can be
+ * seamlessly implemented using both SimpleMatrix and DenseMatrix64F.  This allows code
+ * to be quickly prototyped or to be writen either by novices or experts.
+ *
+ * @author Peter Abeles
+ */
+public class KalmanFilterSimple implements KalmanFilter{
+
+    // kinematics description
+    private SimpleMatrix F;
+    private SimpleMatrix Q;
+    private SimpleMatrix H;
+
+    // sytem state estimate
+    private SimpleMatrix x;
+    private SimpleMatrix P;
+
+
+    @Override
+    public void configure(DenseMatrix64F F, DenseMatrix64F Q, DenseMatrix64F H) {
+        this.F = new SimpleMatrix(F);
+        this.Q = new SimpleMatrix(Q);
+        this.H = new SimpleMatrix(H);
+    }
+
+    @Override
+    public void setState(DenseMatrix64F x, DenseMatrix64F P) {
+        this.x = new SimpleMatrix(x);
+        this.P = new SimpleMatrix(P);
+    }
+
+    @Override
+    public void predict() {
+        // x = F x
+        x = F.mult(x);
+
+        // P = F P F' + Q
+        P = F.mult(P).mult(F.transpose()).plus(Q);
+    }
+
+    @Override
+    public void update(DenseMatrix64F _z, DenseMatrix64F _R) {
+        // a fast way to make the matrices usable by SimpleMatrix
+        SimpleMatrix z = SimpleMatrix.wrap(_z);
+        SimpleMatrix R = SimpleMatrix.wrap(_R);
+
+        // y = z - H x
+        SimpleMatrix y = z.minus(H.mult(x));
+
+        // S = H P H' + R
+        SimpleMatrix S = H.mult(P).mult(H.transpose()).plus(R);
+
+        // K = PH'S^(-1)
+        SimpleMatrix K = P.mult(H.transpose().mult(S.invert()));
+
+        // x = x + Ky
+        x = x.plus(K.mult(y));
+
+        // P = (I-kH)P = P - KHP
+        P = P.minus(K.mult(H).mult(P));
+    }
+
+    @Override
+    public DenseMatrix64F getState() {
+        return x.getMatrix();
+    }
+
+    @Override
+    public DenseMatrix64F getCovariance() {
+        return P.getMatrix();
+    }
+}
+}}}
+
+== Ops Example ==
+
+{{{
+/**
+ * A Kalman filter is implemented by calling the generalized operations.  Much of the excessive
+ * memory creation/destruction has been reduced from the KalmanFilterSimple.  However, there
+ * is still room for improvement by using specialized algorithms directly.  The price paid
+ * for this better performance is the need to manually manage memory and the need to have a
+ * better understanding for how each of the operations works.
+ *
+ * @author Peter Abeles
+ */
+public class KalmanFilterOps implements KalmanFilter{
+
+    // kinematics description
+    private DenseMatrix64F F;
+    private DenseMatrix64F Q;
+    private DenseMatrix64F H;
+
+    // sytem state estimate
+    private DenseMatrix64F x;
+    private DenseMatrix64F P;
+
+    // these are predeclared for efficency reasons
+    private DenseMatrix64F a,b;
+    private DenseMatrix64F y,S,S_inv,c,d;
+    private DenseMatrix64F K;
+
+    @Override
+    public void configure(DenseMatrix64F F, DenseMatrix64F Q, DenseMatrix64F H) {
+        this.F = F;
+        this.Q = Q;
+        this.H = H;
+
+        int dimenX = F.numCols;
+        int dimenZ = H.numRows;
+
+        a = new DenseMatrix64F(dimenX,1);
+        b = new DenseMatrix64F(dimenX,dimenX);
+        y = new DenseMatrix64F(dimenZ,1);
+        S = new DenseMatrix64F(dimenZ,dimenZ);
+        S_inv = new DenseMatrix64F(dimenZ,dimenZ);
+        c = new DenseMatrix64F(dimenZ,dimenX);
+        d = new DenseMatrix64F(dimenX,dimenZ);
+        K = new DenseMatrix64F(dimenX,dimenZ);
+
+        x = new DenseMatrix64F(dimenX,1);
+        P = new DenseMatrix64F(dimenX,dimenX);
+    }
+
+    @Override
+    public void setState(DenseMatrix64F x, DenseMatrix64F P) {
+        this.x.set(x);
+        this.P.set(P);
+    }
+
+    @Override
+    public void predict() {
+
+        // x = F x
+        mult(F,x,a);
+        x.set(a);
+
+        // P = F P F' + Q
+        mult(F,P,b);
+        multTransB(b,F, P);
+        addEquals(P,Q);
+    }
+
+    @Override
+    public void update(DenseMatrix64F z, DenseMatrix64F R) {
+        // y = z - H x
+        mult(H,x,y);
+        sub(z,y,y);
+
+        // S = H P H' + R
+        mult(H,P,c);
+        multTransB(c,H,S);
+        addEquals(S,R);
+
+        // K = PH'S^(-1)
+        if( !invert(S,S_inv) ) throw new RuntimeException("Invert failed");
+        multTransA(H,S_inv,d);
+        mult(P,d,K);
+
+        // x = x + Ky
+        mult(K,y,a);
+        addEquals(x,a);
+
+        // P = (I-kH)P = P - (KH)P = P-K(HP)
+        mult(H,P,c);
+        mult(K,c,b);
+        subEquals(P,b);
+    }
+
+    @Override
+    public DenseMatrix64F getState() {
+        return x;
+    }
+
+    @Override
+    public DenseMatrix64F getCovariance() {
+        return P;
+    }
+}
+}}}
+
+== Algorithm Example ==
+
+{{{
+/**
+ * The difference between this and {@link KalmanFilterOps} is that it takes advantage of
+ * the covariance matrix being a symetric positive semi-definite matrix.  This allows
+ * it to be decomposed using {@link org.ejml.alg.dense.decomposition.chol.CholeskyDecompositionBasic}.  There are two advantages here,
+ * 1) all memory is predeclared and 2) CholeksyDecomposition is more efficient than the more
+ * generic {@link org.ejml.alg.dense.decomposition.lu.LUDecompositionAlt LUDecomposition}.  It also makes
+ * calls to matrix vector multiplcation operations, which has a slight performance advantage.
+ *
+ * @author Peter Abeles
+ */
+public class KalmanFilterAlg implements KalmanFilter{
+
+    // kinematics description
+    private DenseMatrix64F F;
+    private DenseMatrix64F Q;
+    private DenseMatrix64F H;
+
+    // sytem state estimate
+    private DenseMatrix64F x;
+    private DenseMatrix64F P;
+
+    // these are predeclared for efficency reasons
+    private DenseMatrix64F a,b;
+    private DenseMatrix64F y,S,S_inv,c,d;
+    private DenseMatrix64F K;
+
+    private LinearSolver solver;
+
+    @Override
+    public void configure(DenseMatrix64F F, DenseMatrix64F Q, DenseMatrix64F H) {
+        this.F = F;
+        this.Q = Q;
+        this.H = H;
+
+        int dimenX = F.numCols;
+        int dimenZ = H.numRows;
+
+        a = new DenseMatrix64F(dimenX,1);
+        b = new DenseMatrix64F(dimenX,dimenX);
+        y = new DenseMatrix64F(dimenZ,1);
+        S = new DenseMatrix64F(dimenZ,dimenZ);
+        S_inv = new DenseMatrix64F(dimenZ,dimenZ);
+        c = new DenseMatrix64F(dimenZ,dimenX);
+        d = new DenseMatrix64F(dimenX,dimenZ);
+        K = new DenseMatrix64F(dimenX,dimenZ);
+
+        CholeskyDecompositionBasic chol = new CholeskyDecompositionBasic(false,true);
+        solver = new LinearSolverChol(chol);
+
+        x = new DenseMatrix64F(dimenX,1);
+        P = new DenseMatrix64F(dimenX,dimenX);
+    }
+
+    @Override
+    public void setState(DenseMatrix64F x, DenseMatrix64F P) {
+        this.x.set(x);
+        this.P.set(P);
+    }
+
+    @Override
+    public void predict() {
+
+        // x = F x
+        MatrixVectorMult.mult(F,x,a);
+        x.set(a);
+
+        // P = F P F' + Q
+        MatrixMatrixMult.mult_small(F,P,b);
+        MatrixMatrixMult.multTransB(b,F, P);
+        addEquals(P,Q);
+    }
+
+    @Override
+    public void update(DenseMatrix64F z, DenseMatrix64F R) {
+        // y = z - H x
+        MatrixVectorMult.mult(H,x,y);
+        sub(z,y,y);
+
+        // S = H P H' + R
+        MatrixMatrixMult.mult_small(H,P,c);
+        MatrixMatrixMult.multTransB(c,H,S);
+        addEquals(S,R);
+
+        // K = PH'S^(-1)
+        if( !solver.setA(S) ) throw new RuntimeException("Invert failed");
+        solver.invert(S_inv);
+        MatrixMatrixMult.multTransA_small(H,S_inv,d);
+        MatrixMatrixMult.mult_small(P,d,K);
+
+        // x = x + Ky
+        MatrixVectorMult.mult(K,y,a);
+        addEquals(x,a);
+
+        // P = (I-kH)P = P - (KH)P = P-K(HP)
+        MatrixMatrixMult.mult_small(H,P,c);
+        MatrixMatrixMult.mult_small(K,c,b);
+        subEquals(P,b);
+    }
+
+    @Override
+    public DenseMatrix64F getState() {
+        return x;
+    }
+
+    @Override
+    public DenseMatrix64F getCovariance() {
+        return P;
+    }
+}
+}}}
