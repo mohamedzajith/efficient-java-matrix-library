@@ -3,7 +3,7 @@
 
 = Introduction =
 
-Here are three examples that demonstrate how a Kalman filter can be created using EJML.  Each of these examples will have the output, but have different attributes when it comes to coding complexity and runtime efficiency.
+Here are three examples that demonstrate how a Kalman filter can be created using EJML.  Each of these examples will have the same output, but are created using different interfaces within EJML.  This is designed to demonstrate how runtime efficiency is traded against easy of programming.
 
 The SimpleMatrix example was the easiest to write and required very little memory management. The Ops example used the operation interface and is more complex because it requires the user to manage the memory and temporary variables.  The Algorithm example requires intimate knowledge of how EJML works, but provides some slight performance improvement.
 
