@@ -7,7 +7,7 @@ Here are three examples that demonstrate how a Kalman filter can be created usin
 
 The SimpleMatrix example was the easiest to write and required very little memory management. The Ops example used the operation interface and is more complex because it requires the user to manage the memory and temporary variables.  The Algorithm example requires intimate knowledge of how EJML works, but provides some slight performance improvement.
 
-How each example differs in terms of coding complexity can be seen by examining the examples below.  SimpleMatrix was the slowest implementation, Ops was the second fastest, running 23% faster than SimpleMatrix, and Algorithm was the fastest running 28% faster than SimpleMatrix.    
+How each example differs in terms of coding complexity can be seen by examining the examples below.  When benchmarked for speed, SimpleMatrix was the slowest implementation, Ops was the second fastest, running 23% faster than SimpleMatrix, and Algorithm was the fastest running 28% faster than SimpleMatrix.    
 
 
 == SimpleMatrix Example ==
