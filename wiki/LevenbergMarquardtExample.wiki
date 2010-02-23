@@ -3,7 +3,7 @@
 
 = Summary =
 
-Levenberg-Marquardt is a popular non-linear optimization algorithm. To demonstrate how a basic implementation of Levenberg-Marquardt can be created using EJML's operator interface the following code is provided.  To avoid unnecessary creating of memory all memory is predeclared.  Matrices are simply reshaped to fit the provided inputs.
+Levenberg-Marquardt is a popular non-linear optimization algorithm. To demonstrate how a basic implementation of Levenberg-Marquardt can be created using EJML's operator interface the following code is provided.  Unnecessary allocation of new memory is avoided by reshaping matrices.  When a matrix is reshaped its width and height is changed but new memory is not declared unless the new shape requires more memory than is available.
 
 The algorithm is provided a function, set of inputs, set of outputs, and an initial estimate of the parameters (this often works with all zeros).  It finds the parameters that minimize the difference between the computed output and the observed output.  A numerical Jacobian is used to estimate the function's gradient.
 
