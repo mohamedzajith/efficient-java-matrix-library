@@ -12,8 +12,8 @@ The algorithm is provided a function, set of inputs, set of outputs, and an init
 {{{
 /**
  * <p>
- * This is a straight forward implementation of the Levenberg-Marquardt algorithm that minimizes
- * non-linear systems:<br>
+ * This is a straight forward implementation of the Levenberg-Marquardt (LM) algorithm. LM is used to minimize
+ * non-linear cost functions:<br>
  * <br>
  * S(P) = Sum{ i=1:m , [y<sub>i</sub> - f(x<sub>i</sub>,P)]<sup>2</sup>}<br>
  * <br>
@@ -21,15 +21,15 @@ The algorithm is provided a function, set of inputs, set of outputs, and an init
  * </p>
  *
  * <p>
- * Each iteration the paramters are updated using the following equations:<br>
+ * In each iteration the parameters are updated using the following equations:<br>
  * <br>
  * P<sub>i+1</sub> = (H + &lambda; I)<sup>-1</sup> d <br>
  * d =  (1/N) Sum{ i=1..N , (f(x<sub>i</sub>;P<sub>i</sub>) - y<sub>i</sub>) * jacobian(:,i) } <br>
  * H =  (1/N) Sum{ i=1..N , jacobian(:,i) * jacobian(:,i)<sup>T</sup> }
  * </p>
  * <p>
- * All memory that needed is declared in the constructor and the number of sample points
- * can change.  This is accomplished by reshaping predeclared data structures.
+ * Whenever possible the allocation of new memory is avoided.  This is accomplished by reshaping matrices.
+ * A matrix that is reshaped won't grow unless the new shape requires more memory than it has available.
  * </p>
  * @author Peter Abeles
  */
@@ -47,9 +47,6 @@ public class LevenbergMarquardt {
     private double initialCost;
     private double finalCost;
 
-    // the maximum number of points allowed
-    private int maxElements;
-
     // used by matrix operations
     private DenseMatrix64F d;
     private DenseMatrix64F H;
@@ -57,20 +54,27 @@ public class LevenbergMarquardt {
     private DenseMatrix64F tempParam;
     private DenseMatrix64F A;
 
-    // variables used by the numerican jacobian algorithm
+    // variables used by the numerical jacobian algorithm
     private DenseMatrix64F temp0;
     private DenseMatrix64F temp1;
     // used when computing d and H variables
     private DenseMatrix64F tempDH;
 
-    // the numerical jacobian is stored.
+    // Where the numerical Jacobian is stored.
     private DenseMatrix64F jacobian;
 
-    public LevenbergMarquardt( int numParam , int maxElements ,
-                               Function funcCost )
+    /**
+     * Creates a new instance that uses the provided cost function.
+     * 
+     * @param funcCost Cost function that is being optimized.
+     */
+    public LevenbergMarquardt( Function funcCost )
     {
-        this.maxElements = maxElements;
         this.initialLambda = 1;
+
+        // declare data to some initial small size. It will grow later on as needed.
+        int maxElements = 1;
+        int numParam = 1;
 
         this.temp0 = new DenseMatrix64F(maxElements,1);
         this.temp1 = new DenseMatrix64F(maxElements,1);
@@ -103,7 +107,7 @@ public class LevenbergMarquardt {
     /**
      * Finds the best fit parameters.
      *
-     * @param initParam The initial set of paramters for the function.
+     * @param initParam The initial set of parameters for the function.
      * @param X The inputs to the function.
      * @param Y The "observed" output of the function
      * @return true if it succeeded and false if it did not.
@@ -112,8 +116,7 @@ public class LevenbergMarquardt {
                              DenseMatrix64F X ,
                              DenseMatrix64F Y )
     {
-        param.set(initParam);
-        configure(X,Y);
+        configure(initParam,X,Y);
 
         // save the cost of the initial parameters so that it knows if it improves or not
         initialCost = cost(param,X,Y);
@@ -177,10 +180,10 @@ public class LevenbergMarquardt {
     }
 
     /**
-     * Instead of redeclaring internal data structures the matrices are reshaped.
-     * This function also checks the inputs for consitency.
+     * Performs sanity checks on the input data and reshapes internal matrices.  By reshaping
+     * a matrix it will only declare new memory when needed.
      */
-    private void configure( DenseMatrix64F X , DenseMatrix64F Y )
+    protected void configure( DenseMatrix64F initParam , DenseMatrix64F X , DenseMatrix64F Y )
     {
         if( Y.getNumRows() != X.getNumRows() ) {
             throw new IllegalArgumentException("Different vector lengths");
@@ -188,18 +191,28 @@ public class LevenbergMarquardt {
             throw new IllegalArgumentException("Inputs must be a column vector");
         }
 
-        if( Y.getNumRows() > maxElements) {
-            throw new IllegalArgumentException("The number of elements must be less than or equal to the max.");
-        }
-
-        int numParam = param.getNumElements();
+        int numParam = initParam.getNumElements();
         int numPoints = Y.getNumRows();
 
-        // avoid redeclaring the data by reshaping it instead
+        if( param.getNumElements() != initParam.getNumElements() ) {
+            // reshaping a matrix means that new memory is only declared when needed
+            this.param.reshape(numParam,1);
+            this.d.reshape(numParam,1);
+            this.H.reshape(numParam,numParam);
+            this.negDelta.reshape(numParam,1);
+            this.tempParam.reshape(numParam,1);
+            this.A.reshape(numParam,numParam);
+        }
+
+        param.set(initParam);
+
+        // reshaping a matrix means that new memory is only declared when needed
         temp0.reshape(numPoints,1);
         temp1.reshape(numPoints,1);
         tempDH.reshape(numPoints,1);
         jacobian.reshape(numParam,numPoints);
+
+
     }
 
     /**
@@ -231,7 +244,6 @@ public class LevenbergMarquardt {
     }
 
     /**
-     *
      * A = H + lambda*I <br>
      * <br>
      * where I is an identity matrix.
@@ -262,8 +274,6 @@ public class LevenbergMarquardt {
 
     /**
      * Computes a simple numerical Jacobian.
-     *
-     *
      *
      * @param param The set of parameters that the Jacobian is to be computed at.
      * @param pt The point around which the Jacobian is to be computed.
@@ -296,8 +306,10 @@ public class LevenbergMarquardt {
      */
     public interface Function {
         /**
+         * Computes the output for each value in matrix x given the set of parameters.
+         * 
          * @param param The parameter for the function.
-         * @param x the inputed points.
+         * @param x the input points.
          * @param y the resulting output.
          */
         public void compute( DenseMatrix64F param , DenseMatrix64F x , DenseMatrix64F y );
