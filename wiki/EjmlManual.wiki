@@ -5,9 +5,35 @@
 
 EJML is a linear algebra library for Java.  The following is a manual that describes how to use it.  There are three ways to program in EJML; simple, operator, and algorithm. These essentially flow from easy to program, but less efficient, to more difficult to program but more efficient.
 
-Examples:
+Example Code:
  # [KalmanFilterExamples Kalman Filter].
  # [LevenbergMarquardtExample Levenberg-Marquardt]
  # RANSAC Line Fitting
  # Solving Linear Systems
  # Matrix Decompositions
+
+= Building =
+
+EJML can be easily compiled using any IDE (e.g. Eclipse or Intellij) or by using the provided ant scripts.  To build using ant first make sure ant is installed.  Once ant is installed the project can be build by going into the commandline, changing into the project's main directory, and typing "ant".  In Linux or Windows you should see some output that looks like this:
+{{{
+pja@silent:~/projects/java/ejml$ ant
+Buildfile: build.xml
+
+clean:
+   [delete] Deleting directory /home/pja/projects/java/ejml/build
+
+compile:
+    [mkdir] Created dir: /home/pja/projects/java/ejml/build/classes
+    [javac] Compiling 94 source files to /home/pja/projects/java/ejml/build/classes
+
+jar:
+    [mkdir] Created dir: /home/pja/projects/java/ejml/build/jar
+      [jar] Building jar: /home/pja/projects/java/ejml/build/jar/EJML.jar
+
+main:
+
+BUILD SUCCESSFUL
+Total time: 3 seconds
+}}}
+
+Once it has been built the jar can be moved from "build/jar/EJML.jar" to a convenient location in your own project.
