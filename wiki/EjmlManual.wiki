@@ -7,11 +7,13 @@ EJML is a linear algebra library for Java.  The following is a manual that descr
 
 Example Code:
  # [KalmanFilterExamples Kalman Filter].
-    # Example of using simple, operator, and algorithm interfaces.
+    * Example of using simple, operator, and algorithm interfaces.
  # [LevenbergMarquardtExample Levenberg-Marquardt]
-    # General example.
+    * Effective matrix reshaping.
+    * General example.
  # [PolynomialFitExample Polynomial Fitting]
-    # Solving a linear system with an adjustable solver.
+    * Creating a linear solver.
+    * Using an adjustable solver.
 
 Tutorial:
  # Solving Linear Systems
