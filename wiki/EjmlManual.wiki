@@ -5,6 +5,8 @@
 
 EJML is a linear algebra library for Java.  There are three different interfaces that can be used to program in EJML; simple, operator, and algorithm. These interfaces have different design goals and range from being easy to program, but slightly less efficient, to more difficult to program and more efficient.  A combination of example code and tutorials are provided below that introduces a user to working with EJML.  
 
+Detailed Javadoc documentation is provided in almost all the classes.  See the [http://code.google.com/p/efficient-java-matrix-library/ home page] for a link to the latest Javadoc.
+
 == Example Code ==
 Each example code, provided below, is fully operational and included with EJML's source code in the example directory.  They are designed to show off different concepts and provide insight into how EJML can be used to its full potential.
 
@@ -19,15 +21,11 @@ Each example code, provided below, is fully operational and included with EJML's
 
 == Tutorials ==
 
-When working with EJML it is often best to use factories instead of directly calling algorithms directly.  Factories are provided for solving linear systems and for common matrix decompositions.  This way as new algorithms are added your code will automatically use the best one.  Advanced users might wish to call a specific implementation, but most people should not do this.  Calling specific implementations is more difficult and prone to errors.
+When working with EJML it is often best to use factories instead of directly calling algorithms directly.  Factories are provided for solving linear systems and for common matrix decompositions.  This way as new algorithms are added your code will automatically use the best one.  Advanced users might wish to call a specific implementation, but most people should not do this.  Calling specific implementations is more difficult and more prone to errors if you do not understand all the implementation details.
 
  # Solving Linear Systems
  # Matrix Decompositions
  # Random matrices and Matrix Features
-
-Javadoc:<br>
-Detailed Javadoc documentation is provided in almost all the classes.  See the [http://code.google.com/p/efficient-java-matrix-library/ home page] for a link to the latest Javadoc.
-
 
 = Building =
 
