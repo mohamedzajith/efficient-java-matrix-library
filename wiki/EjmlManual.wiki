@@ -16,7 +16,7 @@ Example Code:
     * General example.
  # [PolynomialFitExample Polynomial Fitting]
     * Creating a linear solver.
-    * Using an adjustable solver.
+    * Using an adjustable linear solver.
 
 == Tutorials ==
 
