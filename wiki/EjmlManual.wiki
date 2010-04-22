@@ -25,6 +25,7 @@ When working with EJML it is often best to use factories instead of directly cal
 Tutorial:
  # Solving Linear Systems
  # Matrix Decompositions
+ # Random matrices and Matrix Features
 
 Javadoc:<br>
 Detailed Javadoc documentation is provided in almost all the classes.  See the [http://code.google.com/p/efficient-java-matrix-library/ home page] for a link to the latest Javadoc.
