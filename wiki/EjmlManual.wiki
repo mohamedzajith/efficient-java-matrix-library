@@ -19,6 +19,10 @@ Tutorial:
  # Solving Linear Systems
  # Matrix Decompositions
 
+JavaDoc:<br>
+Detailed JavaDoc documentation is provided in almost all the classes.  See the [home_page http://code.google.com/p/efficient-java-matrix-library/w/edit/EjmlManual] for a link to the latest JavaDoc.
+
+
 = Building =
 
 EJML can be easily compiled using any IDE (e.g. Eclipse or Intellij) or by using the provided ant scripts.  To build using ant first make sure ant is installed.  Once ant is installed the project can be build by going into the commandline, changing into the project's main directory, and typing "ant".  In Linux or Windows you should see some output that looks like this:
