@@ -3,7 +3,7 @@
 
 = Introduction =
 
-EJML is a linear algebra library for Java.  There are three different interfaces that can be used to program in EJML; simple, operator, and algorithm. These interfaces are designed to be easy to program, but less efficient, to more difficult to program but more efficient, respectively.  A combination of tutorials and example code provides an introduction to its usage.  
+EJML is a linear algebra library for Java.  There are three different interfaces that can be used to program in EJML; simple, operator, and algorithm. These interfaces have different design goals and range from being easy to program, but slightly less efficient, to more difficult to program and more efficient.  A combination of example code and tutorials are provided below that introduces a user to working with EJML.  
 
 == Example Code ==
 Each example code, provided below, is fully operational and included with EJML's source code in the example directory.  They are designed to show off different concepts and provide insight into how EJML can be used to its full potential.
