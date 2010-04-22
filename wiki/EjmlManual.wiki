@@ -20,7 +20,7 @@ Tutorial:
  # Matrix Decompositions
 
 JavaDoc:<br>
-Detailed JavaDoc documentation is provided in almost all the classes.  See the [home_page http://code.google.com/p/efficient-java-matrix-library/w/edit/EjmlManual] for a link to the latest JavaDoc.
+Detailed JavaDoc documentation is provided in almost all the classes.  See the [http://code.google.com/p/efficient-java-matrix-library/w/edit/EjmlManual home page] for a link to the latest JavaDoc.
 
 
 = Building =
