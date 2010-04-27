@@ -46,4 +46,50 @@ try {
 
 Note how the above code samples check to see if any errors occurred while trying to solve the system.  As previously mentioned it is possible for no error to be reported and yet
 
-= Solving with LinearSolvers =
+= Solving with LinearSolver =
+
+LinearSolver provide an easy to use interface but almost all the power of calling algorithms directly.  Which type of LinearSolver should be used depends on the structure of the matrix.  A new LinearSolver should be created by invoking static functions inside of LinearSolverFactory.  LinearSolverFactory will select the best algorithm and is will be updated as EJML evolves.
+
+Two steps are required to solve a system with a LinearSolver, as is shown below:
+{{{
+LinearSolver solver = LinearSolverFactory.leastSquares();
+
+if( !solver.setA(A) ) {
+  throw new IllegalArgument("Singular matrix");
+}
+
+solver.solve(b,x);
+}}}
+
+= Solving with AdjustableLinearSolver =
+
+In situations where rows from the linear system are added or removed (see [PolynomialFitExample]) an AdjustableLinearSolver can be used to efficiently resolve the modified system.  AdjustableLinearSolver is an extension of LinearSolver that adds addRowToA() and removeRowFromA().  These functions add and remove rows from A respectively.  After being involved the solution can be recomputed by calling solve() again.
+
+{{{
+AdjustableLinearSolver solver = LinearSolverFactory.adjustable();
+
+if( !solver.setA(A) ) {
+  throw new IllegalArgument("Singular matrix");
+}
+
+solver.solve(b,x);
+
+// add a row
+double row[] = new double[N];
+
+... code ...
+
+solver.addRowToA(row,2);
+
+.... adjust b and x ....
+
+solver.solve(b,x); 
+
+// remove a row
+solver.removeRowFromA(7);
+
+.... adjust b and x ....
+
+
+solver.solve(b,x);
+}}}
