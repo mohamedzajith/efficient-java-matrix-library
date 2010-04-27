@@ -61,7 +61,7 @@ if( !solver.setA(A) ) {
 solver.solve(b,x);
 }}}
 
-= Solving with AdjustableLinearSolver =
+== AdjustableLinearSolver ==
 
 In situations where rows from the linear system are added or removed (see [PolynomialFitExample]) an AdjustableLinearSolver can be used to efficiently resolve the modified system.  AdjustableLinearSolver is an extension of LinearSolver that adds addRowToA() and removeRowFromA().  These functions add and remove rows from A respectively.  After being involved the solution can be recomputed by calling solve() again.
 
