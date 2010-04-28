@@ -14,7 +14,7 @@ All linear solvers in EJML assume the input system is not singular or nearly sin
 
 = Solving with CommonOps =
 
-The recommended method for quick development and for novice uses is calling CommonOps.solve() or SimpleMatrix.solve().  SimpleMatrix.solve() is a wrapper around CommonOps.solve() and has nearly the same behavior.  Below are examples of how to solve a linear system:
+The recommended method for quick development and for novice users is calling CommonOps.solve() or SimpleMatrix.solve().  SimpleMatrix.solve() is a wrapper around CommonOps.solve() and has nearly the same behavior.  Below are examples of how to solve a linear system:
 
 Using DenseMatrix64F:
 {{{
