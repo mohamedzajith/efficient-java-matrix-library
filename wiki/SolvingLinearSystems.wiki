@@ -6,7 +6,7 @@ Solving linear systems are a fundamental problem in linear algebra.  A linear sy
 
 _A_*_x_ = _b_
 
-where _A_ is m by n, _x_ is n by 1, and _b_ is m by 1.  There are numerous ways to solve such system.  Which technique is optimal depends on the size and structure of the matrix. 
+where _A_ is m by n, _x_ is n by o, and _b_ is m by o.  Most of the time o=1.  There are numerous ways to solve such system.  Which technique is optimal depends on the size and structure of the matrix. 
 
 In EJML the easiest way to solve a linear system is by calling CommonOps.solve() when using DenseMatrix64 or SimpleMatrix.solve().  LinearSolvers can be used if more knowledge is available about the type of matrix and/or more control is needed over memory.  It is also possible to directly call decomposition algorithms, but this technique is not recommended since it more error prone and is not guaranteed to work in future releases.
 
