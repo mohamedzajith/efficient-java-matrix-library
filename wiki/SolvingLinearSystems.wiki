@@ -44,7 +44,7 @@ try {
 
 }}}
 
-Note how the above code samples check to see if any errors occurred while trying to solve the system.  As previously mentioned it is possible for no error to be reported and yet
+Note how the above code samples check to see if any errors occurred while trying to solve the system.  As previously mentioned it is possible for no error to be reported and yet have a bad solution.
 
 = Solving with LinearSolver =
 
