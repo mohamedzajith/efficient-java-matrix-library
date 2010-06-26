@@ -7,10 +7,10 @@ In linear algebra a matrix decomposition is often used as an intermediate step w
  * LU
  * Cholesky
  * QR
- * SVD
- * Eigen
+ * Singular Value Decomposition (SVD)
+ * Eigen Value Decomposition (EVD)
 
-Additional decompositions are provided, but they are primarily used internally and have less common usage. 
+Additional decompositions are provided, but they are primarily used internally and have less common usage.  Specialized helper functions are provided for SVD and EVD.
 
 = Solving Linear Systems =
 
@@ -51,3 +51,27 @@ Below is an example of how to compute the SVD of a matrix:
     }
 }}}
 Note how it checks the returned value from decompose.
+
+= Helper Functions for SVD and EVD =
+
+Two classes SingularOps and EigenOps have been provided for extracting useful information from these decompositions or to provide highly specialized ways of computing the decompositions.  Below is a list of more common uses of these functions:
+
+SingularOps
+  * descendingOrder()
+    * In EJML the ordering of the returned singular values is not in general guaranteed.  This function will reorder the U,W,V matrices such that the singular values are in the standard largest to smallest ordering.  
+  * nullSpace()
+    * Computes the null space from the provided decomposition.
+  * rank()
+    * Returns the matrix's rank.
+  * nullity()
+    * Returns the matrix's nullity.
+
+EigenOps
+  * decompositionGeneral()
+    * Creates an EVD that can be used on any input matrix.
+  * decompositionSymmetric()
+    * Creates an EVD which can only be used on symmetric input matrices.
+  * createMatrixD() and createMatrixV()
+    * Reformats the results such that two matrices (D and V) that contain the eigenvalues and eigenvectors respectively.
+  * quality()
+    * Can be used to check to see if the returned EVD is accurate or not.
