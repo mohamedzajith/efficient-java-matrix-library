@@ -34,7 +34,7 @@ public interface DecompositionInterface {
 }
 }}}
 
-Most decompositions in EJML implement DecompositionInterface.  To decompose the matrix simply call decompose(A), where A is the matrix being decomposed.  It returns true if there was no error while decomposing and false otherwise.  While in general you can trust the results if true are returned some algorithms can have faults that are not reported.  This is true for all linear algebra libraries.
+Most decompositions in EJML implement DecompositionInterface.  To decompose the matrix simply call decompose(A), where A is the matrix being decomposed.  It returns true if there was no error while decomposing and false otherwise.  While in general you can trust the results if true is returned some algorithms can have faults that are not reported.  This is true for all linear algebra libraries.
 
 Below is an example of how to compute the SVD of a matrix:
 {{{
