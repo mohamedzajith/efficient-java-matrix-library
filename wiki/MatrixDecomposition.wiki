@@ -1,0 +1,53 @@
+#summary How to perform common matrix decompositions in EJML
+
+= Introduction =
+
+In linear algebra a matrix decomposition is often used as an intermediate step when solving a problem.  They allow a more complex problem to be reformulated into a more simplistic problem or provide insight into the structure of a matrix.  EJML provides several different matrix decompositions, such as:
+
+ * LU
+ * Cholesky
+ * QR
+ * SVD
+ * Eigen
+
+Additional decompositions are provided, but they are primarily used internally and have less common usage. 
+
+= Solving Linear Systems =
+
+Decompositions such as LU and QR are most commonly used to solve a linear system.  A common mistake when solving linear systems in EJML is to directly decompose  the matrix instead of using a LinearSolver.  LinearSolvers significantly simplify the process of solving a linear system and will automatically be updated as new algorithms are added.
+
+For more information on LinearSolvers see the wikipage at [SolvingLinearSystems].
+
+= DecompositionFactory =
+
+The best way to create a matrix decomposition is by using DecompositionFactory.  It is not uncommon for there to be multiple algorithms in EJML that perform the same decomposition.  These are most often optimized for different input matrix size or specialized cases.  Unless you really know what you are doing, read the JavaDoc and go through the code, chances are you will pick the wrong algorithm.
+
+{{{
+public interface DecompositionInterface {
+    /**
+     * Computes and stores internally the decomposition of the provided matrix.
+     *
+     * @param orig The matrix which is being decomposed.  Not modified.
+     * @return Returns if it was able to decompose the matrix.
+     */
+    public boolean decompose( DenseMatrix64F orig );
+}
+}}}
+
+Most decompositions in EJML implement DecompositionInterface.  To decompose the matrix simply call decompose(A), where A is the matrix being decomposed.  It returns true if there was no error while decomposing and false otherwise.  While in general you can trust the results if true are returned some algorithms can have faults that are not reported.  This is true for all linear algebra libraries.
+
+Below is an example of how to compute the SVD of a matrix:
+{{{
+    void decompositionExample( DenseMatrix64F A ) {
+        SingularValueDecomposition svd = DecompositionFactory.svd();
+
+        if( !svd.decompose(A) )
+            throw new RuntimeException("Decomposition failed");
+
+        DenseMatrix64F U = svd.getU();
+        DenseMatrix64F W = svd.getW(null);
+        DenseMatrix64F V = svd.getV();
+
+    }
+}}}
+Note how it checks the returned value from decompose.
