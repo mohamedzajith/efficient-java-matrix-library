@@ -30,21 +30,21 @@ When working with EJML it is often best to use factories instead of directly cal
 
 = Building =
 
-EJML can be easily compiled using any IDE (e.g. Eclipse or Intellij) or by using the provided ant scripts.  To build using ant first make sure ant is installed.  Once ant is installed the project can be build by going into the commandline, changing into the project's main directory, and typing "ant".  In Linux or Windows you should see some output that looks like this:
+EJML can be easily compiled using any IDE (e.g. Eclipse or Intellij) or by using the provided ant scripts.  To build using ant first make sure ant is installed.  Once ant is installed the project can be build by going into the commandline, changing into the project's main directory, and typing "ant".  In Linux or Windows you should see output that looks like:
 {{{
-pja@silent:~/projects/java/ejml$ ant
+pja@silent:ejml$ ant
 Buildfile: build.xml
 
 clean:
-   [delete] Deleting directory /home/pja/projects/java/ejml/build
+   [delete] Deleting directory ejml/build
 
 compile:
-    [mkdir] Created dir: /home/pja/projects/java/ejml/build/classes
-    [javac] Compiling 94 source files to /home/pja/projects/java/ejml/build/classes
+    [mkdir] Created dir: ejml/build/classes
+    [javac] Compiling 94 source files to ejml/build/classes
 
 jar:
-    [mkdir] Created dir: /home/pja/projects/java/ejml/build/jar
-      [jar] Building jar: /home/pja/projects/java/ejml/build/jar/EJML.jar
+    [mkdir] Created dir: ejml/build/jar
+      [jar] Building jar: ejml/build/jar/EJML.jar
 
 main:
 
