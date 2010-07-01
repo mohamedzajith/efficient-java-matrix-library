@@ -18,9 +18,21 @@ Decompositions such as LU and QR are most commonly used to solve a linear system
 
 For more information on LinearSolvers see the wikipage at [SolvingLinearSystems].
 
-= DecompositionFactory =
+= SimpleMatrix =
 
-The best way to create a matrix decomposition is by using DecompositionFactory.  It is not uncommon for there to be multiple algorithms in EJML that perform the same decomposition.  These are most often optimized for different input matrix size or specialized cases.  Unless you really know what you are doing, read the JavaDoc and go through the code, chances are you will pick the wrong algorithm.
+SimpleMatrix has easy to an use interface built in for SVD and EVD:
+{{{
+SimpleMatrix.SVD svd = A.svd();
+SimpleMatrix.EVD evd = A.eig();
+
+SimpleMatrix U = svd.getU();
+}}}
+To perform other decompositions the internal DenseMatrix64F needs to be extracted and processed using a decomposition from DecompositionOps.
+
+
+= DecompositionOps =
+
+The best way to create a matrix decomposition is by using DecompositionOps.  It is not uncommon for there to be multiple algorithms in EJML that perform the same decomposition.  These are most often optimized for different input matrix size or specialized cases.  Unless you really know what you are doing, read the JavaDoc and go through the code, chances are you will pick the wrong algorithm.
 
 {{{
 public interface DecompositionInterface {
@@ -39,18 +51,20 @@ Most decompositions in EJML implement DecompositionInterface.  To decompose the 
 Below is an example of how to compute the SVD of a matrix:
 {{{
     void decompositionExample( DenseMatrix64F A ) {
-        SingularValueDecomposition svd = DecompositionFactory.svd();
+        SingularValueDecomposition svd = DecompositionOps.svd();
 
         if( !svd.decompose(A) )
             throw new RuntimeException("Decomposition failed");
 
-        DenseMatrix64F U = svd.getU();
+        DenseMatrix64F U = svd.getU(false);
         DenseMatrix64F W = svd.getW(null);
-        DenseMatrix64F V = svd.getV();
+        DenseMatrix64F V = svd.getV(false);
 
     }
 }}}
 Note how it checks the returned value from decompose.
+
+In addition DecompositionOps provides functions for computing the quality of a decomposition.  Being able measure the decomposition's quality is an important way to validate its correctness.  It works by "reconstructing" the original matrix then computing the difference between the reconstruction and the original.  Smaller the quality is the better the decomposition is. With an ideal value of being around 1e-15 in most cases.
 
 = Helper Functions for SVD and EVD =
 
