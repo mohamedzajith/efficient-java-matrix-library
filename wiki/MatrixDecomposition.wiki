@@ -66,6 +66,11 @@ Note how it checks the returned value from decompose.
 
 In addition DecompositionFactory provides functions for computing the quality of a decomposition.  Being able measure the decomposition's quality is an important way to validate its correctness.  It works by "reconstructing" the original matrix then computing the difference between the reconstruction and the original.  Smaller the quality is the better the decomposition is. With an ideal value of being around 1e-15 in most cases.
 
+{{{
+if( DecompositionFactory.quality(A,svd) > 1e-3 )
+    throw new RuntimeException("Bad decomposition");
+}}}
+
 = Helper Functions for SVD and EVD =
 
 Two classes SingularOps and EigenOps have been provided for extracting useful information from these decompositions or to provide highly specialized ways of computing the decompositions.  Below is a list of more common uses of these functions:
