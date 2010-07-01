@@ -51,7 +51,7 @@ Most decompositions in EJML implement DecompositionInterface.  To decompose the 
 Below is an example of how to compute the SVD of a matrix:
 {{{
     void decompositionExample( DenseMatrix64F A ) {
-        SingularValueDecomposition svd = DecompositionOps.svd();
+        SingularValueDecomposition svd = DecompositionFactory.svd();
 
         if( !svd.decompose(A) )
             throw new RuntimeException("Decomposition failed");
