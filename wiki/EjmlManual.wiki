@@ -18,6 +18,7 @@ Each example code, provided below, is fully operational and included with EJML's
  # [PolynomialFitExample Polynomial Fitting]
     * Creating a linear solver.
     * Using an adjustable linear solver.
+ # TODO example showing submatrix.
 
 == Tutorials ==
 
