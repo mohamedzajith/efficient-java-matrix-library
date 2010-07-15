@@ -9,7 +9,7 @@ Detailed Javadoc documentation is provided in almost all the classes.  See the [
 
 == Matrix Data Structures ==
 
-Two different matrix classes are intended for use by the user.  DenseMatrix64F is used by the operator programming interface and is intended for more advanced users who are concerned about writing optimized code.  SimpleMatrix is an easy to use wrapper around DenseMatrix64F that has more limited functionality.  There is no need to choose one over the other since it is easy to switch between the two classes.
+Two different primary matrix classes are provided.  DenseMatrix64F is used by the operator programming interface and is intended for more advanced users who are concerned about writing optimized code.  SimpleMatrix is an easy to use wrapper around DenseMatrix64F that has more limited functionality but removes much of the tedium of working with matrices.  There is no need to choose one over the other since it is easy to switch between the two classes.
 
   * [DenseMatrix64F]
   * [SimpleMatrix]
