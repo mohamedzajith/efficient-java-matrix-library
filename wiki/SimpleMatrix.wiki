@@ -1,6 +1,6 @@
 = Introduction = 
 
-SimpleMatrix is a wrapper around the operation interface in EJML that provides a more elegant object oriented way of working with matricesL.  It is inspired from Jama and is designed to be significantly easy to program in.  Unlike the operation interface it handles most of the memory management automatically and allows commands to be chained together.  It is possible to early switch between using SimpleMatrix and DenseMatrix64F.
+SimpleMatrix is a wrapper around the operation interface in EJML that provides a more elegant object oriented way of working with matrices.  It is inspired from Jama and is designed to be significantly easy to program in.  Unlike the operation interface it handles most of the memory management automatically and allows commands to be chained together.  It is possible to early switch between using SimpleMatrix and DenseMatrix64F.
 
 The typical function in SimpleMatrix takes at least one SimpleMatrix as an input and returns a SimpleMatrix as the output.  None of the input matrices, including the this matrix, are modified during the function call.  There is a slight performance hit when using SimpleMatrix, which is only noticeable when dealing with small matrices.  The is largely due to the need for it to create a new matrix in most of its operations.  
 
@@ -20,3 +20,12 @@ To convert a DenseMatrix64F into a SimpleMatrix call the wrap() function.  Then 
 
 A DenseMatrix64F can also be passed into the SimpleMatrix constructor, but this will copy
 the input matrix.
+
+== Chaining Operations ==
+
+When using SimpleMatrix operations can be chained together.  Chained operations are often easier to read and write.
+{{{
+    public SimpleMatrix process( SimpleMatrix A , SimpleMatrix B ) {
+        return A.transpose().mult(B).scale(12).invert();
+    }
+}}}
