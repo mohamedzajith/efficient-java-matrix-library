@@ -27,8 +27,13 @@ SimpleMatrix.EVD evd = A.eig();
 
 SimpleMatrix U = svd.getU();
 }}}
-To perform other decompositions the internal DenseMatrix64F needs to be extracted and processed using a decomposition from DecompositionOps.
+Other decompositions can be performed by using the internal DenseMatrix64F (accessed using A.getMatrix() ) and processed using a decomposition from DecompositionFactory.
 
+As with most operators in SimpleMatrix, it is possible to chain a decompositions with other commands.  For instance, to print the singular values in a matrix:
+{{{
+A.svd().getW().extractDiag().transpose().print();
+}}}
+To accomplish the same task using DenseMatrix64F would require several lines of code.
 
 = DecompositionFactory =
 
