@@ -7,11 +7,15 @@ EJML is a linear algebra library for Java.  There are three different interfaces
 
 Detailed Javadoc documentation is provided in almost all the classes.  See the [http://code.google.com/p/efficient-java-matrix-library/ home page] for a link to the latest Javadoc.
 
-== Concepts ==
+== Matrix Data Structures ==
 
+Two different matrix classes are intended for use by the user.  DenseMatrix64F is used by the operator programming interface and is intended for more advanced users who are concerned about writing optimized code.  SimpleMatrix is an easy to use wrapper around DenseMatrix64F that has more limited functionality.  There is no need to choose one over the other since it is easy to switch between the two classes.
+
+  * [DenseMatrix64F]
   * [SimpleMatrix]
 
 == Example Code ==
+
 Each example code, provided below, is fully operational and included with EJML's source code in the example directory.  They are designed to show off different concepts and provide insight into how EJML can be used to its full potential.
 
  # [KalmanFilterExamples Kalman Filter].
