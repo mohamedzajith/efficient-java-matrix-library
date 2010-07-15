@@ -1,3 +1,5 @@
+#summary Overview of SimpleMatrix
+
 = Introduction = 
 
 SimpleMatrix is a wrapper around the operation interface in EJML that provides a more elegant object oriented way of working with matrices.  It is inspired from Jama and is designed to be significantly easy to program in.  Unlike the operation interface it handles most of the memory management automatically and allows commands to be chained together.  It is possible to early switch between using SimpleMatrix and DenseMatrix64F.
