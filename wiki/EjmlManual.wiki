@@ -26,7 +26,9 @@ Each example code, provided below, is fully operational and included with EJML's
  # [PolynomialFitExample Polynomial Fitting]
     * Creating a linear solver.
     * Using an adjustable linear solver.
- # TODO example showing submatrix.
+ # [QRDecompositionExample QR Decomposition]
+    * Extract and insert using simple and operator interfaces.
+    * Easy to understand example of an important decomposition in linear algebra.
 
 == Tutorials ==
 
