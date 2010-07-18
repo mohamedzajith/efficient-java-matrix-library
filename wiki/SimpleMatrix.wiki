@@ -31,3 +31,13 @@ When using SimpleMatrix operations can be chained together.  Chained operations 
         return A.transpose().mult(B).scale(12).invert();
     }
 }}}
+
+== Accessors ==
+  * get( row , col )
+  * set( row , col , value )
+    * Returns or sets the value of an element at the specified row and column.
+  * get( index )
+  * set( index )
+    * Returns or sets the value of an element at the specified index.  Useful for vectors and element-wise operations.
+  * iterator( boolean rowMajor, int minRow, int minCol, int maxRow, int maxCol )
+    * An iterator that iterates through the sub-matrix by row or by column.
