@@ -4,9 +4,15 @@ To provide a better understanding of the performance difference between SimpleMa
 
 In general the more computationally intensive an operation is the less noticable the difference is in performance.  EJML is significantly slower for element-wise operations such as add and scale.  There is an insignificant performance difference for more expensive operations such as multiplication and SVD on larger matrices and only a small performance hit on small matrices.  Note that this is true even though the SimpleMatrix implementation of SVD does additional work to order singular values.
 
-Results are presented using relative runtime plots.  These plots show how fast each interface is relative to the other.  The fastest interface at each matrix size always has a value of one since it can perform the most operations per second.  EJML is EJML using the operations interface and SEJML is EJML using SimpleMatrix.  
+The bottleneck in most applications will be the more expensive operations.  Thus it is likely that there is only an insignificant performance difference between the two approaches in many applications.
+
+= Relative Runtime Plots =
+
+Results are presented using relative runtime plots.  These plots show how fast each interface is relative to the other.  The fastest interface at each matrix size always has a value of one since it can perform the most operations per second.  For more information see the Java Matrix Benchmark [http://code.google.com/p/java-matrix-benchmark/wiki/RuntimePerformanceBenchmark manual here].
 
 Looking at the addition plot, SimpleMatrix runs at about 0.25 times the speed as using DenseMatrix64F for smaller matrices.  When it processes larger matrices it runs at about 0.6 times the speed of the operations interface. This means that for larger matrices it runs relative faster.  For more expensive operations (SVD, solve, matrix multiplication, etc ) it is clear that there is little to no difference in performance when processing matrices that are 30 by 30 or larger.
+
+EJML is EJML using the operations interface and SEJML is EJML using SimpleMatrix.  
 
 =Test Environment =
 
