@@ -1,8 +1,8 @@
 #summary SimpleMatrix runtime performance study.
 = Introduction =
-To provide a better understanding of the performance difference between SimpleMatrix and using the operations interface a study was performed.  The study was composed of running several benchmarks across different operations and matrix sizes using [http://code.google.com/p/java-matrix-benchm JMatBench].  Only operations were tested that had a direct equivalent in the two interfaces.
+To provide a better understanding of the performance difference between SimpleMatrix and using the operations interface a study was performed.  The study was composed of running several benchmarks across different operations and matrix sizes using [http://code.google.com/p/java-matrix-benchm Java Matrix Benchmark].  Only operations were tested that had a direct equivalent in the two interfaces.
 
-In general the more computationally intensive an operation is the less noticable the difference is in performance.  EJML is significantly slower for element-wise operations such as add and scale.  There is an insignificant performance difference for more expensive operations such as multiplication and SVD on larger matrices and only a small performance hit on small matrices.  
+In general the more computationally intensive an operation is the less noticable the difference is in performance.  EJML is significantly slower for element-wise operations such as add and scale.  There is an insignificant performance difference for more expensive operations such as multiplication and SVD on larger matrices and only a small performance hit on small matrices.  Note that this is true even though the SimpleMatrix implementation of SVD does additional work to order singular values.
 
 =Test Environment =
 
@@ -19,9 +19,9 @@ Test Environment:
 ==Java: Basic Operation Results==
 
 || http://efficient-java-matrix-library.googlecode.com/svn/wiki/SpeedSimpleMatrix.attach/add.png || http://efficient-java-matrix-library.googlecode.com/svn/wiki/SpeedSimpleMatrix.attach/scale.png ||
-|| http://efficient-java-matrix-library.googlecode.com/svn/wiki/SpeedSimpleMatrix.attach/mult.png ||  ||
+|| http://efficient-java-matrix-library.googlecode.com/svn/wiki/SpeedSimpleMatrix.attach/mult.png || http://efficient-java-matrix-library.googlecode.com/svn/wiki/SpeedSimpleMatrix.attach/inv.png  ||
 || http://efficient-java-matrix-library.googlecode.com/svn/wiki/SpeedSimpleMatrix.attach/det.png || http://efficient-java-matrix-library.googlecode.com/svn/wiki/SpeedSimpleMatrix.attach/tran.png ||
-|| http://efficient-java-matrix-library.googlecode.com/svn/wiki/SpeedSimpleMatrix.attach/inv.png || http://efficient-java-matrix-library.googlecode.com/svn/wiki/SpeedSimpleMatrix.attach/invSymmPosDef.png ||
+
 
 ==Java: Solving Linear Systems==
 
