@@ -1,14 +1,15 @@
 #summary SimpleMatrix runtime performance study.
 = Introduction =
+To provide a better understanding of the performance difference between SimpleMatrix and using the operations interface a study was performed.  The study was composed of running several benchmarks across different operations and matrix sizes using [http://code.google.com/p/java-matrix-benchm JMatBench].  Only operations were tested that had a direct equivalent in the two interfaces.
 
-Add your content here.
+In general the more computationally intensive an operation is the less noticable the difference is in performance.  EJML is significantly slower for element-wise operations such as add and scale.  There is an insignificant performance difference for more expensive operations such as multiplication and SVD on larger matrices and only a small performance hit on small matrices.  
 
 =Test Environment =
 
 Test Environment:
 || Date || 2010.07.24 ||
-|| OS   || Ubuntu 8.04 ||
-|| CPU  || PentiumM 1.7 GHz - 1 core ||
+|| OS   || Vista 64bit ||
+|| CPU  || Q9400 - 2.66 Ghz - 4 cores ||
 || JVM  || Java HotSpot(TM) 64-Bit Server VM 1.6.0_16 ||
 || Benchmark || 0.7pre ||
 || EJML ||  0.14pre        ||
@@ -18,7 +19,7 @@ Test Environment:
 ==Java: Basic Operation Results==
 
 || http://efficient-java-matrix-library.googlecode.com/svn/wiki/SpeedSimpleMatrix.attach/add.png || http://efficient-java-matrix-library.googlecode.com/svn/wiki/SpeedSimpleMatrix.attach/scale.png ||
-|| http://efficient-java-matrix-library.googlecode.com/svn/wiki/SpeedSimpleMatrix.attach/mult.png || http://efficient-java-matrix-library.googlecode.com/svn/wiki/SpeedSimpleMatrix.attach/multTranA.png ||
+|| http://efficient-java-matrix-library.googlecode.com/svn/wiki/SpeedSimpleMatrix.attach/mult.png ||  ||
 || http://efficient-java-matrix-library.googlecode.com/svn/wiki/SpeedSimpleMatrix.attach/det.png || http://efficient-java-matrix-library.googlecode.com/svn/wiki/SpeedSimpleMatrix.attach/tran.png ||
 || http://efficient-java-matrix-library.googlecode.com/svn/wiki/SpeedSimpleMatrix.attach/inv.png || http://efficient-java-matrix-library.googlecode.com/svn/wiki/SpeedSimpleMatrix.attach/invSymmPosDef.png ||
 
