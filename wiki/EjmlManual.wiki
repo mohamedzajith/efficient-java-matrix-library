@@ -14,6 +14,10 @@ Two different primary matrix classes are provided.  DenseMatrix64F is used by th
   * [DenseMatrix64F]
   * [SimpleMatrix]
 
+A comparison of runtime performance for different operations between SimpleMatrix and using the operations interface is provided here:
+
+  * [SpeedSimpleMatrix]
+
 == Example Code ==
 
 Each example code, provided below, is fully operational and included with EJML's source code in the example directory.  They are designed to show off different concepts and provide insight into how EJML can be used to its full potential.
