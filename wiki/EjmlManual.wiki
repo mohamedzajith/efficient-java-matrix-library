@@ -16,7 +16,7 @@ Two different primary matrix classes are provided.  DenseMatrix64F is used by th
 
 A comparison of runtime performance for different operations between SimpleMatrix and using the operations interface is provided here:
 
-  * [SpeedSimpleMatrix]
+  * [SpeedSimpleMatrix Runtime Performance Comparision]
 
 == Example Code ==
 
