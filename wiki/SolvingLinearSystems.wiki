@@ -10,7 +10,7 @@ where _A_ is m by n, _x_ is n by o, and _b_ is m by o.  Most of the time o=1.  T
 
 In EJML the easiest way to solve a linear system is by calling CommonOps.solve() when using DenseMatrix64 or SimpleMatrix.solve().  LinearSolvers can be used if more knowledge is available about the type of matrix and/or more control is needed over memory.  It is also possible to directly call decomposition algorithms, but this technique is not recommended since it more error prone and is not guaranteed to work in future releases.
 
-All linear solvers in EJML assume the input system is not singular or nearly singular.  Such systems do not have a single solution and require other techniques to extract a solution.  Just because a solver does not report an error does not mean it did not fail, depending on the algorithm being used.  This is true for virtually all linear algebra libraries.  In fact EJML does a better job of reporting failures than all other libraries tested in [http://code.google.com/p/java-matrix-benchmark/ java matrix benchmark].  Typically if an unreported failure occurs the matrix will contain uncountable elements.  This can be checked by invoking MatrixFeatures.hasUncountable().
+All linear solvers in EJML assume the input system is not singular or nearly singular.  Such systems do not have a single solution and require other techniques to extract a solution.  Just because a solver does not report an error does not mean it did not fail, depending on the algorithm being used.  This is true for virtually all linear algebra libraries.  In fact EJML does a better job of reporting failures than all other libraries tested in [http://code.google.com/p/java-matrix-benchmark/ java matrix benchmark].  Typically if an unreported failure occurs the matrix will contain uncountable elements.  This can be checked by invoking MatrixFeatures.hasUncountable().  A solution can be checked using LinearSolver.quality() too.
 
 = Solving with CommonOps =
 
@@ -45,6 +45,8 @@ try {
 }}}
 
 Note how the above code samples check to see if any errors occurred while trying to solve the system.  As previously mentioned it is possible for no error to be reported and yet have a bad solution.
+
+To handle the situation where a linear solver returns a bad solution and doesn't produce an error the *quality()* function was added.  If supported by the solver, quality() returns a positive number that indicates how solvable the system was.  A value close to zero indicates that it was nearly singular and the solution is prone to numerical rounding error.
 
 = Solving with LinearSolver =
 
