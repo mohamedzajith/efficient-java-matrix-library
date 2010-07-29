@@ -46,8 +46,6 @@ try {
 
 Note how the above code samples check to see if any errors occurred while trying to solve the system.  As previously mentioned it is possible for no error to be reported and yet have a bad solution.
 
-To handle the situation where a linear solver returns a bad solution and doesn't produce an error the *quality()* function was added.  If supported by the solver, quality() returns a positive number that indicates how solvable the system was.  A value close to zero indicates that it was nearly singular and the solution is prone to numerical rounding error.
-
 = Solving with LinearSolver =
 
 LinearSolver provide an easy to use interface but almost all the power of calling algorithms directly.  Which type of LinearSolver should be used depends on the structure of the matrix.  A new LinearSolver should be created by invoking static functions inside of LinearSolverFactory.  LinearSolverFactory will select the best algorithm and is will be updated as EJML evolves.
@@ -62,6 +60,9 @@ if( !solver.setA(A) ) {
 
 solver.solve(b,x);
 }}}
+
+
+To handle the situation where a linear solver returns a bad solution and doesn't produce an error the *quality()* function was added.  If supported by the solver, quality() returns a positive number that indicates how solvable the system was.  A value close to zero indicates that it was nearly singular and the solution is prone to numerical rounding error.
 
 == AdjustableLinearSolver ==
 
