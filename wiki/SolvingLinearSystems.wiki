@@ -14,7 +14,7 @@ All linear solvers in EJML assume the input system is not singular or nearly sin
 
 = Solving with CommonOps =
 
-The recommended method for quick development and for novice users is calling CommonOps.solve() or SimpleMatrix.solve().  SimpleMatrix.solve() is a wrapper around CommonOps.solve() and has nearly the same behavior.  Below are examples of how to solve a linear system:
+The recommended method for quick development and for novice users is calling CommonOps.solve() or if using SimpleMatrix calling SimpleMatrix.solve().  Below are examples of how to solve a linear system:
 
 Using DenseMatrix64F:
 {{{
@@ -48,7 +48,23 @@ Note how the above code samples check to see if any errors occurred while trying
 
 = Solving with LinearSolver =
 
-LinearSolver provide an easy to use interface but almost all the power of calling algorithms directly.  Which type of LinearSolver should be used depends on the structure of the matrix.  A new LinearSolver should be created by invoking static functions inside of LinearSolverFactory.  LinearSolverFactory will select the best algorithm and is will be updated as EJML evolves.
+While easy to use solve() has limited functionality and can be inefficient.  An alternative to working direction with matrix decompositions is to use LinearSolvers. The LinearSolver interface is designed to be easy to use and to provide most of the power that using the decompositions directly would provide.  Below is a summary of the interface:
+{{{
+public interface LinearSolver {
+
+    public boolean setA( DenseMatrix64F A );
+
+    public DenseMatrix64F getA();
+
+    public double quality();
+
+    public void solve( DenseMatrix64F B , DenseMatrix64F X );
+
+    public void invert( DenseMatrix64F A_inv );
+}
+}}}
+
+There are several different implementations of LinearSolver for different types of matrices.  A new LinearSolver should be created by invoking static functions inside of LinearSolverFactory.  LinearSolverFactory will select the best algorithm and is will be updated as EJML evolves.
 
 Two steps are required to solve a system with a LinearSolver, as is shown below:
 {{{
@@ -61,8 +77,14 @@ if( !solver.setA(A) ) {
 solver.solve(b,x);
 }}}
 
+Additional functions included in LinearSolver are:
 
-To handle the situation where a linear solver returns a bad solution and doesn't produce an error the *quality()* function was added.  If supported by the solver, quality() returns a positive number that indicates how solvable the system was.  A value close to zero indicates that it was nearly singular and the solution is prone to numerical rounding error.
+  * invert()
+    * Will invert a matrix more efficiently than solve() can.
+  * quality()
+    * Returns a positive number whose magnitude indicates if a solution was generated from a numerically stable system.
+
+Linear solver can also solve for other 'b' matrices using the same 'A'.  As noted earlier solve() can return true and still return garbage results.  If not sure a call to quality() can be used to validate the solution.
 
 == AdjustableLinearSolver ==
 
