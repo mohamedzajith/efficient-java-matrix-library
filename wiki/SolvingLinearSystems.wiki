@@ -74,6 +74,9 @@ if( !solver.setA(A) ) {
   throw new IllegalArgument("Singular matrix");
 }
 
+if( solver.quality() > 1e-8 )
+  throw new IllegalArgument("Nearly singular matrix");
+
 solver.solve(b,x);
 }}}
 
