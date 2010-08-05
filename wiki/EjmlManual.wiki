@@ -5,11 +5,13 @@
 
 EJML is a linear algebra library for Java.  There are three different interfaces that can be used to program in EJML; simple, operator, and algorithm. These interfaces have different design goals and range from being easy to program, but slightly less efficient, to more difficult to program and more efficient.  A combination of example code and tutorials are provided below that introduces a user to working with EJML.  
 
+Runtime performance and control over memory management are two key factors in the design of EJML.  Constant benchmarking and unit tests are part of its development process.  EJML is one of the faster single threaded java libraries.  Its performance relative to other libraries can be found on the [http://code.google.com/p/java-matrix-benchmark/ Java Matrix Benchmark] web page. In the future multi-threaded algorithms might be added.
+
 Detailed Javadoc documentation is provided in almost all the classes.  See the [http://code.google.com/p/efficient-java-matrix-library/ home page] for a link to the latest Javadoc.
 
 == Matrix Data Structures ==
 
-Two different primary matrix classes are provided.  DenseMatrix64F is used by the operator programming interface and is intended for more advanced users who are concerned about writing optimized code.  SimpleMatrix is an easy to use wrapper around DenseMatrix64F that has more limited functionality but removes much of the tedium of working with matrices.  There is no need to choose one over the other since it is easy to switch between the two classes.
+Two different primary matrix classes are provided.  [DenseMatrix64F] is used by the operator programming interface and is intended for more advanced users who are concerned about writing optimized code.  SimpleMatrix is an easy to use wrapper around DenseMatrix64F that has more limited functionality but removes much of the tedium of working with matrices.  There is no need to choose one over the other since it is easy to switch between the two classes.
 
   * [DenseMatrix64F]
   * [SimpleMatrix]
