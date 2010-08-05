@@ -46,10 +46,9 @@ the input matrix.
 
 == Submatrices ==
 
-Several different functions are provided for extracting submatrices.
+A submatrix is a matrix whose elements are a subset of another matrix.  Several different functions are provided for manipulating submatrices.
+
   * extractMatrix : Extracts a rectangular submatrix from the original matrix.
   * extractDiag : Creates a column vector containing just the diagonal elements of the matrix.
   * extractVector : Extracts either an entire row or column.
-
-To insert a matrix (overwrite the elements) into another matrix just use the insertIntoThis() command.
-  * 
+  * insertIntoThis : Inserts the passed in matrix into 'this' matrix.
