@@ -10,7 +10,7 @@ As one might expect, the bottleneck in most applications will be more expensive 
 
 Results are presented using relative runtime plots.  These plots show how fast each interface is relative to the other.  The fastest interface at each matrix size always has a value of one since it can perform the most operations per second.  For more information see the Java Matrix Benchmark [http://code.google.com/p/java-matrix-benchmark/wiki/RuntimePerformanceBenchmark manual here].
 
-Looking at the addition plot, SimpleMatrix runs at about 0.25 times the speed as using DenseMatrix64F for smaller matrices.  When it processes larger matrices it runs at about 0.6 times the speed of the operations interface. This means that for larger matrices it runs relative faster.  For more expensive operations (SVD, solve, matrix multiplication, etc ) it is clear that there is little to no difference in performance when processing matrices that are 30 by 30 or larger.
+Looking at the addition plot, SimpleMatrix runs at about 0.25 times the speed as using DenseMatrix64F for smaller matrices.  When it processes larger matrices it runs at about 0.6 times the speed of the operations interface. This means that for larger matrices it runs relative faster.  For more expensive operations (SVD, solve, matrix multiplication, etc ) it is clear that the difference in performance is not significant for matrices that are 100 by 100 or larger.
 
 EJML is EJML using the operations interface and SEJML is EJML using SimpleMatrix.  
 
