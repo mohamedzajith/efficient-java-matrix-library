@@ -2,11 +2,22 @@
 
 = Introduction = 
 
-SimpleMatrix is a wrapper around the operation interface in EJML that provides a more elegant object oriented way of working with matrices.  It is inspired from Jama and is designed to be significantly easy to program in.  Unlike the operation interface it handles most of the memory management automatically and allows commands to be chained together.  It is possible to early switch between using SimpleMatrix and [DenseMatrix64F DenseMatrix64F].
+SimpleMatrix is an interface that provides an easy to use object oriented way of doing linear algebra.  It is a wrapper around the operation interface in EJML and was originally inspired by [http://math.nist.gov/javanumerics/jama/ Jama].  Unlike the operation interface it handles most of the memory management automatically and allows commands to be chained together.  Switching between SimpleMatrix and [DenseMatrix64F DenseMatrix64F] is easy, enabling the two programming paradigms to be mixed in the same code base.
 
-The typical function in SimpleMatrix takes at least one SimpleMatrix as an input and returns a SimpleMatrix as the output.  None of the input matrices, including the this matrix, are modified during the function call.  There is a slight performance hit when using SimpleMatrix, which is only noticeable when dealing with small matrices.  The is largely due to the need for it to create a new matrix in most of its operations.  
+The typical function in SimpleMatrix takes at least one SimpleMatrix as an input and returns a SimpleMatrix as the output.  None of the input matrices, including the 'this' matrix, are modified during function calls.  There is a slight performance hit when using SimpleMatrix and less control over memory management.  See [SpeedSimpleMatrx] for a study comparing the runtime performance of the two interfaces.  
 
 The following is a brief overview different SimpleMatrix concepts.  More detailed usage examples are provided in the main tutorial [EjmlManual (CLICK HERE)].
+
+
+== Chaining Operations ==
+
+When using SimpleMatrix operations can be chained together.  Chained operations are often easier to read and write.
+{{{
+    public SimpleMatrix process( SimpleMatrix A , SimpleMatrix B ) {
+        return A.transpose().mult(B).scale(12).invert();
+    }
+}}}
+
 
 == Working with DenseMatrix64F ==
 
@@ -23,15 +34,6 @@ To convert a [DenseMatrix64F DenseMatrix64F] into a SimpleMatrix call the wrap()
 A DenseMatrix64F can also be passed into the SimpleMatrix constructor, but this will copy
 the input matrix.
 
-== Chaining Operations ==
-
-When using SimpleMatrix operations can be chained together.  Chained operations are often easier to read and write.
-{{{
-    public SimpleMatrix process( SimpleMatrix A , SimpleMatrix B ) {
-        return A.transpose().mult(B).scale(12).invert();
-    }
-}}}
-
 == Accessors ==
   * get( row , col )
   * set( row , col , value )
@@ -41,3 +43,13 @@ When using SimpleMatrix operations can be chained together.  Chained operations 
     * Returns or sets the value of an element at the specified index.  Useful for vectors and element-wise operations.
   * iterator( boolean rowMajor, int minRow, int minCol, int maxRow, int maxCol )
     * An iterator that iterates through the sub-matrix by row or by column.
+
+== Submatrices ==
+
+Several different functions are provided for extracting submatrices.
+  * extractMatrix : Extracts a rectangular submatrix from the original matrix.
+  * extractDiag : Creates a column vector containing just the diagonal elements of the matrix.
+  * extractVector : Extracts either an entire row or column.
+
+To insert a matrix (overwrite the elements) into another matrix just use the insertIntoThis() command.
+  * 
