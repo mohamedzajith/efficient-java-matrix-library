@@ -11,7 +11,7 @@ EJML provides several different methods for creating, saving, and displaying a m
 
 = Creating a Matrix =
 
-Several different constructors are provided in SimpleMatrix and DenseMatrix64F for creating a matrix.  This allows for easy input from different libraries and formats.  The following example code shows four different ways in which the same matrix can be defined in a constructor. 
+Several different constructors are provided in SimpleMatrix and DenseMatrix64F for creating a matrix.  This allows for easy input from different libraries and formats.  The following example code shows four different ways in which the same matrix can be defined in a constructor.  Equivalent constructors are provided in SimpleMatrix and DenseMatrix64F.
 
 Sample Code:
 {{{
