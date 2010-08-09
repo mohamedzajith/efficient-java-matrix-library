@@ -4,10 +4,10 @@
 
 EJML provides several different methods for creating, saving, and displaying a matrix. A matrix can be saved and loaded from a file, displayed visually in a window, printed to the console, created from raw arrays or strings.  The following describes different ways in which input or output a matrix.
 
-  * [#Creating_a_matrix]
-  * [#Text_Output]
-  * [#File_Input_Output]
-  * [#Visual_Display]
+  * [#Creating_a_matrix Creating a matrix]
+  * [#Text_Output Text output]
+  * [#File_Input_Output File Input/Output]
+  * [#Visual_Display Visually Displaying a Matrix]
 
 = Creating a Matrix =
 
@@ -33,7 +33,7 @@ public static void main( String []args ) {
 }
 }}}
 
-Text Output:
+Output:
 {{{
 Type = dense , numRows = 2 , numCols = 3
  1.000   2.000   3.000  
@@ -68,7 +68,7 @@ public static void main( String []args ) {
 }
 }}}
 
-Text Output:
+Output:
 {{{
 Type = dense , numRows = 2 , numCols = 3
  1.100   2.340   3.354  
@@ -121,6 +121,7 @@ SimpleMatrix Example:
 
 Understanding the state of a matrix from text output can be difficult, especially for large matrices.  To help in these situations a visual way of viewing a matrix is provided in MatrixIO.  By calling MatrixIO.show() a window will be created that shows the matrix.  Positive elements will appear as a shade of red, negative ones as a shade of blue, and zeros as black.  How red or blue an element is depends on its magnitude.
 
+Example Code:
 {{{
     public static void main( String args[] ) {
         DenseMatrix64F A = new DenseMatrix64F(4,4,true,
@@ -136,4 +137,5 @@ Understanding the state of a matrix from text output can be difficult, especiall
     }
 }}}
 
-|| http://efficient-java-matrix-library.googlecode.com/svn/wiki/MatrixInputOutput/small_matrix.gif || http://efficient-java-matrix-library.googlecode.com/svn/wiki/MatrixInputOutput/larger_matrix.gif ||
+Output:
+|| http://efficient-java-matrix-library.googlecode.com/svn/wiki/MatrixInputOutput.attach/small_matrix.gif || http://efficient-java-matrix-library.googlecode.com/svn/wiki/MatrixInputOutput.attach/larger_matrix.gif ||
