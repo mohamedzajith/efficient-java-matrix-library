@@ -1,0 +1,115 @@
+#summary Matrix Input and Output
+
+= Introduction =
+
+EJML provides several different methods for creating, saving, and displaying a matrix. A matrix can be saved and loaded from a file, displayed visually in a window, printed to the console, created from raw arrays or strings.  The following describes different ways in which input or output a matrix.
+
+= Creating a Matrix =
+
+Several different constructors are provided in SimpleMatrix and DenseMatrix64F for creating a matrix.  This allows for easy input from different libraries and formats.  The following example code shows four different ways in which the same matrix can be defined in a constructor. 
+
+Sample Code:
+{{{
+public static void main( String []args ) {
+
+    double []rowMajor = new double[]{1,2,3,4,5,6};
+    double []columnMajor = new double[]{1,4,2,5,3,6};
+    double [][]doubleArray = new double[][]{{1,2,3},{4,5,6}};
+
+    DenseMatrix64F A = new DenseMatrix64F(2,3,true,1,2,3,4,5,6);
+    DenseMatrix64F B = new DenseMatrix64F(2,3,true,rowMajor);
+    DenseMatrix64F C = new DenseMatrix64F(2,3,false,columnMajor);
+    DenseMatrix64F D = new DenseMatrix64F(doubleArray);
+
+    A.print();
+    B.print();
+    C.print();
+    D.print();
+}
+}}}
+
+Text Output:
+{{{
+Type = dense , numRows = 2 , numCols = 3
+ 1.000   2.000   3.000  
+ 4.000   5.000   6.000  
+Type = dense , numRows = 2 , numCols = 3
+ 1.000   2.000   3.000  
+ 4.000   5.000   6.000  
+Type = dense , numRows = 2 , numCols = 3
+ 1.000   2.000   3.000  
+ 4.000   5.000   6.000  
+Type = dense , numRows = 2 , numCols = 3
+ 1.000   2.000   3.000  
+ 4.000   5.000   6.000  
+}}}
+
+= Text Output =
+
+Most common way to output the state of a matrix is by printing its state to the console.  Both SimpleMatrix and DenseMatrix64F provide various print() write the matrix's state to standard out.  These are wrappers around print() functions contained inside of MatrixIO.
+
+Output is done in a row-major floating point format.  The format can be modified by providing a text formatting string that is compatible with printf().
+
+Sample Code:
+{{{
+public static void main( String []args ) {
+    DenseMatrix64F A = new DenseMatrix64F(2,3,true,1.1,2.34,3.35436,4345,59505,0.00001234);
+
+    A.print();
+    System.out.println();
+    A.print("%e");
+    System.out.println();
+    A.print("%10.2f");
+}
+}}}
+
+Text Output:
+{{{
+Type = dense , numRows = 2 , numCols = 3
+ 1.100   2.340   3.354  
+4345.000  59505.000   0.000  
+
+Type = dense , numRows = 2 , numCols = 3
+1.100000e+00 2.340000e+00 3.354360e+00 
+4.345000e+03 5.950500e+04 1.234000e-05 
+
+Type = dense , numRows = 2 , numCols = 3
+      1.10       2.34       3.35 
+   4345.00   59505.00       0.00 
+}}}
+
+= File Input Output =
+
+DenseMatrix64F is a serializable object and is fully compatible with any Java serialization routine.  MatrixIO provides save() and load() functions for saving to and reading from a file.  The matrix is saved as a Java binary serialized object.  SimpleMatrix provides its own function (that are wrappers around MatrixIO) for saving and loading from files.
+
+MatrixIO Example:
+{{{
+    public static void main( String args[] ) {
+        DenseMatrix64F A = new DenseMatrix64F(2,3,true,new double[]{1,2,3,4,5,6});
+
+        try {
+            MatrixIO.save(A,"matrix_file.data");
+            DenseMatrix64F B = MatrixIO.load("matrix_file.data");
+            B.print();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}}}
+
+SimpleMatrix Example:
+{{{
+    public static void main( String args[] ) {
+        SimpleMatrix A = new SimpleMatrix(2,3,true,new double[]{1,2,3,4,5,6});
+
+        try {
+            A.saveToFile("matrix_file.data");
+            SimpleMatrix B = SimpleMatrix.load("matrix_file.data");
+            B.print();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } 
+    }
+}}}
+
+= Visual Display =
