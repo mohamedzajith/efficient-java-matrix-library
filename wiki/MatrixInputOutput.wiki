@@ -4,6 +4,11 @@
 
 EJML provides several different methods for creating, saving, and displaying a matrix. A matrix can be saved and loaded from a file, displayed visually in a window, printed to the console, created from raw arrays or strings.  The following describes different ways in which input or output a matrix.
 
+  * [#Creating_a_matrix]
+  * [#Text_Output]
+  * [#File_Input_Output]
+  * [#Visual_Display]
+
 = Creating a Matrix =
 
 Several different constructors are provided in SimpleMatrix and DenseMatrix64F for creating a matrix.  This allows for easy input from different libraries and formats.  The following example code shows four different ways in which the same matrix can be defined in a constructor. 
@@ -113,3 +118,22 @@ SimpleMatrix Example:
 }}}
 
 = Visual Display =
+
+Understanding the state of a matrix from text output can be difficult, especially for large matrices.  To help in these situations a visual way of viewing a matrix is provided in MatrixIO.  By calling MatrixIO.show() a window will be created that shows the matrix.  Positive elements will appear as a shade of red, negative ones as a shade of blue, and zeros as black.  How red or blue an element is depends on its magnitude.
+
+{{{
+    public static void main( String args[] ) {
+        DenseMatrix64F A = new DenseMatrix64F(4,4,true,
+                0,2,3,4,-2,0,2,3,-3,-2,0,2,-4,-3,-2,0);
+
+        MatrixIO.show(A,"Small Matrix");
+
+        DenseMatrix64F B = new DenseMatrix64F(25,50);
+        for( int i = 0; i < 25; i++ )
+            B.set(i,i,i+1);
+
+        MatrixIO.show(B,"Larger Diagonal Matrix");
+    }
+}}}
+
+|| http://efficient-java-matrix-library.googlecode.com/svn/wiki/MatrixInputOutput/small_matrix.gif || http://efficient-java-matrix-library.googlecode.com/svn/wiki/MatrixInputOutput/larger_matrix.gif ||
