@@ -34,6 +34,7 @@ See examples/src/PrincipleComponentAnalysis.java in EJML's source code.
  * 2) For each sample (e.g. an image ) call addSample()<br>
  * 3) After all the samples have been added call computeBasis()<br>
  * 4) Call  sampleToEigenSpace() , eigenToSampleSpace() , errorMembership() , response()
+ * </p>
  *
  * @author Peter Abeles
  */
