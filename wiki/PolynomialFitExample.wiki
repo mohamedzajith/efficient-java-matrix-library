@@ -1,4 +1,5 @@
 #summary Example of how to fit a polynomial to data.
+#labels example
 
 = Introduction =
 
