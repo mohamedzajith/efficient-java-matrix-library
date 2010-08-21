@@ -36,7 +36,7 @@ Each example code, provided below, is fully operational and included with EJML's
     * Extract and insert using simple and operator interfaces.
     * Easy to understand example of an important decomposition in linear algebra.
  # [PrincipleComponentAnalysisExample Principle Component Analysis]
-    * Simple example of popular application of linear algebra.
+    * Simple example of a popular application of linear algebra.
 
 == Tutorials ==
 
