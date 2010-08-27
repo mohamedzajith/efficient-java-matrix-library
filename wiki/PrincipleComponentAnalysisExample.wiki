@@ -3,7 +3,7 @@
 
 = Introduction =
 
-Principle Component Analysis (PCA) is popular and simple to implement classification technique, often used in face recognition.  The following is an example of how to implement it in EJML.  It is assumed that the reader is already familiar with PCA.
+Principle Component Analysis (PCA) is a popular and simple to implement classification technique, often used in face recognition.  The following is an example of how to implement it in EJML.  It is assumed that the reader is already familiar with PCA.
 
 See examples/src/PrincipleComponentAnalysis.java in EJML's source code.
 
