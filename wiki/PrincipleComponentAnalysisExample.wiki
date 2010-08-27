@@ -7,6 +7,9 @@ Principle Component Analysis (PCA) is popular and simple to implement classifica
 
 See examples/src/PrincipleComponentAnalysis.java in EJML's source code.
 
+For additional information on PCA:
+  * [http://en.wikipedia.org/wiki/Principal_component_analysis General information on Wikipedia]
+
 = Sample Code =
 
 {{{
@@ -95,7 +98,8 @@ public class PrincipleComponentAnalysis {
     /**
      * Computes a basis (the principle components) from the most dominant eigenvectors.
      *
-     * @param numComponents Number of vectors it will use to describe the data.
+     * @param numComponents Number of vectors it will use to describe the data.  Typically much
+     * smaller than the number of elements in the input vector.
      */
     public void computeBasis( int numComponents ) {
         if( numComponents > A.getNumCols() )
