@@ -27,17 +27,26 @@ SimpleMatrix.EVD evd = A.eig();
 
 SimpleMatrix U = svd.getU();
 }}}
-Other decompositions can be performed by using the internal DenseMatrix64F (accessed using A.getMatrix() ) and processed using a decomposition from DecompositionFactory.
+where A is a SimpleMatrix.
 
 As with most operators in SimpleMatrix, it is possible to chain a decompositions with other commands.  For instance, to print the singular values in a matrix:
 {{{
 A.svd().getW().extractDiag().transpose().print();
 }}}
-To accomplish the same task using DenseMatrix64F would require several lines of code.
+
+Other decompositions can be performed by using accessing the internal DenseMatrix64F and using the decompositions shown in the following section below.  The following is an example of applying a Cholesky decomposition.
+{{{
+CholeskyDecomposition chol = DecompositionFactory.chol();
+    
+if( !chol.decompose(A.getMatrix()))
+   throw new RuntimeException("Cholesky failed!");
+        
+SimpleMatrix L = SimpleMatrix.wrap(chol.getT(null));
+}}}
 
 = DecompositionFactory =
 
-The best way to create a matrix decomposition is by using DecompositionFactory.  Internally there are several implementations of the same decomposition that are optimized for different matrix sizes.  Unless you really know what you are doing, read the JavaDoc and go through the code, chances are you will a slow implementation for your application.
+The best way to create a matrix decomposition is by using DecompositionFactory.  Directly instantiating a decomposition is discouraged because there are several implementations of the same decomposition that are optimized for different matrix sizes and new ones are still being added.  Unless you really know what you are doing, read the JavaDoc and go through the code, chances are you will pick a slow implementation for your application or a faster one will be added in the future which your code will not be automatically using.
 
 {{{
 public interface DecompositionInterface {
