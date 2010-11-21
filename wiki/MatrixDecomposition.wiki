@@ -37,21 +37,34 @@ To accomplish the same task using DenseMatrix64F would require several lines of 
 
 = DecompositionFactory =
 
-The best way to create a matrix decomposition is by using DecompositionFactory.  It is not uncommon for there to be multiple algorithms in EJML that perform the same decomposition.  These are most often optimized for different input matrix size or specialized cases.  Unless you really know what you are doing, read the JavaDoc and go through the code, chances are you will pick the wrong algorithm.
+The best way to create a matrix decomposition is by using DecompositionFactory.  Internally there are several implementations of the same decomposition that are optimized for different matrix sizes.  Unless you really know what you are doing, read the JavaDoc and go through the code, chances are you will a slow implementation for your application.
 
 {{{
 public interface DecompositionInterface {
     /**
-     * Computes and stores internally the decomposition of the provided matrix.
+     * Computes the decomposition of the input matrix.  Depending on the implementation
+     * the input matrix might be stored internally or modified.  If it is modified then
+     * the function {@link #inputModified()} will return true and the matrix should not be
+     * modified until the decomposition is no longer needed.
      *
-     * @param orig The matrix which is being decomposed.  Not modified.
+     * @param orig The matrix which is being decomposed.  Modification is implementation dependent.
      * @return Returns if it was able to decompose the matrix.
      */
     public boolean decompose( DenseMatrix64F orig );
+
+    /**
+     * Is the input matrix to {@link #decompose(org.ejml.data.DenseMatrix64F)} is modified during
+     * the decomposition process.
+     *
+     * @return true if the input matrix to decompose() is modified.
+     */
+    public boolean inputModified();
 }
 }}}
 
 Most decompositions in EJML implement DecompositionInterface.  To decompose the matrix simply call decompose(A), where A is the matrix being decomposed.  It returns true if there was no error while decomposing and false otherwise.  While in general you can trust the results if true is returned some algorithms can have faults that are not reported.  This is true for all linear algebra libraries.
+
+To minimize memory usage, most decompositions will modify the original matrix passed into decompose().  Call inputModified() to determine if the input matrix is modified or not.  If it is modified, and you do not wish it to be modified, just pass in a copy of the original instead.
 
 Below is an example of how to compute the SVD of a matrix:
 {{{
