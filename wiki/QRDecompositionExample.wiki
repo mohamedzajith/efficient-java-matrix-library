@@ -38,12 +38,12 @@ public class QRExampleSimple {
 
         for( int i = 0; i < N; i++ ) {
             // use extract matrix to get the column that is to be zeroed
-            SimpleMatrix v = QR.extractMatrix(i, END,i,i);
+            SimpleMatrix v = QR.extractMatrix(i, END,i,i+1);
             double max = v.elementMaxAbs();
 
             if( max > 0 && v.getNumElements() > 1 ) {
                 // normalize to reduce overflow issues
-                v = v.elementDiv(max);
+                v = v.divide(max);
 
                 // compute the magnitude of the vector
                 double tau = v.normF();
@@ -54,7 +54,7 @@ public class QRExampleSimple {
                 double u_0 = v.get(0) + tau;
                 double gamma = u_0/tau;
 
-                v = v.elementDiv(u_0);
+                v = v.divide(u_0);
                 v.set(0,1.0);
 
                 // extract the submatrix of A which is being operated on
@@ -65,7 +65,7 @@ public class QRExampleSimple {
 
                 // save the results
                 QR.insertIntoThis(i,i,A_small);
-                QR.insertIntoThis(i+1,i,v.extractMatrix(1,END,0,0));
+                QR.insertIntoThis(i+1,i,v.extractMatrix(1,END,0,1));
 
                 // save gamma for recomputing Q later on
                 gammas[i] = gamma;
@@ -85,7 +85,7 @@ public class QRExampleSimple {
         // columns of QR and then applying it to Q
         for( int j = N-1; j>= 0; j-- ) {
             SimpleMatrix u = new SimpleMatrix(QR.numRows(),1);
-            u.insertIntoThis(j,0,QR.extractMatrix(j, END,j,j));
+            u.insertIntoThis(j,0,QR.extractMatrix(j, END,j,j+1));
             u.set(j,1.0);
 
             // A = (I - &gamma;*u*u<sup>T</sup>)*A<br>
@@ -153,13 +153,13 @@ public class QRExampleOps {
             Q_k.reshape(v.getNumElements(),v.getNumElements(),false);
 
             // use extract matrix to get the column that is to be zeroed
-            CommonOps.extract(QR,i,QR.numRows-1,i,i,v,0,0);
+            CommonOps.extract(QR,i,QR.numRows,i,i+1,v,0,0);
 
             double max = CommonOps.elementMaxAbs(v);
 
             if( max > 0 && v.getNumElements() > 1 ) {
                 // normalize to reduce overflow issues
-                CommonOps.div(max,v);
+                CommonOps.divide(max,v);
 
                 // compute the magnitude of the vector
                 double tau = NormOps.normF(v);
@@ -170,11 +170,11 @@ public class QRExampleOps {
                 double u_0 = v.get(0) + tau;
                 double gamma = u_0/tau;
 
-                CommonOps.div(u_0,v);
+                CommonOps.divide(u_0,v);
                 v.set(0,1.0);
 
                 // extract the submatrix of A which is being operated on
-                CommonOps.extract(QR,i,QR.numRows-1,i,QR.numCols-1,A_small,0,0);
+                CommonOps.extract(QR,i,QR.numRows,i,QR.numCols,A_small,0,0);
 
                 // A = (I - &gamma;*u*u<sup>T</sup>)A
                 CommonOps.setIdentity(Q_k);
@@ -184,7 +184,7 @@ public class QRExampleOps {
                 // save the results
                 CommonOps.insert(A_mod, QR, i,i);
                 CommonOps.insert(v, QR, i,i);
-                QR.set(i,i,-tau*max);
+                QR.unsafe_set(i,i,-tau*max);
 
                 // save gamma for recomputing Q later on
                 gammas[i] = gamma;
@@ -210,7 +210,7 @@ public class QRExampleOps {
             if( j + 1 < N )
                 u.set(j+1,0);
 
-            CommonOps.extract(QR,j, QR.numRows-1,j,j,u,j,0);
+            CommonOps.extract(QR,j, QR.numRows,j,j+1,u,j,0);
             u.set(j,1.0);
 
             // A = (I - &gamma;*u*u<sup>T</sup>)*A<br>
@@ -233,7 +233,7 @@ public class QRExampleOps {
 
         for( int i = 0; i < N; i++ ) {
             for( int j = i; j < QR.numCols; j++ ) {
-                R.set(i,j, QR.get(i,j));
+                R.unsafe_set(i,j, QR.unsafe_get(i,j));
             }
         }
 
