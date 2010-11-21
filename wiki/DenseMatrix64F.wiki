@@ -11,6 +11,9 @@ The operator interface in EJML works with DenseMatrix64F and is designed to enab
   * get( row , col )
   * set( row , col , value )
     * Returns or sets the value of an element at the specified row and column.
+  * unsafe_get( row , col )
+  * unsafe_set( row , col , value )
+    * Faster version of get() or set() that does not perform bounds checking.
   * get( index )
   * set( index )
     * Returns or sets the value of an element at the specified index.  Useful for vectors and element-wise operations.
