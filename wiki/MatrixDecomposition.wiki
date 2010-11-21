@@ -12,9 +12,9 @@ In linear algebra a matrix decomposition is often used as an intermediate step w
 
 Additional decompositions are provided, but they are primarily used internally and have less common usage.  Specialized helper functions are provided for SVD and EVD.
 
-= Comment on Solving Linear Systems =
+= Solving Using Matrix Decompositions =
 
-Decompositions such as LU and QR are most commonly used to solve a linear system.  A common mistake when solving linear systems in EJML is to directly decompose  the matrix instead of using a LinearSolver.  LinearSolvers significantly simplify the process of solving a linear system and will automatically be updated as new algorithms are added.
+Decompositions such as LU and QR are most commonly used to solve a linear system.  A common mistake in EJML is to directly decompose the matrix instead of using a LinearSolver.  LinearSolvers significantly simplify the process of solving a linear system and will automatically be updated as new algorithms are added.
 
 For more information on LinearSolvers see the wikipage at [SolvingLinearSystems].
 
