@@ -9,6 +9,8 @@ Runtime performance and control over memory management are two key factors in th
 
 Detailed Javadoc documentation is provided in almost all the classes.  See the [http://code.google.com/p/efficient-java-matrix-library/ home page] for a link to the latest Javadoc.
 
+For its history and acknowledgements click [AcknowledgementsHistory HERE.]
+
 == Matrix Data Structures ==
 
 Two different primary matrix classes are provided.  [DenseMatrix64F] is used by the operator programming interface and is intended for more advanced users who are concerned about writing optimized code.  SimpleMatrix is an easy to use wrapper around DenseMatrix64F that has more limited functionality but removes much of the tedium of working with matrices.  There is no need to choose one over the other since it is easy to switch between the two classes.
