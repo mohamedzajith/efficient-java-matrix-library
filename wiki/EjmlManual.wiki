@@ -24,7 +24,7 @@ A comparison of runtime performance for different operations between SimpleMatri
 
 == Example Code ==
 
-Each example code, provided below, is fully operational and included with EJML's source code in the example directory.  They are designed to show off different concepts and provide insight into how EJML can be used to its full potential.
+Each example code, provided below, is fully operational and included with EJML's source code in the example directory.  They are designed to show off different concepts and provide insight into how EJML can be used to its full potential.  Full source code to all of these examples can be found in the "trunk/examples/" directory.
 
  # [KalmanFilterExamples Kalman Filter].
     * Example of using simple, operator, and algorithm interfaces.
