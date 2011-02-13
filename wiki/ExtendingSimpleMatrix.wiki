@@ -2,9 +2,9 @@
 
 [SimpleMatrix] provides an easy to use object oriented way of doing linear algebra.  There are many other problems which use matrices and could use SimpleMatrix's functionality.  In those situations it is desirable to simply extend SimpleMatrix and add additional functions as needed.
 
-Naively extending SimpleMatrix is problematic because internally SimpleMatrix creates new matrices and its functions returned objects of the wrong type.  To get around these problems, instead SimpleBase should be extended and its abstract functions implemented.  SimpleBase provides all the core functionality of SimpleMatrix, with the exception of its static functions.
+Naively extending SimpleMatrix is problematic because internally SimpleMatrix creates new matrices and its functions returned objects of the wrong type.  To get around these problems, instead SimpleBase should be extended and its abstract functions implemented.  SimpleBase provides all the core functionality of SimpleMatrix, with the exception of its static functions.  Using generics strong typing is maintained and by overloading "createMatrix( int numRows , int numCols )" the returned matrices will be the correct type.
 
-An example is provided below where a new class called StatisticsMatrix is created that adds statistical functions to SimpleMatrix.  Usage examples are provided in its main() function.  Note how strong typing is maintained through the use of generics.
+An example is provided below where a new class called StatisticsMatrix is created that adds statistical functions to SimpleMatrix.  Usage examples are provided in its main() function.
 
 {{{
 /**
