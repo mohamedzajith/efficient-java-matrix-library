@@ -93,6 +93,8 @@ public class KalmanFilterSimple implements KalmanFilter{
 == Ops Example ==
 
 {{{
+import static org.ejml.ops.CommonOps.*;
+
 /**
  * A Kalman filter is implemented by calling the generalized operations.  Much of the excessive
  * memory creation/destruction has been reduced from the KalmanFilterSimple.  However, there
@@ -226,7 +228,7 @@ public class KalmanFilterAlg implements KalmanFilter{
     private DenseMatrix64F y,S,S_inv,c,d;
     private DenseMatrix64F K;
 
-    private LinearSolver solver;
+    private LinearSolver<DenseMatrix64F> solver;
 
     @Override
     public void configure(DenseMatrix64F F, DenseMatrix64F Q, DenseMatrix64F H) {
@@ -246,8 +248,12 @@ public class KalmanFilterAlg implements KalmanFilter{
         d = new DenseMatrix64F(dimenX,dimenZ);
         K = new DenseMatrix64F(dimenX,dimenZ);
 
-        CholeskyDecomposition chol = DecompositionFactory.chol(dimenX,false,true);
-        solver = new LinearSolverChol((CholeskyDecompositionCommon)chol);
+        // covariance matrices are symmetric positive semi-definite
+        solver = LinearSolverFactory.symmPosDef(dimenX);
+        // wrap the solver so that it doesn't modify the input
+//        solver = new LinearSolverSafe<DenseMatrix64F>(solver);
+        // A little bit more performance can be gained by letting S be modified.  In some
+        // applications S should not be modified.
 
         x = new DenseMatrix64F(dimenX,1);
         P = new DenseMatrix64F(dimenX,dimenX);
