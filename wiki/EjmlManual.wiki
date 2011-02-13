@@ -13,7 +13,7 @@ For its history and acknowledgements click [AcknowledgementsHistory HERE.]
 
 == Matrix Data Structures ==
 
-Two different primary matrix classes are provided.  [DenseMatrix64F] is used by the operator programming interface and is intended for more advanced users who are concerned about writing optimized code.  SimpleMatrix is an easy to use wrapper around DenseMatrix64F that has more limited functionality but removes much of the tedium of working with matrices.  There is no need to choose one over the other since it is easy to switch between the two classes.
+Several different matrix data structures are provided in EJML, but only two are of interest to most users.  [DenseMatrix64F] is used by the operator programming interface and is intended for use by users who require tight control over memory and are concerned about writing optimized code.  SimpleMatrix is an easy to use wrapper around DenseMatrix64F that has more limited functionality but removes much of the tedium of working with matrices.  There is no need to choose one over the other since it is easy to switch between the two classes.
 
   * [DenseMatrix64F]
   * [SimpleMatrix]
@@ -21,6 +21,9 @@ Two different primary matrix classes are provided.  [DenseMatrix64F] is used by 
 A comparison of runtime performance for different operations between SimpleMatrix and using the operations interface is provided here:
 
   * [SpeedSimpleMatrix SimpleMatrix versus Operator Interface Speed Comparison]
+  * SimpleMatrix versus Operator Interface Memory Usage Comparison
+
+Internally EJML will switch to BlockMatrix64F for very large matrices.  Many of the same functions that are provided for DenseMatrix64F are also provided for this matrix type.  While there is some benefit in terms of reduced memory foot print to using BlockMatrix64F directly, because of the added complexity it's use is not recommended.
 
 == Example Code ==
 
@@ -39,6 +42,8 @@ Each example code, provided below, is fully operational and included with EJML's
     * Easy to understand example of an important decomposition in linear algebra.
  # [PrincipleComponentAnalysisExample Principle Component Analysis]
     * Simple example of a popular application of linear algebra.
+ # [ExtendingSimpleMatrix Extending Simple Matrix]
+    * Shows how SimpleMatrix can be extended to increase its functionality in different domains.
 
 == Tutorials ==
 
