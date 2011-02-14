@@ -23,7 +23,6 @@ Several different matrix data structures are provided in EJML, but only two are 
 A comparison of runtime performance for different operations between SimpleMatrix and using the operations interface is provided here:
 
   * [SpeedSimpleMatrix SimpleMatrix versus Operator Interface Speed Comparison]
-  * SimpleMatrix versus Operator Interface Memory Usage Comparison
 
 Internally EJML will switch to BlockMatrix64F for very large matrices.  Many of the same functions that are provided for DenseMatrix64F are also provided for this matrix type.  While there is some benefit in terms of reduced memory foot print to using BlockMatrix64F directly, because of the added complexity it's use is not recommended.
 
