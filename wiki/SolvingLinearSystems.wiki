@@ -2,7 +2,7 @@
 
 = Introduction =
 
-Solving linear systems are a fundamental problem in linear algebra.  A linear system is any system than can be expressed in this format:
+Solving a system of linear equations is the fundamental problem in linear algebra.  A linear system is any system than can be expressed in this format:
 
 _A_*_x_ = _b_
 
@@ -10,9 +10,9 @@ where _A_ is m by n, _x_ is n by o, and _b_ is m by o.  Most of the time o=1.  T
 
 In EJML the easiest way to solve a linear system is by calling CommonOps.solve() when using DenseMatrix64 or SimpleMatrix.solve().  LinearSolvers can be used if more knowledge is available about the type of matrix and/or more control is needed over memory.  It is also possible to directly call decomposition algorithms, but this technique is not recommended since it requires much more knowledge about the algorithms and the specific implementation used.
 
-All linear solvers in EJML assume the input system is not singular or nearly singular.  Such systems do not have a single solution and require other techniques to extract a solution.  Just because a solver does not report an error does not mean it did not fail, depending on the algorithm being used.  This is true for virtually all linear algebra libraries.  In fact EJML does a better job of reporting failures than all other libraries tested in [http://code.google.com/p/java-matrix-benchmark/ java matrix benchmark].  Typically if an unreported failure occurs the matrix will contain uncountable elements.  This can be checked by invoking MatrixFeatures.hasUncountable().  A solution can be checked using LinearSolver.quality() too.
+Linear solvers will in general fail to produce a meaning full solution if the 'A' matrix is singular.  When 'A' is singular then there is an infinite number of solutions. This failure might be detected or it might not.  In fact EJML does a better job of reporting failures than all other libraries tested in [http://code.google.com/p/java-matrix-benchmark/ java matrix benchmark].  Depending on which interface is used to solve the system, there are different ways to check for this degenerate case.  These are discussed below.
 
-= Solving with CommonOps =
+= Solving with CommonOps and SimpleMatrix =
 
 The recommended method for quick development and for novice users is calling CommonOps.solve() or if using SimpleMatrix calling SimpleMatrix.solve().  Below are examples of how to solve a linear system:
 
@@ -44,23 +44,27 @@ try {
 
 }}}
 
-Note how the above code samples check to see if any errors occurred while trying to solve the system.  As previously mentioned it is possible for no error to be reported and yet have a bad solution.
+*NOTE* while there is error checking above for singular matrices, these will not catch "nearly" singular systems.  If it is not known before hand if 'A' is singular or not then using a LinearSolver instead should be considered.  An alternative approach that is commonly used is to compute the SVD of the system and to check the magnitude of the smallest singular value.  Computing the SVD is expensive.
 
 = Solving with LinearSolver =
 
-While easy to use solve() has limited functionality and can be inefficient.  An alternative to working direction with matrix decompositions is to use LinearSolvers. The LinearSolver interface is designed to be easy to use and to provide most of the power that using the decompositions directly would provide.  Below is a summary of the interface:
+While it is easier to use CommonOps.solve(), that function has limited capabilities and can be inefficient.  If more control is needed or the system might be singular then LinearSolvers should be used. The LinearSolver interface is designed to be easy to use and to provide most of the power that comes from using decompositions directly would provide.  Below is a summary of the interface:
 {{{
-public interface LinearSolver {
+public interface LinearSolver< T extends Matrix64F> {
 
-    public boolean setA( DenseMatrix64F A );
+    public boolean setA( T A );
 
-    public DenseMatrix64F getA();
+    public T getA();
 
     public double quality();
 
-    public void solve( DenseMatrix64F B , DenseMatrix64F X );
+    public void solve( T B , T X );
 
-    public void invert( DenseMatrix64F A_inv );
+    public void invert( T A_inv );
+
+    public boolean modifiesA();
+
+    public boolean modifiesB();
 }
 }}}
 
@@ -68,7 +72,7 @@ There are several different implementations of LinearSolver for different types 
 
 Two steps are required to solve a system with a LinearSolver, as is shown below:
 {{{
-LinearSolver solver = LinearSolverFactory.leastSquares();
+LinearSolver<DenseMatrix64F> solver = LinearSolverFactory.leastSquares();
 
 if( !solver.setA(A) ) {
   throw new IllegalArgument("Singular matrix");
@@ -80,14 +84,22 @@ if( solver.quality() <= 1e-8 )
 solver.solve(b,x);
 }}}
 
+
 Additional functions included in LinearSolver are:
 
   * invert()
     * Will invert a matrix more efficiently than solve() can.
   * quality()
-    * Returns a positive number whose magnitude indicates if a solution was generated from a numerically stable system.
+    * Returns a positive number which if it is small indicates a singular or nearly singular system system.  Much faster to compute than the SVD.
+  * modifiesA() and modifiesB()
+    * To reduce memory requirements, most LinearSolvers will modify the 'A' and store the decomposition inside of it.  Some do the same for 'B'  These function tell the user if the inputs are being modified or not.
 
-Linear solver can also solve for other 'b' matrices using the same 'A'.  As noted earlier solve() can return true and still return garbage results.  If not sure a call to quality() can be used to validate the solution.
+If the input matrices 'A' and 'B' should not be modified then LinearSolverSafe is a convenient way to ensure that precondition:
+{{{
+   LinearSolver<DenseMatrix64F> solver = LinearSolverFactory.leastSquares();
+   solver = new LinearSolverSafe<DenseMatrix64F>(solver);
+}}}
+
 
 == AdjustableLinearSolver ==
 
