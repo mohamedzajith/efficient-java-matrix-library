@@ -53,3 +53,4 @@ A submatrix is a matrix whose elements are a subset of another matrix.  Several 
   * extractDiag : Creates a column vector containing just the diagonal elements of the matrix.
   * extractVector : Extracts either an entire row or column.
   * insertIntoThis : Inserts the passed in matrix into 'this' matrix.
+  * combine : Creates a now matrix that is a combination of the two inputs.
