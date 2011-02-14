@@ -22,8 +22,8 @@ For more information on LinearSolvers see the wikipage at [SolvingLinearSystems]
 
 SimpleMatrix has easy to an use interface built in for SVD and EVD:
 {{{
-SimpleMatrix.SVD svd = A.svd();
-SimpleMatrix.EVD evd = A.eig();
+SimpleSVD svd = A.svd();
+SimpleEVD evd = A.eig();
 
 SimpleMatrix U = svd.getU();
 }}}
@@ -36,7 +36,7 @@ A.svd().getW().extractDiag().transpose().print();
 
 Other decompositions can be performed by using accessing the internal DenseMatrix64F and using the decompositions shown in the following section below.  The following is an example of applying a Cholesky decomposition.
 {{{
-CholeskyDecomposition chol = DecompositionFactory.chol();
+CholeskyDecomposition<DenseMatrix64F> chol = DecompositionFactory.chol(A.numRows(),true);
     
 if( !chol.decompose(A.getMatrix()))
    throw new RuntimeException("Cholesky failed!");
@@ -46,10 +46,10 @@ SimpleMatrix L = SimpleMatrix.wrap(chol.getT(null));
 
 = DecompositionFactory =
 
-The best way to create a matrix decomposition is by using DecompositionFactory.  Directly instantiating a decomposition is discouraged because there are several implementations of the same decomposition that are optimized for different matrix sizes and new ones are still being added.  Unless you really know what you are doing, read the JavaDoc and go through the code, chances are you will pick a slow implementation for your application or a faster one will be added in the future which your code will not be automatically using.
+The best way to create a matrix decomposition is by using DecompositionFactory.  Directly instantiating a decomposition is discouraged because of the added complexity.  DecompositionFactory is updated as new and faster algorithms are added. 
 
 {{{
-public interface DecompositionInterface {
+public interface DecompositionInterface<T extends Matrix64F> {
     /**
      * Computes the decomposition of the input matrix.  Depending on the implementation
      * the input matrix might be stored internally or modified.  If it is modified then
@@ -59,7 +59,7 @@ public interface DecompositionInterface {
      * @param orig The matrix which is being decomposed.  Modification is implementation dependent.
      * @return Returns if it was able to decompose the matrix.
      */
-    public boolean decompose( DenseMatrix64F orig );
+    public boolean decompose( T orig );
 
     /**
      * Is the input matrix to {@link #decompose(org.ejml.data.DenseMatrix64F)} is modified during
@@ -78,7 +78,7 @@ To minimize memory usage, most decompositions will modify the original matrix pa
 Below is an example of how to compute the SVD of a matrix:
 {{{
     void decompositionExample( DenseMatrix64F A ) {
-        SingularValueDecomposition svd = DecompositionFactory.svd();
+        SingularValueDecomposition<DenseMatrix64F> svd = DecompositionFactory.svd(A.numRows,A.numCols);
 
         if( !svd.decompose(A) )
             throw new RuntimeException("Decomposition failed");
