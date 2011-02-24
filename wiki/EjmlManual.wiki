@@ -52,7 +52,7 @@ When working with EJML it is often best to use factories instead of directly cal
  # [MatrixDecomposition Matrix Decompositions]
  # Random matrices, Matrix Features, and Matrix Norms
  # [MatrixInputOutput Matrix Input/Output]
- # Unit Testing
+ # [Unit Testing UnitTests]
 
 = Building =
 
