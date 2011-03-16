@@ -57,7 +57,7 @@ When working with EJML it is often best to use factories instead of directly cal
 
 = Building =
 
-EJML can be easily compiled using any IDE (e.g. Eclipse or Intellij) or by using the provided ant scripts.  To build using ant first make sure ant is installed.  Once ant is installed the project can be build by going into the commandline, changing into the project's main directory, and typing "ant".  In Linux or Windows you should see output that looks like:
+EJML can be easily compiled using any IDE (e.g. Eclipse or IntelliJ) or by using the provided ant scripts.  To build using ant first make sure ant is installed.  Once ant is installed the project can be build by going into the commandline, changing into the project's main directory, and typing "ant".  In Linux or Windows you should see output that looks like:
 {{{
 pja@silent:ejml$ ant
 Buildfile: build.xml
@@ -80,3 +80,5 @@ Total time: 3 seconds
 }}}
 
 Once it has been built the jar can be moved from "build/jar/EJML.jar" to a convenient location in your own project.
+
+In some embedded applications there is no GUI or in the case of Android AWT is not supported.  To create a jar which has no reference to any GUI code type "ant nogui" and find the jar at "build/jar/EJML-nogui.jar".  *NOTE: CURRENTLY THIS FEATURE IS ONLY AVAILABLE IN SVN CODE"
