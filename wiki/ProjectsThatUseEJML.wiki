@@ -1,0 +1,13 @@
+#summary A list of projects that use EJML
+
+Here is a list of known projects that use EJML:
+
+  * goGPS: http://code.google.com/p/gogps/
+  * Set Visualiser: http://www-edc.eng.cam.ac.uk/tools/set_visualiser/
+  * Universal Java Matrix Library (UJML): http://www.ujmp.org/
+  * Scalalab: http://code.google.com/p/scalalab/
+  * Java Content Based Image Retrieval (JCBIR): http://code.google.com/p/jcbir/
+  * JLabGroovy: http://code.google.com/p/jlabgroovy/
+  * JquantLib (Will be added): http://www.jquantlib.org/
+
+If you like to add yours to the list leave a comment below!
