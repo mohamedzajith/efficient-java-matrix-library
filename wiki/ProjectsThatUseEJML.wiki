@@ -1,6 +1,6 @@
 #summary A list of projects that use EJML
 
-Here is a list of known projects that use EJML:
+Here is a list of known projects that use EJML. If you like to add yours to the list leave a comment below!
 
   * goGPS: http://code.google.com/p/gogps/
   * Set Visualiser: http://www-edc.eng.cam.ac.uk/tools/set_visualiser/
@@ -10,4 +10,17 @@ Here is a list of known projects that use EJML:
   * JLabGroovy: http://code.google.com/p/jlabgroovy/
   * JquantLib (Will be added): http://www.jquantlib.org/
 
-If you like to add yours to the list leave a comment below!
+Papers Cited:
+
+  * http://geomatica.como.polimi.it/presentazioni/Osaka_Summer_goGPS.pdf
+  * http://www.holger-arndt.de/library/MLOSS2010.pdf
+  * http://www.ateji.com/px/whitepapers/Ateji%20PX%20MatMult%20Whitepaper%20v1.2.pdf
+
+Note: An EJML paper has yet to be written.  This will hopefully be fixed soon.
+
+On The Web:
+  * http://code.google.com/p/java-matrix-benchmark/
+  * http://java.dzone.com/announcements/introduction-efficient-java
+  * https://shakthydoss.wordpress.com/2011/01/13/jama-shortcoming/
+  * http://measuringmeasures.com/blog/2010/3/28/matrix-benchmarks-fast-linear-algebra-on-the-jvm.html
+  * Various questions on stackoverflow.com
