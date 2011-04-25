@@ -5,7 +5,7 @@
 
 EJML is a linear algebra library for Java.  There are three different interfaces that can be used to program in EJML; simple, operator, and algorithm. These interfaces have different design goals and range from being easy to program, but slightly less efficient, to more difficult to program and more efficient.  A combination of example code and tutorials are provided below that introduces a user to working with EJML.  
 
-Runtime performance and control over memory management are two key factors in the design of EJML.  Constant benchmarking and unit tests are part of its development process.  EJML is one of the faster single threaded java libraries.  Its performance relative to other libraries can be found on the [http://code.google.com/p/java-matrix-benchmark/ Java Matrix Benchmark] web page. In the future multi-threaded algorithms might be added.  Rigorous testing for numerical stability done using internal benchmarks as well as Java Matrix Benchmark.
+Runtime performance and control over memory management are two key factors in the design of EJML.  Constant benchmarking and unit tests are part of its development process.  EJML is one of the faster single threaded java libraries.  Its performance relative to other libraries can be found on the [http://code.google.com/p/java-matrix-benchmark/ Java Matrix Benchmark] web page. In the future multi-threaded algorithms might be added.  Rigorous testing for numerical stability is done using internal benchmarks as well as Java Matrix Benchmark.
 
 Detailed Javadoc documentation is provided in almost all the classes.  See the [http://code.google.com/p/efficient-java-matrix-library/ home page] for a link to the latest Javadoc.
 
