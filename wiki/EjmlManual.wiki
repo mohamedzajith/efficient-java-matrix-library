@@ -50,7 +50,7 @@ When working with EJML it is often best to use factories instead of directly cal
 
  # [SolvingLinearSystems Solving Linear Systems]
  # [MatrixDecomposition Matrix Decompositions]
- # Random matrices, Matrix Features, and Matrix Norms
+ # [random_matrices Random matrices, Matrix Features, and Matrix Norms]
  # Extracting and Inserting submatrices and vectors
  # [MatrixInputOutput Matrix Input/Output]
  # [UnitTests Unit Testing]
