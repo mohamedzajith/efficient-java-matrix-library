@@ -1,6 +1,5 @@
 #summary How to create random matrices, compute matrix features, and matrix norms.
 
-
 == Random Matrices ==
 
 Random matrices and vectors are used extensively in Monti Carlo methods, simulations, and testing.  There are many different types of ways in which an matrix can be randomized.  For example, each element can be independent variables or the rows/columns are independent orthogonal vectors. EJML provides built in methods for creating a variety types of random matrices.   
@@ -58,18 +57,18 @@ Norms are a measure of the size of a vector or a matrix.  One typical applicatio
 
 Vector norms have the following properties:
   
- # ||x|| > 0 if x &ne; 0 and ||0|| = 0
- # ||&alpha;x|| = |&alpha;| ||x||
- # ||x+y|| &le; ||x|| + ||y||
+ # |x| > 0 if x != 0 and |0|= 0
+ # |a*x| = |a| |x|
+ # |x+y| <= |x| + |y|
 
 Matrix norms have the following properties:
 
- # ||A|| > 0 if A &ne; 0 where A &isin; &real; <sup>m &times; n</sup>
- # || &alpha; A || = |&alpha;| ||A|| where A &isin; &real; <sup>m &times; n</sup>
- # ||A+B|| &le; ||A|| + ||B|| where A and B are &isin; &real; <sup>m &times; n</sup>
- # |AB|| &le; ||A|| ||B|| where A and B are &isin; &real; <sup>m &times; m</sup>
+ # |A| > 0 if A != 0 
+ # | a A | = |a| |A| 
+ # |A+B| <= |A| + |B|
+ # |AB| <= |A| |B|
 
-Note that the last item in the list only applies to square matrices.
+where A and B are m by n matrices.  Note that the last item in the list only applies to square matrices.
 
 In EJML norms are computed inside the NormOps class.  For some norms it will provide a fast method of computing the norm.  Typically this means that it is skipping some steps that ensure numerical stability over a wider range of inputs. In applications where the input matrices or vectors are known to be well behaved the fast functions can be used.
 
@@ -78,4 +77,3 @@ Code Example:
 double v = NormOps.normF(A);
 }}}
 which computes the Frobenius norm of 'A'.
-
