@@ -53,3 +53,29 @@ else
 Note that even through it is not exactly skew symmetric it will be within tolerance.
 
 == Matrix Norms ==
+
+Norms are a measure of the size of a vector or a matrix.  One typical application is in error analysis.
+
+Vector norms have the following properties:
+  
+ # ||x|| > 0 if x &ne; 0 and ||0|| = 0
+ # ||&alpha;x|| = |&alpha;| ||x||
+ # ||x+y|| &le; ||x|| + ||y||
+
+Matrix norms have the following properties:
+
+ # ||A|| > 0 if A &ne; 0 where A &isin; &real; <sup>m &times; n</sup>
+ # || &alpha; A || = |&alpha;| ||A|| where A &isin; &real; <sup>m &times; n</sup>
+ # ||A+B|| &le; ||A|| + ||B|| where A and B are &isin; &real; <sup>m &times; n</sup>
+ # |AB|| &le; ||A|| ||B|| where A and B are &isin; &real; <sup>m &times; m</sup>
+
+Note that the last item in the list only applies to square matrices.
+
+In EJML norms are computed inside the NormOps class.  For some norms it will provide a fast method of computing the norm.  Typically this means that it is skipping some steps that ensure numerical stability over a wider range of inputs. In applications where the input matrices or vectors are known to be well behaved the fast functions can be used.
+
+Code Example:
+{{{
+double v = NormOps.normF(A);
+}}}
+which computes the Frobenius norm of 'A'.
+
