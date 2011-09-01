@@ -113,9 +113,11 @@ SingularOps
     * Returns the matrix's nullity.
 
 EigenOps
-  * decompositionGeneral()
-    * Creates an EVD that can be used on any input matrix.
-  * decompositionSymmetric()
-    * Creates an EVD which can only be used on symmetric input matrices.
+  * computeEigenValue()
+    * Given an eigen vector compute its eigenvalue.
+  * computeEigenVector()
+    * Given an eigenvalue compute its eigenvector.
+  * boundLargestEigenValue()
+    * Returns a lower and upper bound for the largest eigenvalue.
   * createMatrixD() and createMatrixV()
-    * Reformats the results such that two matrices (D and V) that contain the eigenvalues and eigenvectors respectively.
+    * Reformats the results such that two matrices (D and V) contain the eigenvalues and eigenvectors respectively.  This is similar to the format used by other libraries such as Jama.
