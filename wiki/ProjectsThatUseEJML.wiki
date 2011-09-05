@@ -9,6 +9,7 @@ Here is a list of known projects that use EJML. If you like to add yours to the 
   * Java Content Based Image Retrieval (JCBIR): http://code.google.com/p/jcbir/
   * JLabGroovy: http://code.google.com/p/jlabgroovy/
   * JquantLib (Will be added): http://www.jquantlib.org/
+  * Geometric Regression Library: http://georegression.org/
 
 Papers That Cite EJML:
 
