@@ -11,6 +11,7 @@ Here is a list of known projects that use EJML. If you like to add yours to the 
   * JquantLib (Will be added): http://www.jquantlib.org/
   * Geometric Regression Library: http://georegression.org/
   * BoofCV: Computer Vision Library: http://www.boofcv.org/
+  * ICY: bio-imaging: http://www.bioimageanalysis.com/icy/
 
 Papers That Cite EJML:
 
@@ -25,5 +26,4 @@ On The Web:
   * http://code.google.com/p/java-matrix-benchmark/
   * http://java.dzone.com/announcements/introduction-efficient-java
   * https://shakthydoss.wordpress.com/2011/01/13/jama-shortcoming/
-  * http://measuringmeasures.com/blog/2010/3/28/matrix-benchmarks-fast-linear-algebra-on-the-jvm.html (page appears to be down)
   * Various questions on stackoverflow.com
