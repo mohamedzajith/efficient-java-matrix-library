@@ -12,6 +12,7 @@ Here is a list of known projects that use EJML. If you like to add yours to the 
   * Geometric Regression Library: http://georegression.org/
   * BoofCV: Computer Vision Library: http://www.boofcv.org/
   * ICY: bio-imaging: http://www.bioimageanalysis.com/icy/
+  * JSkills: Java implementation of TrueSkill algorithm https://github.com/nsp/JSkills
 
 Papers That Cite EJML:
 
