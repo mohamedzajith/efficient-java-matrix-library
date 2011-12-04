@@ -11,8 +11,8 @@ In linear algebra a matrix decomposition is often used as an intermediate step w
 || QR || Yes || Yes ||
 || QR Column Pivot || Yes ||  ||
 || Singular Value Decomposition (SVD) || Yes || ||
-|| Generalized Eigen Value Decomposition || Yes ||  ||
-|| Symmetric Eigen Value Decomposition || Yes || Yes ||
+|| Generalized Eigen Value || Yes ||  ||
+|| Symmetric Eigen Value || Yes || Yes ||
 || Bidiagonal || Yes || ||
 || Tridiagonal || Yes || Yes ||
 || Hessenberg || Yes ||  ||
