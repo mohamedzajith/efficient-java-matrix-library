@@ -15,7 +15,7 @@ In linear algebra a matrix decomposition is often used as an intermediate step w
 || Symmetric Eigen Value Decomposition || Yes || Yes ||
 || Bidiagonal || Yes || ||
 || Tridiagonal || Yes || Yes ||
-|| Hessenberg || Yes || Yes ||
+|| Hessenberg || Yes ||  ||
 
 Columns for DenseMatrix64F and BlockMatrix64F specify if a native decomposition exists for that data structure.  Specialized helper functions are provided for SVD and EVD.
 
