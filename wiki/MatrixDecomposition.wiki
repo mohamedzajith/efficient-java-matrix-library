@@ -2,15 +2,22 @@
 
 = Introduction =
 
-In linear algebra a matrix decomposition is often used as an intermediate step when solving a problem.  They allow a more complex problem to be reformulated into a more simplistic problem or provide insight into the structure of a matrix.  EJML provides several different matrix decompositions, such as:
+In linear algebra a matrix decomposition is often used as an intermediate step when solving a problem.  They allow a more complex problem to be reformulated into a more simplistic problem or provide insight into the structure of a matrix.  EJML provides the following matrix decompositions:
 
- * LU
- * Cholesky
- * QR
- * Singular Value Decomposition (SVD)
- * Eigen Value Decomposition (EVD)
+|| *Decomposition* || *DenseMatrix64F* || *BlockMatrix64F* ||
+|| LU || Yes || ||
+|| Cholesky L*L<sup>T</sup> || Yes || Yes ||
+|| Cholesky R<sup>T</sup>*R || Yes || Yes ||
+|| QR || Yes || Yes ||
+|| QR Column Pivot || Yes ||  ||
+|| Singular Value Decomposition (SVD) || Yes || ||
+|| Generalized Eigen Value Decomposition || Yes ||  ||
+|| Symmetric Eigen Value Decomposition || Yes || Yes ||
+|| Bidiagonal || Yes || ||
+|| Tridiagonal || Yes || Yes ||
+|| Hessenberg || Yes || Yes ||
 
-Additional decompositions are provided, but they are primarily used internally and have less common usage.  Specialized helper functions are provided for SVD and EVD.
+Columns for DenseMatrix64F and BlockMatrix64F specify if a native decomposition exists for that data structure.  Specialized helper functions are provided for SVD and EVD.
 
 = Solving Using Matrix Decompositions =
 
