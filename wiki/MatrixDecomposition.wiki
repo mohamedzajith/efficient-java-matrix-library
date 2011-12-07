@@ -6,8 +6,8 @@ In linear algebra a matrix decomposition is often used as an intermediate step w
 
 || *Decomposition* || *DenseMatrix64F* || *BlockMatrix64F* ||
 || LU || Yes || ||
-|| Cholesky L*L<sup>T</sup> || Yes || Yes ||
-|| Cholesky R<sup>T</sup>*R || Yes || Yes ||
+|| Cholesky L`*`L<sup>T</sup> and R<sup>T</sup>`*`R || Yes || Yes ||
+|| Cholesky L`*`D`*`L<sup>T</sup> || Yes ||  ||
 || QR || Yes || Yes ||
 || QR Column Pivot || Yes ||  ||
 || Singular Value Decomposition (SVD) || Yes || ||
