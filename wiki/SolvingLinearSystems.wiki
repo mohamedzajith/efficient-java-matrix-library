@@ -8,9 +8,9 @@ _A_*_x_ = _b_
 
 where _A_ is m by n, _x_ is n by o, and _b_ is m by o.  Most of the time o=1.  There are numerous ways to solve such system.  Which technique is optimal depends on the size and structure of the matrix. 
 
-In EJML the easiest way to solve a linear system is by calling CommonOps.solve() when using DenseMatrix64 or SimpleMatrix.solve().  LinearSolvers can be used if more knowledge is available about the type of matrix and/or more control is needed over memory.  It is also possible to directly call decomposition algorithms, but this technique is not recommended since it requires much more knowledge about the algorithms and the specific implementation used.
+In EJML the easiest way to solve a linear system is by calling CommonOps.solve() when using DenseMatrix64F or SimpleMatrix.solve().  LinearSolvers can be used if more knowledge is available about the type of matrix, more control is needed over memory, or if the solutions quality needs to be checked.  It is also possible to directly call decomposition algorithms, but this technique is not recommended since it requires much more knowledge about the algorithms and the specific implementation used.
 
-Linear solvers will in general fail to produce a meaning full solution if the 'A' matrix is singular.  When 'A' is singular then there is an infinite number of solutions. This failure might be detected or it might not.  In fact EJML does a better job of reporting failures than all other libraries tested in [http://code.google.com/p/java-matrix-benchmark/ java matrix benchmark].  Depending on which interface is used to solve the system, there are different ways to check for this degenerate case.  These are discussed below.
+Linear solvers will in general fail (with some notable exceptions) to produce a meaning full solution if the 'A' matrix is singular.  When 'A' is singular then there is an infinite number of solutions. This failure might be detected or it might not.  In fact EJML does a better job of reporting failures than all other libraries tested in [http://code.google.com/p/java-matrix-benchmark/ java matrix benchmark].  Depending on which interface is used to solve the system, there are different ways to check for this degenerate case.  These are discussed below.
 
 = Solving with CommonOps and SimpleMatrix =
 
@@ -68,7 +68,7 @@ public interface LinearSolver< T extends Matrix64F> {
 }
 }}}
 
-There are several different implementations of LinearSolver for different types of matrices.  A new LinearSolver should be created by invoking static functions inside of LinearSolverFactory.  LinearSolverFactory will select the best algorithm and is will be updated as EJML evolves.
+There are several different implementations of LinearSolver for different types of matrices.  A new LinearSolver should be created by invoking static functions inside of LinearSolverFactory.  LinearSolverFactory will select the best algorithm to use and is updated as newer algorithms are added.
 
 Two steps are required to solve a system with a LinearSolver, as is shown below:
 {{{
