@@ -9,6 +9,7 @@ The SimpleMatrix example was the easiest to write and required very little memor
 
 How each example differs in terms of coding complexity can be seen by examining the examples below.  When benchmarked for speed, SimpleMatrix was the slowest implementation, Ops was the second fastest, running 23% faster than SimpleMatrix, and Algorithm was the fastest running 28% faster than SimpleMatrix.    
 
+*NOTE:* While the Kalman filter code below is fully functional and will work well in most applications, it might not be the best.  Other variants seek to improve stability and/or avoid the matrix inversion at the cost of added code complexity.
 
 == SimpleMatrix Example ==
 
