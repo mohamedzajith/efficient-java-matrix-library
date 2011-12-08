@@ -7,6 +7,8 @@ Levenberg-Marquardt is a popular non-linear optimization algorithm. To demonstra
 
 The algorithm is provided a function, set of inputs, set of outputs, and an initial estimate of the parameters (this often works with all zeros).  It finds the parameters that minimize the difference between the computed output and the observed output.  A numerical Jacobian is used to estimate the function's gradient.
 
+*Note:* This is a simple straight forward implementation of Levenberg-Marquardt and is not as robust as Minpack's implementation.  It will still work well for many problems and is much easier to understand.
+
 == Example Code ==
 
 {{{
