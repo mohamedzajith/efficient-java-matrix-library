@@ -69,6 +69,8 @@ Direct access to other decompositions (e.g. QR and Cholesky) is not provided in 
   * inv : Computes the inverse of a square matrix
   * pinv : Computes the pseudo-inverse for an arbitrary matrix
 
+See [SolvingLinearSystems] for more details on solving systems of equations.
+
 == Other Functions ==
 
 SimpleMatrix provides many other functions.  For a complete list see the JavaDoc for [http://efficient-java-matrix-library.googlecode.com/svn/javadoc/org/ejml/simple/SimpleBase.html SimpleBase] and [http://efficient-java-matrix-library.googlecode.com/svn/javadoc/org/ejml/simple/SimpleMatrix.html SimpleMatrix].  Note that SimpleMatrix extends SimpleBase.
