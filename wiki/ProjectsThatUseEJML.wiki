@@ -17,6 +17,7 @@ Here is a list of known projects that use EJML. If you like to add yours to the 
 
 Papers That Cite EJML:
 
+  * L. T. Lim, B. Ranaivo-Malançon and E. K. Tang. “Symbiosis Between a Multilingual Lexicon and Translation Example Banks”. In: Procedia: Social and Behavioral Sciences 27 (2011), pp. 61–69.
   * G. Taboada, S. Ramos, R. Expósito, J. Touriño, R. Doallo, Java in the High Performance Computing arena: Research, practice and experience, Science of Computer Programming, 2011.
   * http://geomatica.como.polimi.it/presentazioni/Osaka_Summer_goGPS.pdf
   * http://www.holger-arndt.de/library/MLOSS2010.pdf
