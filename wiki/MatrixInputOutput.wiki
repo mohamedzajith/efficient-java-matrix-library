@@ -110,6 +110,21 @@ MatrixIO Example:
     }
 }}}
 
+SimpleMatrix Example:
+{{{
+    public static void main( String args[] ) {
+        SimpleMatrix A = new SimpleMatrix(2,3,true,new double[]{1,2,3,4,5,6});
+
+        try {
+            A.saveToFileCSV("matrix_file.csv");
+            SimpleMatrix B = SimpleMatrix.loadCSV("matrix_file.csv");
+            B.print();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}}}
+
 = Serialized Binary Input/Output =
 
 DenseMatrix64F is a serializable object and is fully compatible with any Java serialization routine.  MatrixIO provides save() and load() functions for saving to and reading from a file.  The matrix is saved as a Java binary serialized object.  SimpleMatrix provides its own function (that are wrappers around MatrixIO) for saving and loading from files.
@@ -142,7 +157,7 @@ SimpleMatrix Example:
             B.print();
         } catch (IOException e) {
             throw new RuntimeException(e);
-        } 
+        }
     }
 }}}
 
