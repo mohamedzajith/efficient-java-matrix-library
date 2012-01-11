@@ -6,7 +6,8 @@ EJML provides several different methods for creating, saving, and displaying a m
 
   * [#Creating_a_matrix Creating a matrix]
   * [#Text_Output Text output]
-  * [#File_Input_Output File Input/Output]
+  * [#CSV_Input/Outut CSV output]
+  * [#Serialized_Binary_Input/Output Binary Input/Output]
   * [#Visual_Display Visually Displaying a Matrix]
 
 = Creating a Matrix =
@@ -83,7 +84,33 @@ Type = dense , numRows = 2 , numCols = 3
    4345.00   59505.00       0.00 
 }}}
 
-= File Input Output =
+= CSV Input/Outut = 
+
+Column Space Value (CSV) reader and writer is provided by EJML.  The advantage of this file format is that it's human readable, the disadvantage is that its large and slow.  The first line in the CSV file denotes the number of rows and columns.  The remainder of the file contains the value of each row in the matrix.  For example a file containing
+{{{
+2 3
+2.4 6.7 9
+-2 3 5
+}}}
+would describe a matrix with 2 rows and 3 columns.
+
+
+MatrixIO Example:
+{{{
+    public static void main( String args[] ) {
+        DenseMatrix64F A = new DenseMatrix64F(2,3,true,new double[]{1,2,3,4,5,6});
+
+        try {
+            MatrixIO.saveCSV(A, "matrix_file.csv");
+            DenseMatrix64F B = MatrixIO.loadCSV("matrix_file.csv");
+            B.print();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}}}
+
+= Serialized Binary Input/Output =
 
 DenseMatrix64F is a serializable object and is fully compatible with any Java serialization routine.  MatrixIO provides save() and load() functions for saving to and reading from a file.  The matrix is saved as a Java binary serialized object.  SimpleMatrix provides its own function (that are wrappers around MatrixIO) for saving and loading from files.
 
@@ -93,8 +120,8 @@ MatrixIO Example:
         DenseMatrix64F A = new DenseMatrix64F(2,3,true,new double[]{1,2,3,4,5,6});
 
         try {
-            MatrixIO.save(A,"matrix_file.data");
-            DenseMatrix64F B = MatrixIO.load("matrix_file.data");
+            MatrixIO.saveBin(A,"matrix_file.data");
+            DenseMatrix64F B = MatrixIO.loadBin("matrix_file.data");
             B.print();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -102,14 +129,16 @@ MatrixIO Example:
     }
 }}}
 
+*NOTE* in v0.18 saveBin/loadBin is actually saveXML/loadXML, which is a mistake since its not in an xml format.
+
 SimpleMatrix Example:
 {{{
     public static void main( String args[] ) {
         SimpleMatrix A = new SimpleMatrix(2,3,true,new double[]{1,2,3,4,5,6});
 
         try {
-            A.saveToFile("matrix_file.data");
-            SimpleMatrix B = SimpleMatrix.load("matrix_file.data");
+            A.saveToFileBinary("matrix_file.data");
+            SimpleMatrix B = SimpleMatrix.loadBinary("matrix_file.data");
             B.print();
         } catch (IOException e) {
             throw new RuntimeException(e);
