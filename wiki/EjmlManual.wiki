@@ -58,7 +58,7 @@ When working with EJML it is often best to use factories instead of directly cal
  # [MatrixInputOutput Matrix Input/Output]
  # [UnitTests Unit Testing]
 
-== Learning Computational Linear Algebra ==
+== Linear Algebra Books ==
 
 Want to learn more about how EJML works to write more effective code and employ more advanced techniques?  Understand where EJML's logo comes from?  The following books are recommended reading and made EJML's early development possible.
   * Best introduction to the subject that balances clarity without sacrificing important implementation details:
@@ -67,8 +67,6 @@ Want to learn more about how EJML works to write more effective code and employ 
     * <a href="http://www.amazon.com/gp/product/0801854148/ref=as_li_ss_tl?ie=UTF8&tag=boofcv-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=0801854148">Matrix Computations by G. Golub and C. Van Loan</a><img src="http://www.assoc-amazon.com/e/ir?t=boofcv-20&l=as2&o=1&a=0801854148" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 
 Purchasing through these links will help EJML's developer buy high end ramen noodles.
-
-
 
 = Building =
 
