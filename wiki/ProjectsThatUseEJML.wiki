@@ -17,6 +17,7 @@ Here is a list of known projects that use EJML. If you like to add yours to the 
 
 Papers That Cite EJML:
 
+  * Stergios Papadimitriou, Constantinos Terzidis, Seferina Mavroudi, Spiridon D. Likothanassis: Exploiting java scientific libraries with the scala language within the scalalab environment. IET Software 5(6): 543-551 (2011)
   * L. T. Lim, B. Ranaivo-Malançon and E. K. Tang. “Symbiosis Between a Multilingual Lexicon and Translation Example Banks”. In: Procedia: Social and Behavioral Sciences 27 (2011), pp. 61–69.
   * G. Taboada, S. Ramos, R. Expósito, J. Touriño, R. Doallo, Java in the High Performance Computing arena: Research, practice and experience, Science of Computer Programming, 2011.
   * http://geomatica.como.polimi.it/presentazioni/Osaka_Summer_goGPS.pdf
