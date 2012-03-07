@@ -14,6 +14,7 @@ Here is a list of known projects that use EJML. If you like to add yours to the 
   * ICY: bio-imaging: http://www.bioimageanalysis.com/icy/
   * JSkills: Java implementation of TrueSkill algorithm https://github.com/nsp/JSkills
   * Portfolio applets at http://www.christoph-junge.de/optimizer.php
+  * Distributed Control Framework (DCF) http://www.i-a-i.com/dcfpro/
 
 Papers That Cite EJML:
 
