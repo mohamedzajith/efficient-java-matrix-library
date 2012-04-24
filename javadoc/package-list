@@ -22,6 +22,7 @@ org.ejml.alg.dense.linsol.chol
 org.ejml.alg.dense.linsol.gj
 org.ejml.alg.dense.linsol.lu
 org.ejml.alg.dense.linsol.qr
+org.ejml.alg.dense.linsol.svd
 org.ejml.alg.dense.misc
 org.ejml.alg.dense.mult
 org.ejml.alg.generic
