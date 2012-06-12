@@ -1,9 +1,11 @@
+#summary Matlab Functions and Equivalent EJML Functions
 #labels matlab
-# Matlab Functions and Equivalent EJML Functions
 
 Below are a list of Matlab functions and their equivalent functions in EJML.  Two list are provided for SimpleMatrix and the procedural API.  To keep SimpleMatrix simple it does not provide every single matrix opeartor.  If a function is not provided by SimpleMatrix it is probably provided by CommonOps or a factory. 
 
 = Simple Matrix =
+
+A subset of EJML's functionality is provided in SimpleMatrix.
 
 || Matlab || SimpleMatrix ||
 || eye(3) || SimpleMatrix.identity(3) ||
@@ -35,7 +37,10 @@ Below are a list of Matlab functions and their equivalent functions in EJML.  Tw
 || [V,L] = eig(A) || A.eig() ||
 
 = Procedural Interface =
-|| Matlab || CommonOps ||
+
+Functions and classes in the procedural interface takes in DenseMatrix64F as input.  Since SimpleMatrix is a wrapper around DenseMatrix64F its internal matrix can be extracted and passed into any of these functions.
+
+|| Matlab || EJML||
 || eye(3) || CommonOps.identity(3) ||
 || C(1,2) = 5 || A.set(0,1,5) ||
 || C(:) = A || C.setTo(A) ||
