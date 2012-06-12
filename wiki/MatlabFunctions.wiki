@@ -68,9 +68,9 @@ Functions and classes in the procedural interface takes in DenseMatrix64F as inp
 || norm(A,Inf) ||  ||
 || max(abs(A(:))) ||  || 
 || sum(A(:)) ||  ||
-|| [U,S,V] = svd(A) ||  ||
-|| [U,S,V] = svd(A,0) ||  ||
-|| S = svd(A) ||  ||
+|| [U,S,V] = svd(A) || DecompositionFactory.svd(A.numRows,A.numCols,true,true,false) ||
+|| [U,S,V] = svd(A,0) || DecompositionFactory.svd(A.numRows,A.numCols,true,true,true) ||
+|| S = svd(A) || DecompositionFactory.svd(A.numRows,A.numCols,false,false,true) ||
 || [V,L] = eig(A) ||  ||
 || [Q,R] = qr(A) || ||
 || [Q,R] = qr(A,0) || ||
