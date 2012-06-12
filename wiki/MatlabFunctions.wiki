@@ -1,0 +1,74 @@
+#labels matlab
+# Matlab Functions and Equivalent EJML Functions
+
+Below are a list of Matlab functions and their equivalent functions in EJML.  Two list are provided for SimpleMatrix and the procedural API.  To keep SimpleMatrix simple it does not provide every single matrix opeartor.  If a function is not provided by SimpleMatrix it is probably provided by CommonOps or a factory. 
+
+= Simple Matrix =
+
+|| Matlab || SimpleMatrix ||
+|| eye(3) || SimpleMatrix.identity(3) ||
+|| diag([1 2 3]) || SimpleMatrix.diag(1,2,3) ||
+|| C(1,2) = 5 || A.set(0,1) = 5 ||
+|| C(:) = A || C.set(A) ||
+|| C(2,:) = [1,2,3] || C.setRow(1,0,1,2,3) || 
+|| C(:,2) = [1,2,3] || C.setColumn(1,0,1,2,3) || 
+|| C = A(2:4,3:8) || C = A.extractMatrix(1,4,2,8) ||
+|| C = diag(A) || C = A.extractDiag() || 
+|| A' || A.transpose() ||
+|| -A || A.negative() ||
+|| C = A * B || C = A.mult(B) ||
+|| C = A + B || C = A.plus(B) ||
+|| C = A - B || C = A.minus(B) ||
+|| C = 2 * A || C = A.scale(2) ||
+|| C = A / 2 || C = A.divide(2) ||
+|| C = inv(A) || C = A.invert() ||
+|| C = pinv(A) || C = A.pinv()||
+|| C = A \ B || ||
+|| C = trace(A) || C = A.trace() ||
+|| det(A) || A.det() ||
+|| C=kron(A,B) || C=A.kron(B) || 
+|| norm(A,"fro") || A.normf() ||
+|| max(abs(A(:))) || A.elementMaxAbs() || 
+|| sum(A(:)) || A.elementSum() ||
+|| [U,S,V] = svd(A) || A.svd(false) ||
+|| [U,S,V] = svd(A,0) || A.svd(true) ||
+|| [V,L] = eig(A) || A.eig() ||
+
+= Procedural Interface =
+|| Matlab || CommonOps ||
+|| eye(3) || CommonOps.identity(3) ||
+|| C(1,2) = 5 || A.set(0,1,5) ||
+|| C(:) = A || C.setTo(A) ||
+|| C(2,:) = [1,2,3] ||  || 
+|| C(:,2) = [1,2,3] || || 
+|| C = A(2:4,3:8) ||  ||
+|| C = diag(A) ||  || 
+|| A' ||  ||
+|| -A ||  ||
+|| C = A * B ||  ||
+|| C = A .* B ||  ||
+|| C = A ./ B ||  ||
+|| C = A + B ||  ||
+|| C = A - B ||  ||
+|| C = 2 * A ||  ||
+|| C = A / 2 ||  ||
+|| C = inv(A) ||  ||
+|| C = pinv(A) || ||
+|| C = trace(A) || ||
+|| det(A) ||  ||
+|| C=kron(A,B) || ||
+|| norm(A,"fro") ||  ||
+|| norm(A,1) ||  ||
+|| norm(A,2) ||  ||
+|| norm(A,Inf) ||  ||
+|| max(abs(A(:))) ||  || 
+|| sum(A(:)) ||  ||
+|| [U,S,V] = svd(A) ||  ||
+|| [U,S,V] = svd(A,0) ||  ||
+|| [V,L] = eig(A) ||  ||
+|| [Q,R] = qr(A) || ||
+|| [Q,R] = qr(A,0) || ||
+|| [Q,R,P] = qr(A) || ||
+|| [Q,R,P] = qr(A,0) || ||
+|| R = chol(A) || ||
+|| [L,U]] = lu(A) || ||
