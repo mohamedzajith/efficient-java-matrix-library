@@ -16,8 +16,8 @@ A subset of EJML's functionality is provided in SimpleMatrix.  If SimpleMatrix d
 || C(:,2) = [1,2,3] || C.setColumn(1,0,1,2,3) || 
 || C = A(2:4,3:8) || C = A.extractMatrix(1,4,2,8) ||
 || C = diag(A) || C = A.extractDiag() || 
-|| A' || A.transpose() ||
-|| -A || A.negative() ||
+|| C = A' || C = A.transpose() ||
+|| C = -A || C = A.negative() ||
 || C = A * B || C = A.mult(B) ||
 || C = A + B || C = A.plus(B) ||
 || C = A - B || C = A.minus(B) ||
@@ -25,7 +25,7 @@ A subset of EJML's functionality is provided in SimpleMatrix.  If SimpleMatrix d
 || C = A / 2 || C = A.divide(2) ||
 || C = inv(A) || C = A.invert() ||
 || C = pinv(A) || C = A.pinv()||
-|| C = A \ B || ||
+|| C = A \ B || C = A.solve(B) ||
 || C = trace(A) || C = A.trace() ||
 || det(A) || A.det() ||
 || C=kron(A,B) || C=A.kron(B) || 
@@ -40,23 +40,28 @@ A subset of EJML's functionality is provided in SimpleMatrix.  If SimpleMatrix d
 
 Functions and classes in the procedural interface takes in DenseMatrix64F as input.  Since SimpleMatrix is a wrapper around DenseMatrix64F its internal matrix can be extracted and passed into any of these functions.
 
-|| Matlab || EJML||
+|| Matlab || EJML ||
 || eye(3) || CommonOps.identity(3) ||
 || C(1,2) = 5 || A.set(0,1,5) ||
 || C(:) = A || C.setTo(A) ||
 || C(2,:) = [1,2,3] ||  || 
 || C(:,2) = [1,2,3] || || 
-|| C = A(2:4,3:8) ||  ||
-|| C = diag(A) ||  || 
-|| A' ||  ||
-|| -A ||  ||
-|| C = A * B ||  ||
-|| C = A .* B ||  ||
-|| C = A ./ B ||  ||
-|| C = A + B ||  ||
-|| C = A - B ||  ||
-|| C = 2 * A ||  ||
-|| C = A / 2 ||  ||
+|| C = A(2:4,3:8) || CommonOps.extract(A,1,4,2,8) ||
+|| diag([1 2 3]) || CommonOps.diag(1,2,3) ||
+|| C = A' || CommonOps.transpose(A,C) ||
+|| A = A' || CommonOps.transpose(A) ||
+|| C = -A || ||
+|| C = A * B || CommonOps.mult(A,B,C) ||
+|| C = A .* B || CommonOps.elementMult(A,B,C) ||
+|| A = A .* B || CommonOps.elementMult(A,B) ||
+|| C = A ./ B || CommonOps.elementDiv(A,B,C) ||
+|| A = A ./ B || CommonOps.elementDiv(A,B) ||
+|| C = A + B || CommonOps.add(A,B,C) ||
+|| C = A - B || CommonOps.sub(A,B,C) ||
+|| C = 2 * A || CommonOps.scale(2,A,C) ||
+|| A = 2 * A || CommonOps.scale(2,A) ||
+|| C = A / 2 || CommonOps.divide(2,A,C) ||
+|| A = A / 2 || CommonOps.divide(2,A) ||
 || C = inv(A) ||  ||
 || C = pinv(A) || ||
 || C = trace(A) || ||
