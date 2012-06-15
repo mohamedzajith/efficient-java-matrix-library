@@ -94,4 +94,4 @@ Functions and classes in the procedural interface takes in DenseMatrix64F as inp
 ||  || Q = decomp.getQ(null,true); R = decomp.getR(null,true); ||
 ||  || P = decomp.getPivotMatrix(null); ||
 || R = chol(A) || DecompositionFactory.chol(A.numCols,false) ||
-|| [L,U] = lu(A) ||DecompositionFactory.lu(A.numCols)  ||
+|| [L,U,P] = lu(A) ||DecompositionFactory.lu(A.numCols)  ||
