@@ -6,8 +6,10 @@ SimpleMatrix is an interface that provides an easy to use object oriented way of
 
 The typical function in SimpleMatrix takes at least one SimpleMatrix as an input and returns a SimpleMatrix as the output.  None of the input matrices, including the 'this' matrix, are modified during function calls.  There is a slight performance hit when using SimpleMatrix and less control over memory management.  See [SpeedSimpleMatrix] for a comparison of runtime performance of the two interfaces.  
 
-The following is a brief overview different SimpleMatrix concepts.  More detailed usage examples are provided in the main tutorial [EjmlManual (CLICK HERE)].
+Below is a brief overview different SimpleMatrix concepts.  
 
+ * [EjmlManual  Click to go to the main tutorial with more detailed examples].
+ * [MatlabFunctions Click for a list of Matlab/Octave to SimpleMatrix Commands]
 
 == Chaining Operations ==
 
