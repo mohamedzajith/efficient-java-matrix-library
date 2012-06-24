@@ -15,6 +15,7 @@ Here is a list of known projects that use EJML. If you like to add yours to the 
   * JSkills: Java implementation of TrueSkill algorithm https://github.com/nsp/JSkills
   * Portfolio applets at http://www.christoph-junge.de/optimizer.php
   * Distributed Control Framework (DCF) http://www.i-a-i.com/dcfpro/
+  * JptView point cloud viewer: http://www.seas.upenn.edu/~aiv/jptview/
 
 Papers That Cite EJML:
   * Realini E., Yoshida D., Reguzzoni M., Raghavan V., 2012, Enhanced satellite positioning as a web service with goGPS open source software. Applied Geomatics 4(2), 135-142.
