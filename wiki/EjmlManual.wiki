@@ -9,8 +9,8 @@ Runtime performance and control over memory management are two key factors in th
 
 Detailed Javadoc documentation is provided in almost all the classes.  See the [http://code.google.com/p/efficient-java-matrix-library/ home page] for a link to the latest Javadoc.
 
-For its history and acknowledgements click [AcknowledgementsHistory HERE.]
-Don't forget to check out the [FAQ Frequently Asked Questions] page!
+  * For its history and acknowledgements click [AcknowledgementsHistory HERE.]
+  * Don't forget to check out the [FAQ Frequently Asked Questions] page!
 
 == Matrix Data Structures ==
 
