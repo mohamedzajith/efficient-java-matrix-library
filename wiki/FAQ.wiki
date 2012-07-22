@@ -33,4 +33,4 @@ If you are getting compilation errors complaining about the swing code when usin
 
 Currently EJML is entirely single threaded.  The plan is to max out single threaded performance by finish implementing block algorithms, then declare the library to be at version 1.0.  After that has happened start work on multi-threaded implementations.  However, there is no schedule in place for when all this will happen.  
 
-The main driving factor for major new features are added is when I personally need such a feature.  I'm starting to work on larger scale machine learning problems, so there might be a need soon.  Another way to speed up the process is to volunteer your time and help develop it.
+The main driving factor for when major new features are added is when I personally need such a feature.  I'm starting to work on larger scale machine learning problems, so there might be a need soon.  Another way to speed up the process is to volunteer your time and help develop it.
