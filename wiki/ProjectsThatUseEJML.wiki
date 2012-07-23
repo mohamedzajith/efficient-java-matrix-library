@@ -18,10 +18,11 @@ Here is a list of known projects that use EJML. If you like to add yours to the 
   * JptView point cloud viewer: http://www.seas.upenn.edu/~aiv/jptview/
 
 Papers That Cite EJML:
-  * Realini E., Yoshida D., Reguzzoni M., Raghavan V., 2012, Enhanced satellite positioning as a web service with goGPS open source software. Applied Geomatics 4(2), 135-142.
-  * Stergios Papadimitriou, Constantinos Terzidis, Seferina Mavroudi, Spiridon D. Likothanassis: Exploiting java scientific libraries with the scala language within the scalalab environment. IET Software 5(6): 543-551 (2011)
-  * L. T. Lim, B. Ranaivo-Malançon and E. K. Tang. “Symbiosis Between a Multilingual Lexicon and Translation Example Banks”. In: Procedia: Social and Behavioral Sciences 27 (2011), pp. 61–69.
-  * G. Taboada, S. Ramos, R. Expósito, J. Touriño, R. Doallo, Java in the High Performance Computing arena: Research, practice and experience, Science of Computer Programming, 2011.
+  * J. A. Álvarez-Bermejo, N. Antequera, R. García-Rubio and J. A. López-Ramos, _"A scalable server for key distribution and its application to accounting,"_ The Journal of Supercomputing, 2012
+  * Realini E., Yoshida D., Reguzzoni M., Raghavan V., _"Enhanced satellite positioning as a web service with goGPS open source software"_. Applied Geomatics 4(2), 135-142. 2012
+  * Stergios Papadimitriou, Constantinos Terzidis, Seferina Mavroudi, Spiridon D. Likothanassis: _Exploiting java scientific libraries with the scala language within the scalalab environment._ IET Software 5(6): 543-551 (2011)
+  * L. T. Lim, B. Ranaivo-Malançon and E. K. Tang. _“Symbiosis Between a Multilingual Lexicon and Translation Example Banks”._ In: Procedia: Social and Behavioral Sciences 27 (2011), pp. 61–69.
+  * G. Taboada, S. Ramos, R. Expósito, J. Touriño, R. Doallo, _Java in the High Performance Computing arena: Research, practice and experience,_ Science of Computer Programming, 2011.
   * http://geomatica.como.polimi.it/presentazioni/Osaka_Summer_goGPS.pdf
   * http://www.holger-arndt.de/library/MLOSS2010.pdf
   * http://www.ateji.com/px/whitepapers/Ateji%20PX%20MatMult%20Whitepaper%20v1.2.pdf
