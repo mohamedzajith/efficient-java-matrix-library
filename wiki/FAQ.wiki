@@ -17,7 +17,7 @@ Now take the number and multiply it by 3 or 4 to take in account overhead/workin
 
 The other potentially fatal problem is that very large matrices are very slow to process. So even if you have enough RAM on your computer the time to compute the solution could well exceed the lifetime of a typical human.
  
-== Why relase EJML under the LGPL and not something like Apache or BSD licenses? ==
+== Why release EJML under the LGPL and not something like Apache or BSD licenses? ==
 
 The LGPL license is actually fairly liberal and much less restrictive than the GPL license.  For instance, with the LGPL license you can use EJML and NOT need to release your source code, like you would under the GPL.  So the LGPL lacks the "viral" nature of the GPL.  The only time some of your code would need to be released under the LGPL is if you/your company modified the library itself, e.g. fixed a bug or improved the speed of an algorithm.  Even then only that code which exists inside of EJML would need to be released publicly.  I would also hope you donated any such enhancements back to EJML...
 
@@ -25,12 +25,12 @@ The LGPL license is actually fairly liberal and much less restrictive than the G
 
 == Will EJML work on Android? ==
 
-Yes EJML has been used for quite some time on Android.  The library does include a tinny bit of swing code, which will not cause any problems as long as you do not call anything related to visualization.  The nogui jar is really not necessary and was requested before I did any Android development myself.
+Yes EJML has been used for quite some time on Android.  The library does include a tinny bit of swing code, which will not cause any problems as long as you do not call anything related to visualisation.  The nogui jar is really not necessary and was requested before I did any Android development myself.
 
 If you are getting compilation errors complaining about the swing code when using EJML then you need to stop compiling EJML inside of your Android project.  Just grab the precompiled jar and it into the lib/ directly and the Android development platform will take care of the rest.
 
 == Multi-Threaded ==
 
-Currently EJML is entirely single threaded.  The plan is to max out single threaded performance by finish implementing block algorithms, then declare the library to be at version 1.0.  After that has happened start work on multi-threaded implementations.  However, there is no schedule in place for when all this will happen.  
+Currently EJML is entirely single threaded.  The plan is to max out single threaded performance by finishing block algorithms implementations, then declare the library to be at version 1.0.  After that has happened, start work on multi-threaded implementations.  However, there is no schedule in place for when all this will happen.  
 
 The main driving factor for when major new features are added is when I personally need such a feature.  I'm starting to work on larger scale machine learning problems, so there might be a need soon.  Another way to speed up the process is to volunteer your time and help develop it.
