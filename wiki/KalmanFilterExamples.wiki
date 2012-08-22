@@ -19,7 +19,7 @@ How each example differs in terms of coding complexity can be seen by examining 
  * read and write, but the performance is degraded due to excessive creation/destruction of
  * memory and the use of more generic algorithms.  This also demonstrates how code can be
  * seamlessly implemented using both SimpleMatrix and DenseMatrix64F.  This allows code
- * to be quickly prototyped or to be writen either by novices or experts.
+ * to be quickly prototyped or to be written either by novices or experts.
  *
  * @author Peter Abeles
  */
@@ -94,8 +94,6 @@ public class KalmanFilterSimple implements KalmanFilter{
 == Ops Example ==
 
 {{{
-import static org.ejml.ops.CommonOps.*;
-
 /**
  * A Kalman filter is implemented by calling the generalized operations.  Much of the excessive
  * memory creation/destruction has been reduced from the KalmanFilterSimple.  However, there
@@ -206,7 +204,7 @@ public class KalmanFilterOps implements KalmanFilter{
 /**
  * The difference between this and {@link KalmanFilterOps} is that it takes advantage of
  * the covariance matrix being a symetric positive semi-definite matrix.  This allows
- * it to be decomposed using {@link org.ejml.alg.dense.decomposition.chol.CholeskyDecompositionBasic}.  There are two advantages here,
+ * it to be decomposed using {@link org.ejml.alg.dense.decomposition.chol.CholeskyDecompositionInner}.  There are two advantages here,
  * 1) all memory is predeclared and 2) CholeksyDecomposition is more efficient than the more
  * generic {@link org.ejml.alg.dense.decomposition.lu.LUDecompositionAlt LUDecomposition}.  It also makes
  * calls to matrix vector multiplcation operations, which has a slight performance advantage.
