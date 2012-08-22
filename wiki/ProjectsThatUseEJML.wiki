@@ -16,6 +16,7 @@ Here is a list of known projects that use EJML. If you like to add yours to the 
   * Portfolio applets at http://www.christoph-junge.de/optimizer.php
   * Distributed Control Framework (DCF) http://www.i-a-i.com/dcfpro/
   * JptView point cloud viewer: http://www.seas.upenn.edu/~aiv/jptview/
+  * JPrIME Bayesian phylogenetics library: http://code.google.com/p/jprime/
 
 Papers That Cite EJML:
   * J. A. Álvarez-Bermejo, N. Antequera, R. García-Rubio and J. A. López-Ramos, _"A scalable server for key distribution and its application to accounting,"_ The Journal of Supercomputing, 2012
