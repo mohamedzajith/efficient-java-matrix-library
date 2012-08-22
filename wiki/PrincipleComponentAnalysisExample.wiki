@@ -25,8 +25,8 @@ For additional information on PCA:
  * to maximize information.
  * </p>
  * <p>
- * PCA is typically derived as an eigenvalue problem.  However in this implementation {@link org.ejml.alg.dense.decomposition.SingularValueDecomposition SVD}
- * is since it can produce a more numerically stable solution.  Computation using EVD requires explicitly
+ * PCA is typically derived as an eigenvalue problem.  However in this implementation {@link org.ejml.factory.SingularValueDecomposition SVD}
+ * is used instead because it will produce a more numerically stable solution.  Computation using EVD requires explicitly
  * computing the variance of each sample set. The variance is computed by squaring the residual, which can
  * cause loss of precision.
  * </p>
@@ -124,12 +124,12 @@ public class PrincipleComponentAnalysis {
         }
 
         // Compute SVD and save time by not computing U
-        SingularValueDecomposition<DenseMatrix64F> svd = 
+        SingularValueDecomposition<DenseMatrix64F> svd =
                 DecompositionFactory.svd(A.numRows, A.numCols, false, true, false);
         if( !svd.decompose(A) )
             throw new RuntimeException("SVD failed");
 
-        V_t = svd.getV(true);
+        V_t = svd.getV(null,true);
         DenseMatrix64F W = svd.getW(null);
 
         // Singular values are in an arbitrary order initially
