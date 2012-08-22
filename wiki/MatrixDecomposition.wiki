@@ -90,9 +90,9 @@ Below is an example of how to compute the SVD of a matrix:
         if( !svd.decompose(A) )
             throw new RuntimeException("Decomposition failed");
 
-        DenseMatrix64F U = svd.getU(false);
+        DenseMatrix64F U = svd.getU(null,false);
         DenseMatrix64F W = svd.getW(null);
-        DenseMatrix64F V = svd.getV(false);
+        DenseMatrix64F V = svd.getV(null,false);
 
     }
 }}}
