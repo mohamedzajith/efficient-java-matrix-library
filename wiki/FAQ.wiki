@@ -25,9 +25,11 @@ The LGPL license is actually fairly liberal and much less restrictive than the G
 
 == Will EJML work on Android? ==
 
-Yes EJML has been used for quite some time on Android.  The library does include a tinny bit of swing code, which will not cause any problems as long as you do not call anything related to visualisation.  The nogui jar is really not necessary and was requested before I did any Android development myself.
+Yes EJML has been used for quite some time on Android.  The library does include a tinny bit of swing code, which will not cause any problems as long as you do not call anything related to visualization.
 
 If you are getting compilation errors complaining about the swing code when using EJML then you need to stop compiling EJML inside of your Android project.  Just grab the precompiled jar and it into the lib/ directly and the Android development platform will take care of the rest.
+
+In the past there was a nogui jar for Android.  That jar has been deprecated since it wasn't necessary.  Just use the standard jar.
 
 == Multi-Threaded ==
 
