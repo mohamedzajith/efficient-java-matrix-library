@@ -72,7 +72,7 @@ Functions and classes in the procedural interface takes in DenseMatrix64F as inp
 || C = trace(A) || C = CommonOps.trace(A) ||
 || C = det(A) || C = CommonOps.det(A) ||
 || C=kron(A,B) || CommonOps.kron(A,B,C) ||
-|| B=rref(A) || B = CommonOps.rref(A,min(A.numRows,A.numCols),null) ||
+|| B=rref(A) || B = CommonOps.rref(A,-1,null) ||
 || norm(A,"fro") || NormOps.normf(A) ||
 || norm(A,1) || NormOps.normP1(A) ||
 || norm(A,2) || NormOps.normP2(A) ||
