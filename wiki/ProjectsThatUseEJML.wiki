@@ -2,8 +2,9 @@
 
 Here is a list of known projects that use EJML. If you like to add yours to the list leave a comment below!
 
-  * goGPS: http://code.google.com/p/gogps/
-  * Set Visualiser: http://www-edc.eng.cam.ac.uk/tools/set_visualiser/
+  * [http://researchers.lille.inria.fr/~freno/JProGraM.html JProGraM]: Library for learning a number of statistical models from data.
+  * [http://code.google.com/p/gogps/ goGPS]: Improve the positioning accuracy of low-cost GPS devices by RTK technique.
+  * [http://www-edc.eng.cam.ac.uk/tools/set_visualiser/ Set Visualiser]: Visualises the way that a number of items is classified into one or more categories or sets using Euler diagrams.
   * Universal Java Matrix Library (UJML): http://www.ujmp.org/
   * Scalalab: http://code.google.com/p/scalalab/
   * Java Content Based Image Retrieval (JCBIR): http://code.google.com/p/jcbir/
