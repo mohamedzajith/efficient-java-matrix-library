@@ -86,7 +86,9 @@ Type = dense , numRows = 2 , numCols = 3
 
 = CSV Input/Outut = 
 
-Column Space Value (CSV) reader and writer is provided by EJML.  The advantage of this file format is that it's human readable, the disadvantage is that its large and slow.  The first line in the CSV file denotes the number of rows and columns.  The remainder of the file contains the value of each row in the matrix.  For example a file containing
+Column Space Value (CSV) reader and writer is provided by EJML.  The advantage of this file format is that it's human readable, the disadvantage is that its large and slow.  Two CSV formats are supported, one where the first line specifies the matrix dimension and the other the user specifies it programmatically.  
+
+In the example below, the matrix size is specified in the first line, row then column.  The remainder of the file contains the value of each row in the matrix.  A file containing
 {{{
 2 3
 2.4 6.7 9
