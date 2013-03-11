@@ -163,7 +163,7 @@ SimpleMatrix Example:
 
 = Visual Display =
 
-Understanding the state of a matrix from text output can be difficult, especially for large matrices.  To help in these situations a visual way of viewing a matrix is provided in MatrixIO.  By calling MatrixIO.show() a window will be created that shows the matrix.  Positive elements will appear as a shade of red, negative ones as a shade of blue, and zeros as black.  How red or blue an element is depends on its magnitude.
+Understanding the state of a matrix from text output can be difficult, especially for large matrices.  To help in these situations a visual way of viewing a matrix is provided in MatrixVisualization.  By calling MatrixVisualization.show() a window will be created that shows the matrix.  Positive elements will appear as a shade of red, negative ones as a shade of blue, and zeros as black.  How red or blue an element is depends on its magnitude.
 
 Example Code:
 {{{
