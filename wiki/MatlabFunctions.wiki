@@ -10,7 +10,7 @@ A subset of EJML's functionality is provided in SimpleMatrix.  If SimpleMatrix d
 || *Matlab* || *SimpleMatrix* ||
 || eye(3) || SimpleMatrix.identity(3) ||
 || diag({{{[1 2 3]}}}) || SimpleMatrix.diag(1,2,3) ||
-|| C(1,2) = 5 || A.set(0,1) = 5 ||
+|| C(1,2) = 5 || A.set(0,1,5) ||
 || C(:) = A || C.set(A) ||
 || C(:) = 5 || C.set(5) ||
 || C(2,:) = [1,2,3] || C.setRow(1,0,1,2,3) || 
