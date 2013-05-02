@@ -25,7 +25,8 @@ Here is a list of known projects that use EJML. If you like to add yours to the 
   * GDSC ImageJ Plugins: http://www.sussex.ac.uk/gdsc/intranet/microscopy/imagej/gdsc_plugins
 
 Papers That Cite EJML:
-  *  Sanjay K. Boddhu, Robert L. Williams, Edward Wasser, Niranjan Kode, "Increasing Situational Awareness using Smartphones" Proc. SPIE 8389, Ground/Air Multisensor Interoperability, Integration, and Networking for Persistent ISR III, 83891J (May 1, 2012)
+  * Santhiar, Anirudh and Pandita, Omesh and Kanade, Aditya "Discovering Math APIs by Mining Unit Tests" Fundamental Approaches to Software Engineering 2013
+  * Sanjay K. Boddhu, Robert L. Williams, Edward Wasser, Niranjan Kode, "Increasing Situational Awareness using Smartphones" Proc. SPIE 8389, Ground/Air Multisensor Interoperability, Integration, and Networking for Persistent ISR III, 83891J (May 1, 2012)
   * J. A. Álvarez-Bermejo, N. Antequera, R. García-Rubio and J. A. López-Ramos, _"A scalable server for key distribution and its application to accounting,"_ The Journal of Supercomputing, 2012
   * Realini E., Yoshida D., Reguzzoni M., Raghavan V., _"Enhanced satellite positioning as a web service with goGPS open source software"_. Applied Geomatics 4(2), 135-142. 2012
   * Stergios Papadimitriou, Constantinos Terzidis, Seferina Mavroudi, Spiridon D. Likothanassis: _Exploiting java scientific libraries with the scala language within the scalalab environment._ IET Software 5(6): 543-551 (2011)
