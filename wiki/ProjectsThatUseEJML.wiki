@@ -21,6 +21,7 @@ Here is a list of known projects that use EJML. If you like to add yours to the 
   * JPrIME Bayesian phylogenetics library: http://code.google.com/p/jprime/
   * J-Matrix quantum mechanics scattering https://code.google.com/p/jmatrix/
   * DDogleg Numerics: http://ddogleg.org
+  * Saddle: http://saddle.github.io/doc/index.html
 
 Papers That Cite EJML:
   *  Sanjay K. Boddhu, Robert L. Williams, Edward Wasser, Niranjan Kode, "Increasing Situational Awareness using Smartphones" Proc. SPIE 8389, Ground/Air Multisensor Interoperability, Integration, and Networking for Persistent ISR III, 83891J (May 1, 2012)
