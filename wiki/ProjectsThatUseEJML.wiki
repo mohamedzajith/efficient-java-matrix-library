@@ -23,6 +23,11 @@ Here is a list of known projects that use EJML. If you like to add yours to the 
   * DDogleg Numerics: http://ddogleg.org
   * Saddle: http://saddle.github.io/doc/index.html
   * GDSC ImageJ Plugins: http://www.sussex.ac.uk/gdsc/intranet/microscopy/imagej/gdsc_plugins
+  * Robot Controller for Humanoid Robots: http://www.ihmc.us/Research/projects/HumanoidRobots/index.html
+  * Credit Analytics: http://code.google.com/p/creditanalytics
+  * Spline Library: http://code.google.com/p/splinelibrary - http://www.credit-trader.org/CreditSuite/docs/SplineLibrary_2.2.pdf
+  * Fixed Point Finder: http://code.google.com/p/rootfinder - http://www.credit-trader.org/CreditSuite/docs/FixedPointFinder_2.2.pdf
+  * Sensitivity generation scheme in Credit Analytics: http://www.credit-trader.org/CreditSuite/docs/SensitivityGenerator_2.2.pdf
 
 Papers That Cite EJML:
   * Santhiar, Anirudh and Pandita, Omesh and Kanade, Aditya "Discovering Math APIs by Mining Unit Tests" Fundamental Approaches to Software Engineering 2013
