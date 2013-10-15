@@ -28,6 +28,7 @@ Here is a list of known projects that use EJML. If you like to add yours to the 
   * Spline Library: http://code.google.com/p/splinelibrary - http://www.credit-trader.org/CreditSuite/docs/SplineLibrary_2.2.pdf
   * Fixed Point Finder: http://code.google.com/p/rootfinder - http://www.credit-trader.org/CreditSuite/docs/FixedPointFinder_2.2.pdf
   * Sensitivity generation scheme in Credit Analytics: http://www.credit-trader.org/CreditSuite/docs/SensitivityGenerator_2.2.pdf
+  * Stanford CoreNLP: A set of natural language analysis tools:  http://nlp.stanford.edu/software/corenlp.shtml 
 
 Papers That Cite EJML:
   * Santhiar, Anirudh and Pandita, Omesh and Kanade, Aditya "Discovering Math APIs by Mining Unit Tests" Fundamental Approaches to Software Engineering 2013
