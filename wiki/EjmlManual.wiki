@@ -47,6 +47,8 @@ Each example code, provided below, is fully operational and included with EJML's
     * Complex eigenvalues
  # [ExtendingSimpleMatrix Extending Simple Matrix]
     * Shows how SimpleMatrix can be extended to increase its functionality in different domains.
+ # [FixedSizedMatrixExample Fixed Sized Matrices]
+    * Demonstrates how to create and manipulate a fixed sized matrix and vector
 
 == Tutorials ==
 
