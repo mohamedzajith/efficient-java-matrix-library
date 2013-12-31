@@ -29,8 +29,12 @@ Here is a list of known projects that use EJML. If you like to add yours to the 
   * Fixed Point Finder: http://code.google.com/p/rootfinder - http://www.credit-trader.org/CreditSuite/docs/FixedPointFinder_2.2.pdf
   * Sensitivity generation scheme in Credit Analytics: http://www.credit-trader.org/CreditSuite/docs/SensitivityGenerator_2.2.pdf
   * Stanford CoreNLP: A set of natural language analysis tools:  http://nlp.stanford.edu/software/corenlp.shtml 
+  * OpenChrom: Open source software for the mass spectrometric analysis of chromatographic data.  https://www.openchrom.net
 
 Papers That Cite EJML:
+  * Blasinski, H., Bulan, O., & Sharma, G. (2013). Per-Colorant-Channel Color Barcodes for Mobile Applications: An Interference Cancellation Framework.
+  * Marin, R. C., & Dobre, C. (2013, November). Reaching for the clouds: contextually enhancing smartphones for energy efficiency. In Proceedings of the 2nd ACM workshop on High performance mobile opportunistic systems (pp. 31-38). ACM.
+  * Oletic, D., Skrapec, M., & Bilas, V. (2013). Monitoring Respiratory Sounds: Compressed Sensing Reconstruction via OMP on Android Smartphone. In Wireless Mobile Communication and Healthcare (pp. 114-121). Springer Berlin Heidelberg.
   * Santhiar, Anirudh and Pandita, Omesh and Kanade, Aditya "Discovering Math APIs by Mining Unit Tests" Fundamental Approaches to Software Engineering 2013
   * Sanjay K. Boddhu, Robert L. Williams, Edward Wasser, Niranjan Kode, "Increasing Situational Awareness using Smartphones" Proc. SPIE 8389, Ground/Air Multisensor Interoperability, Integration, and Networking for Persistent ISR III, 83891J (May 1, 2012)
   * J. A. Álvarez-Bermejo, N. Antequera, R. García-Rubio and J. A. López-Ramos, _"A scalable server for key distribution and its application to accounting,"_ The Journal of Supercomputing, 2012
