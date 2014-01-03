@@ -18,6 +18,7 @@ Several different matrix data structures are provided in EJML, but only two are 
 
   * [DenseMatrix64F]
   * [SimpleMatrix]
+  * [FixedMatrix]
 
 A comparison of runtime performance for different operations between SimpleMatrix and using the operations interface is provided here:
 
