@@ -30,3 +30,11 @@ In the past there was a nogui jar for Android.  That jar has been deprecated sin
 Currently EJML is entirely single threaded.  The plan is to max out single threaded performance by finishing block algorithms implementations, then declare the library to be at version 1.0.  After that has happened, start work on multi-threaded implementations.  However, there is no schedule in place for when all this will happen.  
 
 The main driving factor for when major new features are added is when I personally need such a feature.  I'm starting to work on larger scale machine learning problems, so there might be a need soon.  Another way to speed up the process is to volunteer your time and help develop it.
+
+== Sparse Matrix Support ==
+
+EJML's current focus is on dense matrices, but could be extended in the future to support sparse matrices.  In the mean time the following libraries do provide some support for sparse matrices.  Note: I have not used any of these libraries personally.  Comment below with your experiences.
+
+  * [https://sites.google.com/site/piotrwendykier/software/csparsej CSparseJ]
+  * [http://la4j.org/ la4j]
+  * [https://github.com/fommil/matrix-toolkits-java MTJ]
