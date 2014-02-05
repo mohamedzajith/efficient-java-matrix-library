@@ -16,12 +16,6 @@ If you are working with large matrices first do a quick sanity check.  Ask yours
 Now take the number and multiply it by 3 or 4 to take in account overhead/working memory and that's about how much memory your system will need to do anything useful.  This is true for ALL dense linear algebra libraries.  EJML is also limited by the size of a Java array, which can have at most 2^32 elements.  If you are lucky and the system is sparse (full of mostly zeros) there might be other libraries out there which can help you. 
 
 The other potentially fatal problem is that very large matrices are very slow to process. So even if you have enough RAM on your computer the time to compute the solution could well exceed the lifetime of a typical human.
- 
-== Why release EJML under the LGPL and not something like Apache or BSD licenses? ==
-
-The LGPL license is actually fairly liberal and much less restrictive than the GPL license.  For instance, with the LGPL license you can use EJML and NOT need to release your source code, like you would under the GPL.  So the LGPL lacks the "viral" nature of the GPL.  The only time some of your code would need to be released under the LGPL is if you/your company modified the library itself, e.g. fixed a bug or improved the speed of an algorithm.  Even then only that code which exists inside of EJML would need to be released publicly.  I would also hope you donated any such enhancements back to EJML...
-
-[http://www.gnu.org/licenses/lgpl.html]
 
 == Will EJML work on Android? ==
 
