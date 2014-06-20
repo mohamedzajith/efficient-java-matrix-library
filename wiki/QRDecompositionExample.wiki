@@ -3,9 +3,13 @@
 
 = Introduction =
 
+
 The following example is intended to show how to effectively use extraction and insertion with either operations or SimpleMatrix.    Insert and extract are ways of inserting a matrix inside of another matrix or extracting a submatrix.  These functions can often make programming much easier but are not always the most efficient way.
 
-Performing QR decomposition is a common first step when solving the linear least squares problem.  When decomposed A=QR where Q is an M by M orthogonal matrix and R is a M by N upper triangular matrix.  Since this code is intended for demonstration purposes only it is naive as far as performance is concerned. To see what a production version looks like simply look at the EJML source code.
+Performing QR decomposition is a common first step when solving the linear least squares problem.  When decomposed A=QR where Q is an M by M orthogonal matrix and R is a M by N upper triangular matrix.  Since this code is intended *for demonstration purposes only* it is naive as far as performance is concerned.
+
+*IF YOU WANT TO DO QR-DECOMPOSITION IN PRODUCTION CODE USE DecompositionFactory.qr()*
+
 
 Click to jump to a specific example:
   * [#SimpleMatrix SimpleMatrix]
