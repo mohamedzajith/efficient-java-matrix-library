@@ -105,6 +105,18 @@ if( DecompositionFactory.quality(A,svd) > 1e-3 )
     throw new RuntimeException("Bad decomposition");
 }}}
 
+List of functions in DecompositionFactory
+
+|| *Decomposition* || *Code* ||
+|| LU || DecompositionFactory.lu() ||
+|| QR || DecompositionFactory.qr() ||
+|| QRP || DecompositionFactory.qrp() ||
+|| Cholesky || DecompositionFactory.chol() ||
+|| Cholesky LDL || DecompositionFactory.cholLDL() ||
+|| SVD || DecompositionFactory.svd() ||
+|| Eigen || DecompositionFactory.eig() ||
+
+
 = Helper Functions for SVD and EVD =
 
 Two classes SingularOps and EigenOps have been provided for extracting useful information from these decompositions or to provide highly specialized ways of computing the decompositions.  Below is a list of more common uses of these functions:
