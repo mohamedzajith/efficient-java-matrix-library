@@ -2,6 +2,7 @@
 
 Here is a list of known projects that use EJML. If you like to add yours to the list leave a comment below!
 
+  * [http://www-lium.univ-lemans.fr/diarization/doku.php/ LIUM_SpkDiarization] is a software dedicated to speaker diarization (ie speaker segmentation and clustering).
   * [http://researchers.lille.inria.fr/~freno/JProGraM.html JProGraM]: Library for learning a number of statistical models from data.
   * [http://code.google.com/p/gogps/ goGPS]: Improve the positioning accuracy of low-cost GPS devices by RTK technique.
   * [http://www-edc.eng.cam.ac.uk/tools/set_visualiser/ Set Visualiser]: Visualises the way that a number of items is classified into one or more categories or sets using Euler diagrams.
