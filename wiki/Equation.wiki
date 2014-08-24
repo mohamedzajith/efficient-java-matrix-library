@@ -8,7 +8,7 @@ Languages, such as Matlab, are specifically designed for processing matrices and
 
 This is achieved by parsing text strings with the equations inside of it and converting it into a set of executable instructions.  Below is an example comparing the different API's offered in BoofCV.
 
-Equations API
+Equations
 {{{
 eq.process("K = P*H'*inv( H*P*H' + R )");
 }}}
@@ -29,11 +29,12 @@ multTransA(H,S_inv,d);
 mult(P,d,K);
 }}}
 
-Equations is designed to have minimal overhead and can produce code which is almost as fast as the procedural API and predeclares all memory.  Predeclaring memory is particularly important in embedded applications.
+Equations is designed to have minimal overhead.  It runs almost as fast as the procedural API and can be used such that all memory predeclared.  Predeclaring memory is particularly important in embedded applications.
 
-= Details =
+= Basic Usage =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= Advanced Usage =
+
+= Future Work =
+
+= List of Functions =
