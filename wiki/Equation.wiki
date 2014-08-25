@@ -114,10 +114,17 @@ After a variable has been aliased you can alias the same name again to change it
 {{{
 for( int i = 0; i < 10; i++ ) {
     eq.alias(i,"i");
+    // do stuff with i
 }
 }}}
 
-OVERRIDING BUILT IN FUNCTIONS AND VARIABLES
+If after benchmarking your code and discover that the alias operation is slowing it down (a hashmap lookup is done internally) then you should consider the following faster, but uglier, alternative.
+{{{
+VariableInteger i =  eq.lookupVariable("i");
+for( i.value = 0; i.value < 10; i.value++ ) {
+    // do stuff with i
+}
+}}}
 
 = Submatrices =
 
