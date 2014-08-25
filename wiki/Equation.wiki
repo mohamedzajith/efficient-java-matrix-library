@@ -6,7 +6,7 @@ Writing succinct and readable linear algebra code in Java using any library is p
 
 Languages, such as Matlab, are specifically designed for processing matrices and are much closer to mathematical notation.  C++ offers the ability to overload operators allowing for more natural code, see Eigen.  To overcome this problem EJML now provides the _Equation_ API which allows a Matlab/Octave like notation to be used.
 
-This is achieved by parsing text strings with equations and converting it into a set of executable instructions.  Below is an example comparing the different API's offered in BoofCV.
+This is achieved by parsing text strings with equations and converting it into a set of executable instructions.  Below is an example comparing the different API's offered in EJML.
 
 Equations
 {{{
