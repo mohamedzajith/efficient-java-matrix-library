@@ -2,9 +2,11 @@
 
 = Introduction =
 
-Writing succinct and readable linear algebra code in Java using any library is problematic.  Originally EJML just offered two API's for performing linear algebra.  A procedural API which provided complete control over memory and which algorithms were used, but was verbose and had a sharper learning curve.  Alternatively you could use an easy to use object oriented API but lose control over memory and had a limited set of operators.  Neither of these API's produces code which is all that similar to how equations are written mathematically.
+EQUATIONS WILL BE INCLUDED IN THE NEXT UPCOMMING RELEASE V0.26
 
-Languages, such as Matlab, are specifically designed for processing matrices and are much closer to mathematical notation.  C++ offers the ability to overload operators allowing for more natural code, see Eigen.  To overcome this problem EJML now provides the _Equation_ API which allows a Matlab/Octave like notation to be used.
+Writing succinct and readable linear algebra code in Java using any library is problematic.  Originally EJML just offered two API's for performing linear algebra.  A procedural API which provided complete control over memory and which algorithms were used, but was verbose and has a sharper learning curve.  Alternatively you could use an object oriented API (SimpleMatrix) but lose control over memory and it has a limited set of operators.  Neither of these API's produces code which is all that similar to how equations are written mathematically.
+
+Languages, such as Matlab, are specifically designed for processing matrices and are much closer to mathematical notation.  C++ offers the ability to overload operators allowing for more natural code, see [http://eigen.tuxfamily.org Eigen].  To overcome this problem EJML now provides the _Equation_ API, which allows a Matlab/Octave like notation to be used.
 
 This is achieved by parsing text strings with equations and converting it into a set of executable instructions.  Below is an example comparing the different API's offered in EJML.
 
@@ -29,9 +31,14 @@ multTransA(H,S_inv,d);
 mult(P,d,K);
 }}}
 
-It is easy to see that the equations code is more compact and readable than the two alternatives.  While the syntax is heavily inspired by Matlab and its kin, it does not attempt to replicate their functionality.  It is also not a replacement for SimpleMatrix or the procedural API.  There are situations where those other interfaces are easier to use and most applications would need to use a mix.
+It is easy to see that the equations code is the most compact and readable.  While the syntax is heavily inspired by Matlab and its kin, it does not attempt to replicate their functionality.  It is also not a replacement for SimpleMatrix or the procedural API.  There are situations where those other interfaces are easier to use and most programs would need to use a mix.
 
-Equations is designed to have minimal overhead.  It runs almost as fast as the procedural API and can be used such that all memory predeclared.  Predeclaring memory is particularly important in embedded applications.
+Equations is designed to have minimal overhead.  It runs almost as fast as the procedural API and can be used such that all memory is predeclared.
+
+----
+
+Table of Contents
+* [#Quick Start|Quick Start]
 
 = Quick Start =
 
@@ -144,11 +151,6 @@ copy-mm
 }}}
 
 = Creating an Alias for a Variable =
-
-First step to using equations is to declare the Equations class.
-{{{
-Equation eq = new Equation();
-}}}
 
 To manipulate matrices in equations they need to be aliased.  DenseMatrix64F and SimpleMatrix can be aliased.  A copy of scalar numbers can also be aliased.  When a variable is aliased a reference to the data is saved and a name associated with it.
 {{{
