@@ -40,7 +40,7 @@ Equations is designed to have minimal overhead.  It runs almost as fast as the p
 Table of Contents
   * [Equation#Quick_Start Quick Start]
   * [Equation#The_Compiler Compiler]
-  * [Equation#Alias Quick Alias]
+  * [Equation#Alias Alias]
   * [Equation#Submatrices Submatrices]
   * [Equation#Inline_Matrix Inline Matrix]
   * [Equation#Built_in_Functions_and_Variables Built in Functions and Variables]
