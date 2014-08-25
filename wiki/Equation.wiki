@@ -227,16 +227,66 @@ Will concatenate matrices A, B, and C along their rows.  They must have the same
 and each matrix must have the same number of rows.  Inner matrices are also allowed
 {{{
 [ [1 2;2 3] [4;5] ; A ]
-
+}}}
 which will result in
-
+{{{
 [ 1 2 4 ]
 [ 2 3 5 ]
 [   A   ]
 }}}
 
 = Built in Functions and Variables =
+*Constants*
+{{{
+pi = Math.PI
+e  = Math.E
+}}}
+
+*Functions*
+{{{
+eye(N)       Create an identity matrix which is N by N.
+eye(A)       Create an identity matrix which is A.numRows by A.numCols
+normF(A)     Frobenius normal of the matrix.
+det(A)       Determinant of the matrix
+inv(A)       Inverse of a matrix
+pinv(A)      Pseudo-inverse of a matrix
+rref(A)      Reduced row echelon form of A
+trace(A)     Trace of the matrix
+zeros(r,c)   Matrix full of zeros with r rows and c columns.
+ones(r,c)    Matrix full of ones with r rows and c columns.
+diag(A)      If a vector then returns a square matrix with diagonal elements filled with vector
+diag(A)      If a matrix then it returns the diagonal elements as a column vector
+dot(A,B)     Returns the dot product of two vectors as a double.  Does not work on general matrices.
+solve(A,B)   Returns the solution X from A*X = B.
+kron(A,B)    Kronecker product
+abs(A)       Absolute value of A.
+max(A)       Element with the largest value in A.
+min(A)       Element with the smallest value in A.
+pow(a,b)     Computes a to the power of b.  Can also be invoked with "a^b" scalars only.
+sin(a)       Math.sin(a) for scalars only
+cos(a)       Math.cos(a) for scalars only
+atan(a)      Math.atan(a) for scalars only
+atan2(a,b)   Math.atan2(a,b) for scalars only
+exp(a)       Math.exp(a) for scalars only
+log(a)       Math.log(a) for scalars only
+}}}
+*Symbols*
+{{{
+'*'        multiplication (Matrix-Matrix, Scalar-Matrix, Scalar-Scalar)
+'+'        addition (Matrix-Matrix, Scalar-Matrix, Scalar-Scalar)
+'-'        subtraction (Matrix-Matrix, Scalar-Matrix, Scalar-Scalar)
+'/'        divide (Matrix-Scalar, Scalar-Scalar)
+'/'        matrix solve "x=b/A" is equivalent to x=solve(A,b) (Matrix-Matrix)
+'\'        left-divide.  Same as divide but reversed.  e.g. x=A\b is x=solve(A,b)
+'.*'       element-wise multiplication (Matrix-Matrix)
+'./'       element-wise division (Matrix-Matrix)
+'^'        Scalar power.  a^b is a to the power of b.
+'''        matrix transpose
+'='        assignment by value (Matrix-Matrix, Scalar-Scalar)
+}}}
 
 = User Defined Functions = 
 
-= Future Work =
+It's easy to add your own custom functions too.  A custom function implements ManagerFunctions.Input1 or ManagerFunctions.InputN, depending on the number of inputs it takes.  It is then added to the ManagerFunctions in Equation by call add().  The output matrix should also be resized.
+
+[https://github.com/lessthanoptimal/ejml/blob/equation/examples/src/org/ejml/example/EquationCustomFunction.java Custom Function Example]
