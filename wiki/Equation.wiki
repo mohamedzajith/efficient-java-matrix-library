@@ -43,7 +43,7 @@ Table of Contents
   * [Equation#Alias Quick Alias]
   * [Equation#Submatrices Submatrices]
   * [Equation#Inline_Matrix Inline Matrix]
-  * [Equation#Built_in_Functions_and_Variables]
+  * [Equation#Built_in_Functions_and_Variables Built in Functions and Variables]
 
 = Quick Start =
 
