@@ -116,6 +116,33 @@ for( int i = 0; i < 10; i++ ) {
 }}}
 This will sum up the numbers from 0 to 9.
 
+== Debugging ==
+
+There will be times when you pass in an equation and it throws some weird exception or just doesn't do what you expected.  To see the tokens and sequence of operations set the second parameter in compile() or peform() to true.
+
+For example:
+{{{
+eq.process("y = z - H*x",true);
+}}}
+When application is run it will print out
+{{{
+Parsed tokens:
+------------
+VarMATRIX
+ASSIGN
+VarMATRIX
+MINUS
+VarMATRIX
+TIMES
+VarMATRIX
+
+Operations:
+------------
+multiply-mm
+subtract-mm
+copy-mm
+}}}
+
 = Creating an Alias for a Variable =
 
 First step to using equations is to declare the Equations class.
