@@ -48,9 +48,9 @@ Let's start with a complete simple example then explain what's going on line by 
 06: }
 }}}
 
-Line 02: Declare the Equation class.
-Line 03: Create aliases for each variable.  This allowed Equation to reference and manipulate those classes.
-Line 04: Process(0 is called and passed in a text string with an equation in it.  The variable 'S' is lazily created and set to the result of F*P*F'.
+Line 02: Declare the Equation class.<br>
+Line 03: Create aliases for each variable.  This allowed Equation to reference and manipulate those classes.<br>
+Line 04: Process(0 is called and passed in a text string with an equation in it.  The variable 'S' is lazily created and set to the result of F*P*F'.<br>
 Line 05: Process() is called again and P is set to the result of adding S and Q together.  Because P is aliased to the input matrix P that matrix is changed.
 
 Three types of variables are supported, matrix, double, and integer.  Results can be stored in each type and all can be aliased.  The example below uses all 3 data types and to compute the likelihood of "x" from a multivariable normal distribution defined by matrices 'mu' and 'P'.
@@ -83,6 +83,10 @@ P(2:5,0:3) references the sub-matrix inside of P from rows 2 to 5 (inclusive) an
 This concludes the quick start tutorial.  The remaining sections will go into more detail on each of the subjects touched upon above.
 
 = The Compiler =
+
+Describe what the compilor can and cannot do.
+
+Pre-compiling
 
 = Aliasing =
 
@@ -120,5 +124,7 @@ OVERRIDING BUILT IN FUNCTIONS AND VARIABLES
 = Inline Matrix =
 
 = Built in Functions and Variables =
+
+= User Defined Functions = 
 
 = Future Work =
