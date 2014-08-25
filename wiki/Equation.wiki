@@ -29,7 +29,7 @@ multTransA(H,S_inv,d);
 mult(P,d,K);
 }}}
 
-The equations code is more compact and readable than the two alternatives.  While the syntax is heavily inspired by Matlab and its kin, it does not attempt to replicate its functionality.  It is also not a replacement for SimpleMatrix or the procedural API.  There are situations where those other interfaces are easier to use and most applications would need to use a mix.
+It is easy to see that the equations code is more compact and readable than the two alternatives.  While the syntax is heavily inspired by Matlab and its kin, it does not attempt to replicate their functionality.  It is also not a replacement for SimpleMatrix or the procedural API.  There are situations where those other interfaces are easier to use and most applications would need to use a mix.
 
 Equations is designed to have minimal overhead.  It runs almost as fast as the procedural API and can be used such that all memory predeclared.  Predeclaring memory is particularly important in embedded applications.
 
@@ -84,11 +84,39 @@ This concludes the quick start tutorial.  The remaining sections will go into mo
 
 = The Compiler =
 
-Describe what the compilor can and cannot do.
+The current compiler is very basic and performs very literal translations of equations into code.  For example, "A = 2.5*B*C'" could be performed using a single call to CommonOps.multTransB(), instead it will transpose C, then scale B by 2.5, multiply the result together, and finally copy the result into A.  In the future the compiler will become smart enough to recognize such patterns.
 
-Pre-compiling
+Compiling the text string contains requires a bit of overhead but once compiled it can be run with very little overhead.  When dealing with larger matrices the overhead involved is insignificant, but for smaller ones it can have a noticeable impact.  This is why the ability to precompile an equation is provided.
 
-= Aliasing =
+Original:
+{{{
+eq.process("K = P*H'*inv( H*P*H' + R )");
+}}}
+
+Precompiled:
+{{{
+// precompile the equation
+Sequence s = eq.compile("K = P*H'*inv( H*P*H' + R )");
+// execute the results with out needing to recompile
+s.perform();
+}}}
+
+Both are equivalent, but if an equation is invoked multiple times the precompiled version can have a noticable improvement in performance.  Using precompiled sequences also means that means that internal arrays are only declared once and allows the user to control when memory is created/destroyed.
+
+To make it clear, precompiling is only recommended when dealing with smaller matrices or when tighter control over memory is required.
+
+When an equation is precompiled you can still change the alias for a variable.
+{{{
+eq.alias(0,"sum",0,"i");
+Sequence s = eq.compile("sum = sum + i");
+for( int i = 0; i < 10; i++ ) {
+    eq.alias(i,"i");
+    s.perform();
+}
+}}}
+This will sum up the numbers from 0 to 9.
+
+= Creating an Alias for a Variable =
 
 First step to using equations is to declare the Equations class.
 {{{
@@ -128,7 +156,11 @@ for( i.value = 0; i.value < 10; i.value++ ) {
 
 = Submatrices =
 
+Sub-matrices can be read from and written to.
+
 = Inline Matrix =
+
+
 
 = Built in Functions and Variables =
 
