@@ -37,7 +37,7 @@ Equations is designed to have minimal overhead.  It runs almost as fast as the p
 
 ----
 
-Table of Contents
+= Table of Contents =
   * [Equation#Quick_Start Quick Start]
   * [Equation#The_Compiler Compiler]
   * [Equation#Alias Alias]
@@ -96,9 +96,9 @@ This concludes the quick start tutorial.  The remaining sections will go into mo
 
 = The Compiler =
 
-The current compiler is very basic and performs very literal translations of equations into code.  For example, "A = 2.5*B*C'" could be performed using a single call to CommonOps.multTransB(), instead it will transpose C, then scale B by 2.5, multiply the result together, and finally copy the result into A.  In the future the compiler will become smart enough to recognize such patterns.
+The current compiler is very basic and performs very literal translations of equations into code.  For example, "A = 2.5*B*C'" could be executed with a single call to CommonOps.multTransB().  Instead it will transpose C, save the result, then scale B by 2.5, save the result, multiply the results together, save that, and finally copy the result into A.  In the future the compiler will become smart enough to recognize such patterns.
 
-Compiling the text string contains requires a bit of overhead but once compiled it can be run with very little overhead.  When dealing with larger matrices the overhead involved is insignificant, but for smaller ones it can have a noticeable impact.  This is why the ability to precompile an equation is provided.
+Compiling the text string contains requires a bit of overhead but once compiled it can be run with very fast.  When dealing with larger matrices the overhead involved is insignificant, but for smaller ones it can have a noticeable impact.  This is why the ability to precompile an equation is provided.
 
 Original:
 {{{
@@ -157,7 +157,7 @@ copy-mm
 
 = Alias =
 
-To manipulate matrices in equations they need to be aliased.  DenseMatrix64F and SimpleMatrix can be aliased.  A copy of scalar numbers can also be aliased.  When a variable is aliased a reference to the data is saved and a name associated with it.
+To manipulate matrices in equations they need to be aliased.  Both DenseMatrix64F and SimpleMatrix can be aliased.  A copy of scalar numbers can also be aliased.  When a variable is aliased a reference to the data is saved and a name associated with it.
 {{{
 DenseMatrix64F x = new DenseMatrix64F(6,1);
 eq.alias(x,"x");
