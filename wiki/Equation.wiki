@@ -38,7 +38,12 @@ Equations is designed to have minimal overhead.  It runs almost as fast as the p
 ----
 
 Table of Contents
-* [#Quick Start|Quick Start]
+  * [Equation#Quick_Start Quick Start]
+  * [Equation#The_Compiler Compiler]
+  * [Equation#Alias Quick Alias]
+  * [Equation#Submatrices Submatrices]
+  * [Equation#Inline_Matrix Inline Matrix]
+  * [Equation#Built_in_Functions_and_Variables]
 
 = Quick Start =
 
@@ -150,7 +155,7 @@ subtract-mm
 copy-mm
 }}}
 
-= Creating an Alias for a Variable =
+= Alias =
 
 To manipulate matrices in equations they need to be aliased.  DenseMatrix64F and SimpleMatrix can be aliased.  A copy of scalar numbers can also be aliased.  When a variable is aliased a reference to the data is saved and a name associated with it.
 {{{
