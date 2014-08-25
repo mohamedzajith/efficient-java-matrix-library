@@ -6,7 +6,7 @@ Writing succinct and readable linear algebra code in Java using any library is p
 
 Languages, such as Matlab, are specifically designed for processing matrices and are much closer to mathematical notation.  C++ offers the ability to overload operators allowing for more natural code, see Eigen.  To overcome this problem EJML now provides the _Equation_ API which allows a Matlab/Octave like notation to be used.
 
-This is achieved by parsing text strings with the equations inside of it and converting it into a set of executable instructions.  Below is an example comparing the different API's offered in BoofCV.
+This is achieved by parsing text strings with equations and converting it into a set of executable instructions.  Below is an example comparing the different API's offered in BoofCV.
 
 Equations
 {{{
@@ -29,9 +29,62 @@ multTransA(H,S_inv,d);
 mult(P,d,K);
 }}}
 
+The equations code is more compact and readable than the two alternatives.  While the syntax is heavily inspired by Matlab and its kin, it does not attempt to replicate its functionality.  It is also not a replacement for SimpleMatrix or the procedural API.  There are situations where those other interfaces are easier to use and most applications would need to use a mix.
+
 Equations is designed to have minimal overhead.  It runs almost as fast as the procedural API and can be used such that all memory predeclared.  Predeclaring memory is particularly important in embedded applications.
 
 = Basic Usage =
+
+Let's start with a complete simple example then explain what's going on line by line.
+
+{{{
+01: public void updateP( DenseMatrix64F P , DenseMatrix64F F , DenseMatrix64F Q ) {
+02:     Equation eq = new Equation();
+03:     eq.alias(P,"P",F,"F",Q,"Q");
+04:     eq.process("S = F*P*F'");
+05:     eq.process("P = S + Q");
+06: }
+}}}
+
+Line 02: Declare the Equation class.
+Line 03: Create aliases for each variable.  This allowed Equation to reference and manipulate those classes.
+Line 04: Process(0 is called and passed in a text string with an equation in it.  The variable 'S' is lazily created and set to the result of F*P*F'.
+Line 05: Process() is called again and P is set to the result of adding S and Q together.  Because P is aliased to the input matrix P that matrix is changed.
+
+Every string equation which is processed must have one and only one '=' inside of it.  On the left is where the results is stored and right of it the math which is to be performed.  
+
+Three different types of variables are supported; matrix, double, and integer.
+
+= Aliasing =
+
+First step to using equations is to declare the Equations class.
+{{{
+Equation eq = new Equation();
+}}}
+
+To manipulate matrices in equations they need to be aliased.  DenseMatrix64F and SimpleMatrix can be aliased.  A copy of scalar numbers can also be aliased.  When a variable is aliased a reference to the data is saved and a name associated with it.
+{{{
+DenseMatrix64F x = new DenseMatrix64F(6,1);
+eq.alias(x,"x");
+}}}
+Multiple variables can be aliased at the same time too
+{{{
+eq.alias(x,"x",P,"P",h,"Happy");
+}}}
+As is shown above the string name for a variable does not have to be the same as Java name of the variable.  Here is an example where an integer and double is aliased.
+{{{
+int a = 6;
+eq.alias(2.3,"distance",a,"a");
+}}}
+
+After a variable has been aliased you can alias the same name again to change it.  Here is an example of just that:
+{{{
+for( int i = 0; i < 10; i++ ) {
+    eq.alias(i,"i");
+}
+}}}
+
+
 
 = Advanced Usage =
 
