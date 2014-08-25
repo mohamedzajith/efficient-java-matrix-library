@@ -183,11 +183,57 @@ for( i.value = 0; i.value < 10; i.value++ ) {
 
 = Submatrices =
 
-Sub-matrices can be read from and written to.
+Sub-matrices can be read from and written to.  It's easy to reference a sub-matrix inside of any matrix. A few examples are below.
+{{{
+A(1:4,0:5)
+}}}
+Here rows 1 to 4 (inclusive) and columns 0 to 5 (inclusive) compose the sub-matrix of A.  The notation "a:b" indicates an integer set from 'a' to 'b', where 'a' and 'b' must be integers themselves.  To specify every row or column do ":" or all rows and columns past a certain 'a' can be referenced with "a:".  Finally, you can reference just a number by typeing it, e.g. "a".
+{{{
+A(3:,3)  <-- Rows from 3 to the last one and all columns.
+A(:,:)   <-- Every element in A
+A(1,2)   <-- The element in A at row=1,col=2
+}}}
+The last example is a special case in that A(1,2) will return a double and not 1x1 matrix.  Consider the following:
+{{{
+A(0:2,0:2) = C/B(1,2)
+}}}
+The results of dividing the elements of matrix C by the value of B(1,2) is assigned to the submatrix in A. 
+
+A named variable can also be used to reference elements as long as it's an integer.
+{{{
+a = A(i,j)
+}}}
 
 = Inline Matrix =
 
+Matrices can be created inline and are defined inside of brackets. The matrix is specified in a row-major format, where a space separates elements in a row and a semi-colon indicates the end of a row.
+{{{
+[5 0 0;0 4.0 0.0 ; 0 0 1]
+}}} 
+Defines a 3x3 matrix with 5,4,1 for it's diagonal elements.  Visually this looks like:
+{{{
+[ 5 0 0 ]
+[ 0 4 0 ]
+[ 0 0 1 ]
+}}}
+An inline matrix can be used to concatenate other matrices together.
+{{{
+[ A ; B ; C ]
+}}}
+Will concatenate matrices A, B, and C along their rows.  They must have the same number of columns.  As you might guess, to concatenate along columns you would
+{{{
+[ A B C ]
+}}}
+and each matrix must have the same number of rows.  Inner matrices are also allowed
+{{{
+[ [1 2;2 3] [4;5] ; A ]
 
+which will result in
+
+[ 1 2 4 ]
+[ 2 3 5 ]
+[   A   ]
+}}}
 
 = Built in Functions and Variables =
 
