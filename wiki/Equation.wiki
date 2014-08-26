@@ -11,6 +11,7 @@ compile group: 'com.googlecode.efficient-java-matrix-library', name: 'equation',
 compile group: 'com.googlecode.efficient-java-matrix-library', name: 'core', version: '0.26-SNAPSHOT'
 }}}
 
+[https://groups.google.com/forum/#!forum/efficient-java-matrix-library-discuss Discussion Forum for Feedback]
 
 = Introduction =
 
