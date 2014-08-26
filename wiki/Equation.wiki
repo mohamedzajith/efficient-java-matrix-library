@@ -2,7 +2,13 @@
 
 = Introduction =
 
-EQUATIONS WILL BE INCLUDED IN THE NEXT UPCOMMING RELEASE V0.26
+EQUATIONS WILL BE INCLUDED IN THE NEXT UPCOMMING RELEASE V0.26.  To use it now checkout the latest code or use the SNAPSHOT on Maven Central.
+
+Gradle:
+{{{
+compile group: 'com.googlecode.efficient-java-matrix-library', name: 'equation', version: '0.26-SNAPSHOT'
+compile group: 'com.googlecode.efficient-java-matrix-library', name: 'core', version: '0.26-SNAPSHOT'
+}}}
 
 Writing succinct and readable linear algebra code in Java using any library is problematic.  Originally EJML just offered two API's for performing linear algebra.  A procedural API which provided complete control over memory and which algorithms were used, but was verbose and has a sharper learning curve.  Alternatively you could use an object oriented API (SimpleMatrix) but lose control over memory and it has a limited set of operators.  Neither of these API's produces code which is all that similar to how equations are written mathematically.
 
