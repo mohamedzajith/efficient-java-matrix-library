@@ -3,7 +3,7 @@
 = PREVIEW =
 
 This is a preview of Equations, which will be included in the next release, v0.26.
-To use it now checkout the latest code from [https://github.com/lessthanoptimal/ejml github] or use the SNAPSHOT on Maven Central.
+To use it now checkout the latest code from [https://github.com/lessthanoptimal/ejml github] or use the SNAPSHOT on Maven Central.  Please provide feedback and bug reports!
 
 Gradle:
 {{{
