@@ -19,7 +19,7 @@ When using SimpleMatrix operations can be chained together.  Chained operations 
         return A.transpose().mult(B).scale(12).invert();
     }
 }}}
-is equivalent to the following Matlab code: {{{C = inv((A' + B)*12.0)}}}
+is equivalent to the following Matlab code: {{{C = inv((A' * B)*12.0)}}}
 
 
 == Working with DenseMatrix64F ==
