@@ -3,6 +3,10 @@
 
 Many functions in Matlab have equivalent or similar functions in EJML.  To help port Matlab code into EJML two list are provided for SimpleMatrix and the procedural API.  If a function is not provided by SimpleMatrix it is probably provided by the more advanced procedural API. 
 
+Looking for a Matlab interface to use in Java?  Check out the new EJML module Equations.
+
+*[Equation Equations Tutorial]*
+
 = Simple Matrix =
 
 A subset of EJML's functionality is provided in SimpleMatrix.  If SimpleMatrix does not provide the functionality you desire then look at the list of procedural functions below.
