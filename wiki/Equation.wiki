@@ -15,7 +15,7 @@ compile group: 'com.googlecode.efficient-java-matrix-library', name: 'core', ver
 
 = Introduction =
 
-Writing succinct and readable linear algebra code in Java using any library is problematic.  Originally EJML just offered two API's for performing linear algebra.  A procedural API which provided complete control over memory and which algorithms were used, but was verbose and has a sharper learning curve.  Alternatively you could use an object oriented API (SimpleMatrix) but lose control over memory and it has a limited set of operators.  Neither of these API's produces code which is all that similar to how equations are written mathematically.
+Writing succinct and readable linear algebra code in Java, using any library, is problematic.  Originally EJML just offered two API's for performing linear algebra.  A procedural API which provided complete control over memory and which algorithms were used, but was verbose and has a sharper learning curve.  Alternatively you could use an object oriented API (SimpleMatrix) but lose control over memory and it has a limited set of operators.  Neither of these API's produces code which is all that similar to how equations are written mathematically.
 
 Languages, such as Matlab, are specifically designed for processing matrices and are much closer to mathematical notation.  C++ offers the ability to overload operators allowing for more natural code, see [http://eigen.tuxfamily.org Eigen].  To overcome this problem EJML now provides the _Equation_ API, which allows a Matlab/Octave like notation to be used.
 
@@ -280,13 +280,13 @@ kron(A,B)    Kronecker product
 abs(A)       Absolute value of A.
 max(A)       Element with the largest value in A.
 min(A)       Element with the smallest value in A.
-pow(a,b)     Computes a to the power of b.  Can also be invoked with "a^b" scalars only.
+pow(a,b)     Scalar power of a to b.  Can also be invoked with "a^b".
 sin(a)       Math.sin(a) for scalars only
 cos(a)       Math.cos(a) for scalars only
 atan(a)      Math.atan(a) for scalars only
 atan2(a,b)   Math.atan2(a,b) for scalars only
-exp(a)       Math.exp(a) for scalars only
-log(a)       Math.log(a) for scalars only
+exp(a)       Math.exp(a) for scalars and element-wise matrices
+log(a)       Math.log(a) for scalars and element-wise matrices
 }}}
 *Symbols*
 {{{
@@ -295,9 +295,11 @@ log(a)       Math.log(a) for scalars only
 '-'        subtraction (Matrix-Matrix, Scalar-Matrix, Scalar-Scalar)
 '/'        divide (Matrix-Scalar, Scalar-Scalar)
 '/'        matrix solve "x=b/A" is equivalent to x=solve(A,b) (Matrix-Matrix)
+'^'        Scalar power.  a^b is a to the power of b.
 '\'        left-divide.  Same as divide but reversed.  e.g. x=A\b is x=solve(A,b)
 '.*'       element-wise multiplication (Matrix-Matrix)
 './'       element-wise division (Matrix-Matrix)
+'.^'       element-wise power. (scalar-scalar) (matrix-matrix) (scalar-matrix) (matrix-scalar)
 '^'        Scalar power.  a^b is a to the power of b.
 '''        matrix transpose
 '='        assignment by value (Matrix-Matrix, Scalar-Scalar)
