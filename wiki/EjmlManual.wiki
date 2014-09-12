@@ -41,7 +41,7 @@ Each example code, provided below, is fully operational and included with EJML's
  # [QRDecompositionExample QR Decomposition]
     * Extract and insert using simple and operator interfaces.
     * Easy to understand example of an important decomposition in linear algebra.
- # [PrincipleComponentAnalysisExample Principle Component Analysis]
+ # [PrincipalComponentAnalysisExample   Principal Component Analysis]
     * Simple example of a popular application of linear algebra.
  # [PolynomialRootExample Finding roots of Polynomials]
     * General Eigenvalue decomposition
