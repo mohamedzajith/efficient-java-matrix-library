@@ -17,6 +17,9 @@ Performance Summary:
 || Equations || 1698 ||
 
 
+All these are included in EJML's source code.  You can also view them in GitHub:
+[https://github.com/lessthanoptimal/ejml/tree/master/examples GitHub Example Code]
+
 *NOTE:* While the Kalman filter code below is fully functional and will work well in most applications, it might not be the best.  Other variants seek to improve stability and/or avoid the matrix inversion at the cost of added code complexity.
 
 == SimpleMatrix Example ==
