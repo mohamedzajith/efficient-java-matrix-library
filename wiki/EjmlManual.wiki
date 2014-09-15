@@ -3,7 +3,7 @@
 
 = Introduction =
 
-EJML is a linear algebra library for Java.  There are three different interfaces that can be used to program in EJML; simple, operator, and algorithm. These interfaces have different design goals and range from being easy to program, but slightly less efficient, to more difficult to program and more efficient.  A combination of example code and tutorials are provided below that introduces a user to working with EJML.  
+EJML is a linear algebra library for Java.  There are three different interfaces that can be used to program in EJML; SimpleMatrix, operator, and equations. These interfaces have different design goals and range from optimizing easy of development to optimizing computational performance.  A combination of example code and tutorials are provided below that introduces a user to working with EJML.  
 
 Runtime performance and control over memory management are two key factors in the design of EJML.  Constant benchmarking and unit tests are part of its development process.  EJML is one of the faster single threaded java libraries.  Its performance relative to other libraries can be found on the [http://code.google.com/p/java-matrix-benchmark/ Java Matrix Benchmark] web page. In the future multi-threaded algorithms might be added.  Rigorous testing for numerical stability is done using internal benchmarks as well as Java Matrix Benchmark.
 
@@ -31,7 +31,7 @@ Internally EJML will switch to BlockMatrix64F for very large matrices.  Many of 
 Each example code, provided below, is fully operational and included with EJML's source code in the example directory.  They are designed to show off different concepts and provide insight into how EJML can be used to its full potential.  Full source code to all of these examples can be found in the "trunk/examples/" directory.
 
  # [KalmanFilterExamples Kalman Filter].
-    * Example of using simple, operator, and algorithm interfaces.
+    * Example of using simple, operator, and equations interfaces.
  # [LevenbergMarquardtExample Levenberg-Marquardt]
     * Effective matrix reshaping.
     * General example.
@@ -74,18 +74,6 @@ Want to learn more about how EJML works to write more effective code and employ 
 
 
 Purchasing through these links will help EJML's developer buy high end ramen noodles.
-
-= Maven =
-
-EJML is in the Maven central repository.  To add EJML to your Maven build add the following to its dependencies:
-
-{{{
-<dependency>
-	<groupId>com.googlecode.efficient-java-matrix-library</groupId>
-	<artifactId>ejml</artifactId>
-	<version>0.20</version>
-</dependency>
-}}}
 
 = Building =
 
