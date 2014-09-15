@@ -194,7 +194,7 @@ A(1:4,0:5)
 }}}
 Here rows 1 to 4 (inclusive) and columns 0 to 5 (inclusive) compose the sub-matrix of A.  The notation "a:b" indicates an integer set from 'a' to 'b', where 'a' and 'b' must be integers themselves.  To specify every row or column do ":" or all rows and columns past a certain 'a' can be referenced with "a:".  Finally, you can reference just a number by typeing it, e.g. "a".
 {{{
-A(3:,3)  <-- Rows from 3 to the last one and all columns.
+A(3:,3)  <-- Rows from 3 to the last row and just column 3
 A(:,:)   <-- Every element in A
 A(1,2)   <-- The element in A at row=1,col=2
 }}}
