@@ -55,6 +55,7 @@ Each example code, provided below, is fully operational and included with EJML's
 When working with EJML it is often best to use factories instead of directly calling algorithms.  Factories are provided for solving linear systems and for common matrix decompositions.  This way as new algorithms are added your code will automatically use the best one.  Advanced users might wish to call a specific implementation, but most people should not do this.  Calling specific implementations is more difficult and more prone to errors if you do not understand all the implementation details.
 
  # [MatlabFunctions Matlab to EJML]
+ # [Equation Introduction to Equations API]
  # [SolvingLinearSystems Solving Linear Systems]
  # [MatrixDecomposition Matrix Decompositions]
  # [random_matrices Random matrices, Matrix Features, and Matrix Norms]
