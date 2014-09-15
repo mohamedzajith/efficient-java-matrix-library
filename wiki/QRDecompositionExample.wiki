@@ -10,25 +10,16 @@ Performing QR decomposition is a common first step when solving the linear least
 
 *IF YOU WANT TO DO QR-DECOMPOSITION IN PRODUCTION CODE USE DecompositionFactory.qr()*
 
-
 Click to jump to a specific example:
-  * [#Equations SimpleMatrix]
+  * [#Equations Equations]
   * [#SimpleMatrix SimpleMatrix]
   * [#Operations Operations]
 
 = Equations =
 
+Implemenation of QR decomposition using Equations API.
+
 {{{
-/**
- * <p>
- * Example code for computing the QR decomposition of a matrix. It demonstrates how to
- * extract a submatrix and insert one matrix into another one using the operator interface.
- * </p>
- *
- * Note: This code is horribly inefficient and is for demonstration purposes only.
- *
- * @author Peter Abeles
- */
 public class QRExampleEquation {
 
     // where the QR decomposition is stored
