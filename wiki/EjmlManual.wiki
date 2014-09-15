@@ -75,29 +75,3 @@ Want to learn more about how EJML works to write more effective code and employ 
 
 
 Purchasing through these links will help EJML's developer buy high end ramen noodles.
-
-= Building =
-
-EJML can be easily compiled using any IDE (e.g. Eclipse or IntelliJ) or by using the provided ant scripts.  To build using ant first make sure ant is installed.  Once ant is installed the project can be build by going into the commandline, changing into the project's main directory, and typing "ant".  In Linux or Windows you should see output that looks like:
-{{{
-pja@silent:ejml$ ant
-Buildfile: build.xml
-
-clean:
-   [delete] Deleting directory ejml/build
-
-compile:
-    [mkdir] Created dir: ejml/build/classes
-    [javac] Compiling 94 source files to ejml/build/classes
-
-jar:
-    [mkdir] Created dir: ejml/build/jar
-      [jar] Building jar: ejml/build/jar/EJML.jar
-
-main:
-
-BUILD SUCCESSFUL
-Total time: 3 seconds
-}}}
-
-Once it has been built the jar can be moved from "build/jar/EJML.jar" to a convenient location in your own project.
