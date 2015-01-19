@@ -20,6 +20,10 @@ public class PolynomialRootFinder {
      * present they will come in pairs of complex conjugates.
      * </p>
      *
+     * <p>
+     * Coefficients are ordered from least to most significant, e.g: y = c[0] + x*c[1] + x*x*c[2].
+     * </p>
+     *
      * @param coefficients Coefficients of the polynomial.
      * @return The roots of the polynomial
      */
@@ -38,7 +42,7 @@ public class PolynomialRootFinder {
         }
 
         // use generalized eigenvalue decomposition to find the roots
-        EigenDecomposition<DenseMatrix64F> evd =  DecompositionFactory.eigGeneral(N, false);
+        EigenDecomposition<DenseMatrix64F> evd =  DecompositionFactory.eig(N,false);
 
         evd.decompose(c);
 
