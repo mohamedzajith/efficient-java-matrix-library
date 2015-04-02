@@ -1,6 +1,4 @@
 #summary Frequently Asked Questions
 #labels FAQ
 
-#summary Manual Describing how to use EJML
-
 <font size="4">[http://ejml.org/wiki/index.php?title=Frequently_Asked_Questions Click to be taken to the new location.]</font>
