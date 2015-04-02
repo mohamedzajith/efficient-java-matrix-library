@@ -1,4 +1,3 @@
 #summary Overview of SimpleMatrix
 
-
-<font size="4">[http://ejml.org/wiki/index.php?title=SimpleMatrix Click to go to new location.]</font>
+<font size="4">[http://ejml.org/wiki/index.php?title=SimpleMatrix Click to be taken to the new location.]</font>
