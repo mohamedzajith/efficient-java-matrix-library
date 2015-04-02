@@ -1,4 +1,4 @@
 #summary Matlab Functions and Equivalent EJML Functions
 #labels matlab
 
-<font size="4">[http://ejml.org/wiki/index.php?title=Matlab_to_EJML Click to go to new location.]</font>
+<font size="4">[http://ejml.org/wiki/index.php?title=Matlab_to_EJML Click to be taken to the new location.]</font>
