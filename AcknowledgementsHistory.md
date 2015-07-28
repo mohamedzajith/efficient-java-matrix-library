@@ -1,0 +1,7 @@
+Efficient Java Matrix Library (EJML) is being developed by Peter Abeles in his spare time between work and other projects, starting at the end of 2009.  It was originally created to address poor performance in small matrices, as an experiment in API design for linear algebra, and as a way for the author to improve his understanding of computational linear algebra.  It was hoped that by demonstrating how simple changes can dramatically improve performance that other library developers would adapt those practices.  Currently the focus is on improving performance on large matrices using a single thread and improving its API design.
+
+Initial inspiration for its API design came from JAMA and MTJ.  Typically algorithms were developed by reading high level descriptions found in books and papers, which are cited in the code.  In situations were ideas for improving performance were borrowed from other libraries, they are acknowledged in the source code.
+
+During its development EJML has had several of its users come forward with helpful suggestions.  The author attempts to acknowledge individuals that contributed ideas and advice which made its way into EJML in its change log. Hopefully no one has been missed.
+
+Unit testing is done using [junit](http://www.junit.org/) and developed with the excellent IDE [IntelliJIDEA](http://www.jetbrains.com/idea/).
